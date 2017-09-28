@@ -1,0 +1,174 @@
+spring:
+  #resources.static-locations: classpath:/dist/
+  profiles:
+    active: dev
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  http:
+    encoding:
+      charset: UTF-8
+    multipart:
+      enabled:  true
+      file-size-threshold: 1MB
+      max-file-size:  10MB
+      max-request-size:  10MB
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+security:
+  enable-csrf: false
+  basic:
+    enabled: false
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+    timeout: 3600
+---
+server:
+  port: 8080
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  profiles: dev
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: C:\project\dlsw\lucene\indexes
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      url: jdbc:mysql://localhost:3306/dlsw
+      username: root
+      password:
+      connectionInitSqls: set names utf8mb4;
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  http:
+    multipart:
+      location: c:/upload_temp
+web:
+  maximumSessions: 100
+flush:
+  path: http://localhost:8080/api/user/flushUserRoleType
+---
+server:
+  port: 8888
+spring:
+  profiles: st
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: /sdb1/projects/dlsw_st/lucene/indexes/
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw_st
+    username: root
+    password: wz718718
+    initialSize: 5
+    connectionInitSqls: set names utf8mb4;
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  http:
+    multipart:
+      location: /sdb1/projects/dlsw_st/temp
+web:
+  maximumSessions: 100
+flush:
+  path: http://127.0.0.1:8888/api/user/flushUserRoleType
+---
+---
+server:
+  port: 80
+spring:
+  profiles: prd
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: /sdb1/projects/dlsw/cms/lucene/indexes/
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.66.245.8:3306/dlsw
+    username: root
+    password: wz718718
+    connectionInitSqls: set names utf8mb4;
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  http:
+    multipart:
+      location: /sdb1/projects/dlsw/cms/temp
+web:
+  maximumSessions: 100
+flush:
+  path: http://www.jinhuishengwu.cn/api/user/flushUserRoleType
+wechat:
+  pay:
+    keyPath: /sdb1/projects/dlsw/cms/apiclient_cert.p12
