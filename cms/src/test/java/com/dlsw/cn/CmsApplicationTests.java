@@ -1,4 +1,4 @@
-package com.dlsw.cms;
+package com.dlsw.cn;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
