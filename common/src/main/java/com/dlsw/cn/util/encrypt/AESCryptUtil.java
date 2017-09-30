@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.util.encrypt;
+package com.dlsw.cn.util.encrypt;
 
 import org.apache.commons.codec.binary.Base64;
 

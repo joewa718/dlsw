@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.util.encrypt;
+package com.dlsw.cn.util.encrypt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

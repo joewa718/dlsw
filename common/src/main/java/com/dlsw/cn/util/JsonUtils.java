@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.util;
+package com.dlsw.cn.util;
 
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 

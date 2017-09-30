@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.util;
+package com.dlsw.cn.util;
 
 import java.math.BigDecimal;
 

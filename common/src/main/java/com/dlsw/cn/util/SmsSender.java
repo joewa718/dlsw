@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.util;
+package com.dlsw.cn.util;
 
 import com.qcloud.sms.SmsSingleSender;
 import com.qcloud.sms.SmsSingleSenderResult;

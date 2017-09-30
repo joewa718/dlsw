@@ -1,8 +1,7 @@
-package com.dlsw.cn.web.util;
+package com.dlsw.cn.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
