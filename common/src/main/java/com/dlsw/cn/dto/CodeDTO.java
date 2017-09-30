@@ -1,4 +1,4 @@
-package com.dlsw.cn.web.dto;
+package com.dlsw.cn.dto;
 
 /**
  * Created by zhanwa01 on 2016/12/7.

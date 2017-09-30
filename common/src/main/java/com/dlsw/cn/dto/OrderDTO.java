@@ -1,6 +1,5 @@
-package com.dlsw.cn.web.dto;
+package com.dlsw.cn.dto;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.util.Date;
 

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author zhanwang
@@ -34,6 +35,17 @@ public class Rebate {
     @Convert(converter = RebateStatusConverter.class)
     @Column(name = "rebate_status")
     private RebateStatus rebateStatus;
+    @Column(name = "rebate_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Date rebateTime;
+
+    public Date getRebateTime() {
+        return rebateTime;
+    }
+
+    public void setRebateTime(Date rebateTime) {
+        this.rebateTime = rebateTime;
+    }
 
     public RebateStatus getRebateStatus() {
         return rebateStatus;
