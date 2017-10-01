@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.service;
 
-import com.dlsw.cn.web.dto.ProductDTO;
+import com.dlsw.cn.dto.ProductDTO;
 import com.dlsw.cn.po.Product;
 
 /**

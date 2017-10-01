@@ -1,13 +1,13 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.web.util.ImageCode;
-import com.dlsw.cn.web.dto.DeliveryAddressDTO;
-import com.dlsw.cn.web.dto.ImageDTO;
-import com.dlsw.cn.web.dto.RealInfoDTO;
-import com.dlsw.cn.web.dto.UserDTO;
+import com.dlsw.cn.dto.DeliveryAddressDTO;
+import com.dlsw.cn.dto.ImageDTO;
+import com.dlsw.cn.dto.RealInfoDTO;
+import com.dlsw.cn.dto.UserDTO;
+import com.dlsw.cn.util.DateUtil;
+import com.dlsw.cn.util.ImageCode;
 import com.dlsw.cn.web.exception.DuplicateAccountException;
 import com.dlsw.cn.web.service.UserService;
-import com.dlsw.cn.web.util.DateUtil;
 import com.dlsw.cn.web.vo.DeliveryAddressVo;
 import com.dlsw.cn.web.vo.PhoneVo;
 import com.dlsw.cn.web.vo.RealInfoVo;
@@ -19,9 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

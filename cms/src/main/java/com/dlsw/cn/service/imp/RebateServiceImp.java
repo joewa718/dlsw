@@ -1,9 +1,12 @@
 package com.dlsw.cn.service.imp;
 
+import com.dlsw.cn.dto.RebateDTO;
 import com.dlsw.cn.enumerate.RebateStatus;
+import com.dlsw.cn.mapper.RebateMapper;
 import com.dlsw.cn.repositories.RebateRepository;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.po.Rebate;
+import com.dlsw.cn.vo.RebateVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -26,20 +29,22 @@ public class RebateServiceImp implements RebateService{
 
     @Autowired
     RebateRepository rebateRepository;
-
+    @Autowired
+    RebateMapper rebateMapper;
     @Override
-    public List<Rebate> getRebateList(Rebate rebate) {
-        return rebateRepository.findAll((root, cq, cb) -> {
+    public List<RebateDTO> getRebateList(RebateVo rebateVo) {
+        List<Rebate> rebateList = rebateRepository.findAll((root, cq, cb) -> {
             List<Predicate> list = new ArrayList();
-            if(rebate.getRebateStatus() !=null){
-                list.add(cb.equal(root.get("rebateStatus").as(RebateStatus.class), "%"+rebate.getRebateStatus()+"%"));
+            if(rebateVo.getOrderId() > 0){
+                list.add(cb.equal(root.get("order").as(RebateStatus.class),rebateVo.getOrderId()));
             }
-            if(rebate.getRebateTime() != null){
-                list.add(cb.equal(root.get("rebateTime").as(Date.class), rebate.getRebateTime()));
+            if(!StringUtils.isBlank(rebateVo.getYearMonth())){
+                list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getYearMonth()+"%"));
             }
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));
         });
+        return rebateMapper.RebateToRebateDTOList(rebateList);
     }
 
     @Override

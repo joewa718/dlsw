@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.mapper;
 
 import com.dlsw.cn.converter.ArrayMapper;
-import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.po.Order;
 import org.mapstruct.Mapper;
 

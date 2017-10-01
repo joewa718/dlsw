@@ -1,9 +1,9 @@
 package com.dlsw.cn.web.service.imp;
 
 import com.dlsw.cn.web.mapper.DeliveryAddressMapper;
-import com.dlsw.cn.web.dto.DeliveryAddressDTO;
-import com.dlsw.cn.web.dto.RealInfoDTO;
-import com.dlsw.cn.web.dto.UserDTO;
+import com.dlsw.cn.dto.DeliveryAddressDTO;
+import com.dlsw.cn.dto.RealInfoDTO;
+import com.dlsw.cn.dto.UserDTO;
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.web.exception.DuplicateAccountException;
 import com.dlsw.cn.web.mapper.OauthInfoMapper;
@@ -17,10 +17,10 @@ import com.dlsw.cn.repositories.DeliveryAddressRepository;
 import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.UserService;
-import com.dlsw.cn.web.util.DateUtil;
-import com.dlsw.cn.web.util.GenerateRandomCode;
+import com.dlsw.cn.util.DateUtil;
+import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.web.util.SmsSender;
-import com.dlsw.cn.web.util.encrypt.AESCryptUtil;
+import com.dlsw.cn.util.encrypt.AESCryptUtil;
 import com.dlsw.cn.web.vo.DeliveryAddressVo;
 import com.dlsw.cn.web.vo.PhoneVo;
 import com.dlsw.cn.web.vo.RealInfoVo;
@@ -221,7 +221,7 @@ public class UserServiceImp extends BaseService implements UserService {
     }
 
     @Override
-    public void editPassword(String phone,String password) {
+    public void editPassword(String phone, String password) {
         User user = userRepository.findByPhone(phone);
         user.setPassword(AESCryptUtil.encrypt(password));
         userRepository.save(user);
@@ -469,7 +469,7 @@ public class UserServiceImp extends BaseService implements UserService {
     @Override
     public Map<String, List<UserDTO>> findNewSeniorImmediateMemberList(String phone, String search) {
         User user = userRepository.findByPhone(phone);
-        List<User> userList = userRepository.findNewSeniorImmediateMemberList(getEqualStr(user),RoleType.高级合伙人);
+        List<User> userList = userRepository.findNewSeniorImmediateMemberList(getEqualStr(user), RoleType.高级合伙人);
         return getMyTeamList(search, userList);
     }
 

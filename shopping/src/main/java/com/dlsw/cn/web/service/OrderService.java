@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.service;
 
-import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.po.Product;
 import com.dlsw.cn.web.vo.OrderVo;

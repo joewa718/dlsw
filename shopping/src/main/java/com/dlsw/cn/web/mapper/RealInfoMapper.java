@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.mapper;
 
-import com.dlsw.cn.web.dto.RealInfoDTO;
+import com.dlsw.cn.dto.RealInfoDTO;
 import com.dlsw.cn.po.RealInfo;
 import com.dlsw.cn.web.vo.RealInfoVo;
 import org.mapstruct.Mapper;
