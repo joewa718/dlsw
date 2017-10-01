@@ -127,7 +127,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
             throw new RuntimeException("支付订单,必须是余额支付类型");
         }
         WxPayOrderNotify wxPayOrderNotify = notifyMapper.WxPayOrderNotifyResultToWxPayOrderNotify(result);
-        order.setWxPayOrderNotify(wxPayOrderNotify);
+        order.getWxPayOrderNotify().add(wxPayOrderNotify);
         wxPayOrderNotify.setOrder(order);
         User user = order.getUser();
         User recommendMan = userRepository.findByPhone(order.getRecommendPhone());
@@ -155,7 +155,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Order order = orderRepository.findOne(orderId);
         try {
             WxPayUnifiedOrderRequest orderRequest = new WxPayUnifiedOrderRequest();
-            orderRequest.setOpenid(order.getUser().getoAuthInfo().getOpenId());
+            orderRequest.setOpenid(order.getUser().getoAuthInfo().stream().findFirst().get().getOpenId());
             orderRequest.setBody(order.getProductName() + "订单支付");
             orderRequest.setOutTradeNo(order.getOrderCode());
             orderRequest.setAppid(wxPayProperties.getAppId());
@@ -436,7 +436,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
                     rebate.setReason("三代返利奖励");
                 }
                 rebate.setRebateStatus(RebateStatus.未确认);
-                order.setRebate(rebate);
+                order.getRebate().add(rebate);
                 user.getRebateSet().add(rebate);
                 rebateRepository.save(rebate);
             }
@@ -450,7 +450,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
                 rebate.setUser(user);
                 rebate.setRebate(new BigDecimal(30).multiply(new BigDecimal(order.getProductNum())));
                 rebate.setReason("发展合伙人返利奖励");
-                order.setRebate(rebate);
+                order.getRebate().add(rebate);
                 user.getRebateSet().add(rebate);
                 rebateRepository.save(rebate);
             }

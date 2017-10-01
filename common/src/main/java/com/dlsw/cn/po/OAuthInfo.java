@@ -24,7 +24,7 @@ public class OAuthInfo {
     private String scope;
     @Column(name = "union_id", nullable = true)
     private String unionId;
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

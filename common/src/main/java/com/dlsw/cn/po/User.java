@@ -2,14 +2,11 @@ package com.dlsw.cn.po;
 
 import com.dlsw.cn.converter.RoleTypeConverter;
 import com.dlsw.cn.enumerate.RoleType;
-import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -50,12 +47,12 @@ public class User implements Serializable,Comparable{
     private Date regTime;
     @Column(name = "is_we_user")
     private Boolean isWeUser = false;
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private RealInfo realInfo;
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<RealInfo> realInfo;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private OAuthInfo oAuthInfo;
+    private Set<OAuthInfo> oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<DeliveryAddress> deliveryAddressList;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -181,14 +178,6 @@ public class User implements Serializable,Comparable{
 
     public void setReceiveMessage(Boolean receiveMessage) {
         isReceiveMessage = receiveMessage;
-    }
-
-    public RealInfo getRealInfo() {
-        return realInfo;
-    }
-
-    public void setRealInfo(RealInfo realInfo) {
-        this.realInfo = realInfo;
     }
 
     public Date getRegTime() {
@@ -330,14 +319,6 @@ public class User implements Serializable,Comparable{
         return isVerificationPhone;
     }
 
-    public OAuthInfo getoAuthInfo() {
-        return oAuthInfo;
-    }
-
-    public void setoAuthInfo(OAuthInfo oAuthInfo) {
-        this.oAuthInfo = oAuthInfo;
-    }
-
     public Set<Rebate> getRebateSet() {
         return rebateSet;
     }
@@ -346,5 +327,20 @@ public class User implements Serializable,Comparable{
         this.rebateSet = rebateSet;
     }
 
+    public Set<RealInfo> getRealInfo() {
+        return realInfo;
+    }
+
+    public void setRealInfo(Set<RealInfo> realInfo) {
+        this.realInfo = realInfo;
+    }
+
+    public Set<OAuthInfo> getoAuthInfo() {
+        return oAuthInfo;
+    }
+
+    public void setoAuthInfo(Set<OAuthInfo> oAuthInfo) {
+        this.oAuthInfo = oAuthInfo;
+    }
 
 }

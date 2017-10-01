@@ -3,7 +3,10 @@ package com.dlsw.cn.service.imp;
 import com.dlsw.cn.dto.RebateDTO;
 import com.dlsw.cn.enumerate.RebateStatus;
 import com.dlsw.cn.mapper.RebateMapper;
+import com.dlsw.cn.po.OAuthInfo;
+import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.RebateRepository;
+import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.vo.RebateVo;
@@ -29,6 +32,8 @@ public class RebateServiceImp implements RebateService{
 
     @Autowired
     RebateRepository rebateRepository;
+    @Autowired
+    UserRepository userRepository;
     @Autowired
     RebateMapper rebateMapper;
     @Override

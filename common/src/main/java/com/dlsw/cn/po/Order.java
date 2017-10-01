@@ -74,7 +74,7 @@ public class Order{
     private OrderStatus orderStatus;
     @Column(name = "recommend_phone")
     private String recommendPhone;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     @ManyToMany(mappedBy = "serviceOrderList",fetch = FetchType.LAZY)
@@ -84,31 +84,29 @@ public class Order{
     @Formula("datediff(now(),order_time)")
     private int diffDate;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private WxPayOrderNotify wxPayOrderNotify;
+    private Set<WxPayOrderNotify> wxPayOrderNotify;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @LazyToOne( LazyToOneOption.NO_PROXY )
-    private Rebate rebate;
+    private Set<Rebate> rebate;
 
-    public Rebate getRebate() {
-        return rebate;
-    }
-
-    public void setRebate(Rebate rebate) {
-        this.rebate = rebate;
-    }
-
-    public WxPayOrderNotify getWxPayOrderNotify() {
+    public Set<WxPayOrderNotify> getWxPayOrderNotify() {
         return wxPayOrderNotify;
     }
 
-    public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
+    public void setWxPayOrderNotify(Set<WxPayOrderNotify> wxPayOrderNotify) {
         this.wxPayOrderNotify = wxPayOrderNotify;
     }
 
+    public Set<Rebate> getRebate() {
+        return rebate;
+    }
+
+    public void setRebate(Set<Rebate> rebate) {
+        this.rebate = rebate;
+    }
     public String getProductName() {
         return productName;
     }

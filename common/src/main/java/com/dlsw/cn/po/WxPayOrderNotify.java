@@ -3,6 +3,7 @@ package com.dlsw.cn.po;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author zhanwang
@@ -245,7 +246,7 @@ public class WxPayOrderNotify {
     @Column(name = "time_end",length = 14,nullable = true)
     private String timeEnd;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 

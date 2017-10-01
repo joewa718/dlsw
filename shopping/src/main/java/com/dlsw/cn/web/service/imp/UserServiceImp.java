@@ -116,7 +116,7 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setWeUser(true);
         }
         OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
-        user.setoAuthInfo(oAuthInfo);
+        user.getoAuthInfo().add(oAuthInfo);
         oAuthInfo.setUser(user);
         user = userRepository.save(user);
         return user;
@@ -201,11 +201,11 @@ public class UserServiceImp extends BaseService implements UserService {
     public void regRealInfo(String phone, RealInfoVo realInfoVo) {
         User user = userRepository.findByPhone(phone);
         RealInfo realInfo = realInfoMapper.realInfoToVoRealInfo(realInfoVo);
-        if (user.getRealInfo() == null) {
-            user.setRealInfo(realInfo);
+        if (user.getRealInfo().size() == 0) {
+            user.getRealInfo().add(realInfo);
             realInfo.setUser(user);
         } else {
-            RealInfo old_realInfo = user.getRealInfo();
+            RealInfo old_realInfo = user.getRealInfo().stream().findFirst().get();
             old_realInfo.setIdCard(realInfo.getIdCard());
             old_realInfo.setIdCardPhotoBack(realInfo.getIdCardPhotoBack());
             old_realInfo.setIdCardPhotoFront(realInfo.getIdCardPhotoFront());
@@ -257,7 +257,8 @@ public class UserServiceImp extends BaseService implements UserService {
     @Override
     public RealInfoDTO findRealInfoByPhone(String phone) {
         User user = userRepository.findByPhone(phone);
-        return realInfoMapper.realInfoToRealInfoDTO(user.getRealInfo());
+        Optional<RealInfo> realInfo = user.getRealInfo().stream().findFirst();
+        return realInfoMapper.realInfoToRealInfoDTO(realInfo.get());
     }
 
     @Override
@@ -495,7 +496,7 @@ public class UserServiceImp extends BaseService implements UserService {
         result.put(RoleType.合伙人.getName(), new ArrayList<>());
         result.put(RoleType.VIP.getName(), new ArrayList<>());
         if (search != null) {
-            userList = userList.stream().filter(u -> search.equals(u.getPhone()) || (u.getRealInfo() != null && search.equals(u.getRealInfo().getRealName()))).collect(Collectors.toList());
+            userList = userList.stream().filter(u -> search.equals(u.getPhone()) || (u.getRealInfo() != null && search.equals(u.getRealInfo().stream().findFirst().get().getRealName()))).collect(Collectors.toList());
         }
         userList.forEach(u -> {
             if (result.containsKey(u.getRoleType().getName())) {
