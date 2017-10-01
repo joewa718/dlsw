@@ -3,24 +3,16 @@ package com.dlsw.cn.service.imp;
 import com.dlsw.cn.dto.RebateDTO;
 import com.dlsw.cn.enumerate.RebateStatus;
 import com.dlsw.cn.mapper.RebateMapper;
-import com.dlsw.cn.po.OAuthInfo;
-import com.dlsw.cn.po.User;
+import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.repositories.RebateRepository;
 import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.RebateService;
-import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.vo.RebateVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
