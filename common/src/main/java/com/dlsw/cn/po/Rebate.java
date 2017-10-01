@@ -24,7 +24,7 @@ public class Rebate {
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
     @OneToOne(fetch = FetchType.LAZY)

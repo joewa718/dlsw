@@ -60,7 +60,7 @@ public class User implements Serializable,Comparable{
     private Set<Order> orderList = new TreeSet<>();;
     @OneToMany(mappedBy = "higher", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
     private Set<User> lower;
-    @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST })
+    @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST },fetch = FetchType.LAZY)
     @JoinColumn(name = "h_uid")
     private User higher;
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
