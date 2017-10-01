@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
@@ -21,15 +22,15 @@ public class RebateController extends BaseController {
 
     @ApiOperation(value = "获取返利列表")
     @RequestMapping(value = "/getRebateList", method = RequestMethod.POST)
-    public ResponseEntity<List<Rebate>> getRebateList(){
+    public ResponseEntity<List<Rebate>> getRebateList(String orderId,String yearMonth){
         List<Rebate> rebateList = rebateService.getRebateList(null);
         return new ResponseEntity<>(rebateList,HttpStatus.OK);
     }
 
     @ApiOperation(value = "更新返利状态")
     @RequestMapping(value = "/updateRebate", method = RequestMethod.POST)
-    public  ResponseEntity<Map<String,Long>> updateRebate(){
-        rebateService.updateRebate(null);
+    public  ResponseEntity updateRebate(@RequestParam("ids") String ids){
+        rebateService.updateRebate(ids);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

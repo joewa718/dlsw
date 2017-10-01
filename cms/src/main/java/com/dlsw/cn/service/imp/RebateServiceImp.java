@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,10 +32,10 @@ public class RebateServiceImp implements RebateService{
         return rebateRepository.findAll((root, cq, cb) -> {
             List<Predicate> list = new ArrayList();
             if(rebate.getRebateStatus() !=null){
-                list.add(cb.equal(root.get("rebateStatus").as(String.class), "%"+rebate.getRebateStatus()+"%"));
+                list.add(cb.equal(root.get("rebateStatus").as(RebateStatus.class), "%"+rebate.getRebateStatus()+"%"));
             }
             if(rebate.getRebateTime() != null){
-                list.add(cb.equal(root.get("rebateTime").as(Integer.class), rebate.getRebateTime()));
+                list.add(cb.equal(root.get("rebateTime").as(Date.class), rebate.getRebateTime()));
             }
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));
@@ -42,12 +43,12 @@ public class RebateServiceImp implements RebateService{
     }
 
     @Override
-    public void updateRebate(List<Long> ids) {
-        ids.forEach(id ->{
-            Rebate rebate = rebateRepository.findOne(id);
+    public void updateRebate(String ids) {
+        String[] id_list = ids.split(",");
+        for(String id : id_list){
+            Rebate rebate = rebateRepository.findOne(Long.parseLong(id));
             rebate.setRebateStatus(RebateStatus.已确认);
             rebateRepository.save(rebate);
-        });
-
+        }
     }
 }

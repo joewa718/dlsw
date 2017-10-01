@@ -12,5 +12,5 @@ public interface RebateService {
 
     List<Rebate> getRebateList(Rebate rebate);
 
-    void updateRebate(List<Long> ids);
+    void updateRebate(String ids);
 }
