@@ -25,8 +25,6 @@ public class RebateServiceImp implements RebateService{
     @Autowired
     RebateRepository rebateRepository;
     @Autowired
-    UserRepository userRepository;
-    @Autowired
     RebateMapper rebateMapper;
     @Override
     public List<RebateDTO> getRebateList(RebateVo rebateVo) {
