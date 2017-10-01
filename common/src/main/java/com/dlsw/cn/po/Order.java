@@ -6,7 +6,9 @@ import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.enumerate.PayType;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
-
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+import org.hibernate.annotations.Cache;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -20,7 +22,7 @@ import java.util.TreeSet;
 @Entity
 @Table(name = "t_order")
 @Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
 public class Order{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -82,12 +84,13 @@ public class Order{
     @Formula("datediff(now(),order_time)")
     private int diffDate;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private WxPayOrderNotify wxPayOrderNotify;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @LazyToOne( LazyToOneOption.NO_PROXY )
     private Rebate rebate;
 
     public Rebate getRebate() {
