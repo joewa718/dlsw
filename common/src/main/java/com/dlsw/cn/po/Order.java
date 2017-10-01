@@ -86,11 +86,11 @@ public class Order{
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<WxPayOrderNotify> wxPayOrderNotify;
+    private Set<WxPayOrderNotify> wxPayOrderNotify = new TreeSet<>();
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Rebate> rebate;
+    private Set<Rebate> rebate = new TreeSet<>();
 
     public Set<WxPayOrderNotify> getWxPayOrderNotify() {
         return wxPayOrderNotify;

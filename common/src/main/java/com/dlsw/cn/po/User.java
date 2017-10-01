@@ -49,17 +49,17 @@ public class User implements Serializable,Comparable{
     private Boolean isWeUser = false;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<RealInfo> realInfo;
+    private Set<RealInfo> realInfo = new TreeSet<>();
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<OAuthInfo> oAuthInfo;
+    private Set<OAuthInfo> oAuthInfo = new TreeSet<>();
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<DeliveryAddress> deliveryAddressList;
+    private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @OrderBy("id DESC")
     private Set<Order> orderList = new TreeSet<>();;
     @OneToMany(mappedBy = "higher", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-    private Set<User> lower;
+    private Set<User> lower = new TreeSet<>();
     @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST },fetch = FetchType.LAZY)
     @JoinColumn(name = "h_uid")
     private User higher;
@@ -82,7 +82,7 @@ public class User implements Serializable,Comparable{
     @Column(name = "level")
     private Integer level;
     @OneToMany(mappedBy = "user", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-    private Set<Rebate> rebateSet;
+    private Set<Rebate> rebateSet = new TreeSet<>();
 
     public Integer getLevel() {
         return level;
