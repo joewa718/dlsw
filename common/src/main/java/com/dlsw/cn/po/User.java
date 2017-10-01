@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -328,7 +329,9 @@ public class User implements Serializable,Comparable{
     }
 
     public RealInfo getRealInfo() {
-        return realInfo.stream().findFirst().get();
+        Optional<RealInfo> optional = realInfo.stream().findFirst();
+        optional.orElse(null);
+        return optional.get();
     }
 
     public void setRealInfo(RealInfo realInfo) {
@@ -336,7 +339,9 @@ public class User implements Serializable,Comparable{
     }
 
     public OAuthInfo getOAuthInfo() {
-        return oAuthInfo.stream().findFirst().get();
+        Optional<OAuthInfo> optional = oAuthInfo.stream().findFirst();
+        optional.orElse(null);
+        return optional.get();
     }
 
     public void setOAuthInfo(OAuthInfo oAuthInfo) {

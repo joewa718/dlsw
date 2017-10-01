@@ -12,6 +12,7 @@ import org.hibernate.annotations.Cache;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -91,7 +92,9 @@ public class Order{
     private Set<Rebate> rebate = new TreeSet<>();
 
     public WxPayOrderNotify getWxPayOrderNotify() {
-        return wxPayOrderNotify.stream().findFirst().get();
+        Optional<WxPayOrderNotify> optional = wxPayOrderNotify.stream().findFirst();
+        optional.orElse(null);
+        return optional.get();
     }
 
     public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
@@ -99,7 +102,9 @@ public class Order{
     }
 
     public Rebate getRebate() {
-        return rebate.stream().findFirst().get();
+        Optional<Rebate> optional = rebate.stream().findFirst();
+        optional.orElse(null);
+        return optional.get();
     }
 
     public void setRebate(Rebate rebate) {
