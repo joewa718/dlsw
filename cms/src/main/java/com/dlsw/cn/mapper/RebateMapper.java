@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring",uses=ArrayMapper.class)
 public interface RebateMapper {
     @Mappings({
-            @Mapping(source = "user.username", target = "username"),
+            @Mapping(source = "user.nickname", target = "nickname"),
             @Mapping(source = "order.orderCode", target = "orderCode")
     })
     RebateDTO RebateToRebateDTO(Rebate Rebate);

@@ -4,12 +4,6 @@ package com.dlsw.cn.dto;
  * Created by zhanwa01 on 2017/8/9.
  */
 
-import com.dlsw.cn.converter.RebateStatusConverter;
-import com.dlsw.cn.enumerate.RebateStatus;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.User;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,7 +17,7 @@ public class RebateDTO {
 
     private BigDecimal rebate;
 
-    private String username;
+    private String nickname;
 
     private String orderCode;
 
@@ -64,15 +58,6 @@ public class RebateDTO {
         this.rebateTime = rebateTime;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-
     public String getRebateStatus() {
         return rebateStatus;
     }
@@ -87,5 +72,14 @@ public class RebateDTO {
 
     public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
+    }
+
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

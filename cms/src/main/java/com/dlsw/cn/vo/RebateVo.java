@@ -5,15 +5,15 @@ package com.dlsw.cn.vo;
  **/
 public class RebateVo {
 
-    private long orderId;
+    private String orderCode;
     private String yearMonth;
 
-    public long getOrderId() {
-        return orderId;
+    public String getOrderCode() {
+        return orderCode;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
     }
 
     public String getYearMonth() {

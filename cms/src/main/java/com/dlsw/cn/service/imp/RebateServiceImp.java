@@ -35,8 +35,8 @@ public class RebateServiceImp implements RebateService{
     public List<RebateDTO> getRebateList(RebateVo rebateVo) {
         List<Rebate> rebateList = rebateRepository.findAll((root, cq, cb) -> {
             List<Predicate> list = new ArrayList();
-            if(rebateVo.getOrderId() > 0){
-                list.add(cb.equal(root.get("order").as(RebateStatus.class),rebateVo.getOrderId()));
+            if(!StringUtils.isBlank(rebateVo.getOrderCode())){
+                list.add(cb.equal(root.get("order").get("orderCode").as(String.class),rebateVo.getOrderCode()));
             }
             if(!StringUtils.isBlank(rebateVo.getYearMonth())){
                 list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getYearMonth()+"%"));
