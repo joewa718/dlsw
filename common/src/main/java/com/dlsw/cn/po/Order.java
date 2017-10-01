@@ -83,29 +83,27 @@ public class Order{
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<WxPayOrderNotify> wxPayOrderNotify = new TreeSet<>();
-
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Rebate> rebate = new TreeSet<>();
 
-    public Set<WxPayOrderNotify> getWxPayOrderNotify() {
-        return wxPayOrderNotify;
+    public WxPayOrderNotify getWxPayOrderNotify() {
+        return wxPayOrderNotify.stream().findFirst().get();
     }
 
-    public void setWxPayOrderNotify(Set<WxPayOrderNotify> wxPayOrderNotify) {
-        this.wxPayOrderNotify = wxPayOrderNotify;
+    public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
+        this.wxPayOrderNotify.add(wxPayOrderNotify);
     }
 
-    public Set<Rebate> getRebate() {
-        return rebate;
+    public Rebate getRebate() {
+        return rebate.stream().findFirst().get();
     }
 
-    public void setRebate(Set<Rebate> rebate) {
-        this.rebate = rebate;
+    public void setRebate(Rebate rebate) {
+        this.rebate.add(rebate);
     }
     public String getProductName() {
         return productName;

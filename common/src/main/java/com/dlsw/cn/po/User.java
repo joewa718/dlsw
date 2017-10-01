@@ -327,20 +327,20 @@ public class User implements Serializable,Comparable{
         this.rebateSet = rebateSet;
     }
 
-    public Set<RealInfo> getRealInfo() {
-        return realInfo;
+    public RealInfo getRealInfo() {
+        return realInfo.stream().findFirst().get();
     }
 
-    public void setRealInfo(Set<RealInfo> realInfo) {
-        this.realInfo = realInfo;
+    public void setRealInfo(RealInfo realInfo) {
+        this.realInfo.add(realInfo);
     }
 
-    public Set<OAuthInfo> getoAuthInfo() {
-        return oAuthInfo;
+    public OAuthInfo getOAuthInfo() {
+        return oAuthInfo.stream().findFirst().get();
     }
 
-    public void setoAuthInfo(Set<OAuthInfo> oAuthInfo) {
-        this.oAuthInfo = oAuthInfo;
+    public void setOAuthInfo(OAuthInfo oAuthInfo) {
+        this.oAuthInfo.add(oAuthInfo);
     }
 
 }
