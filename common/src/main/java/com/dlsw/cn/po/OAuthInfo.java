@@ -12,17 +12,17 @@ public class OAuthInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "refreshToken", nullable = true)
+    @Column(name = "refreshToken")
     private String refreshToken;
-    @Column(name = "accessToken", nullable = true)
+    @Column(name = "accessToken")
     private String accessToken;
-    @Column(name = "expires_in", nullable = true)
+    @Column(name = "expires_in")
     private int expiresIn = -1;
-    @Column(name = "open_id", nullable = true)
+    @Column(name = "open_id")
     private String openId;
-    @Column(name = "scope", nullable = true)
+    @Column(name = "scope")
     private String scope;
-    @Column(name = "union_id", nullable = true)
+    @Column(name = "union_id")
     private String unionId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

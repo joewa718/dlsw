@@ -25,9 +25,9 @@ public class User implements Serializable,Comparable{
     private String nickname;
     @Column(name = "head_Portrait")
     private String headPortrait;
-    @Column(name = "phone", nullable = true, unique = true)
+    @Column(name = "phone", unique = true)
     private String phone;
-    @Column(name = "password", nullable = true)
+    @Column(name = "password")
     private String password;
     @Column(name = "email")
     private String email;
@@ -67,15 +67,15 @@ public class User implements Serializable,Comparable{
     @JoinTable(name = "t_user_service_order",joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "order_id")})
     @OrderBy("id DESC")
     private Set<Order> serviceOrderList = new TreeSet<>();
-    @Column(name = "org_path", nullable = true)
+    @Column(name = "org_path")
     private String orgPath;
-    @Column(name = "app_id", nullable = true)
+    @Column(name = "app_id")
     private String appId;
-    @Column(name = "isVerificationPhone", nullable = true)
+    @Column(name = "isVerificationPhone")
     private Boolean isVerificationPhone = false;
-    @Column(name = "wx_password", nullable = true)
+    @Column(name = "wx_password")
     private String wxPassword;
-    @Column(name = "isWxLogin", nullable = true)
+    @Column(name = "isWxLogin")
     private Boolean is_wxLogin;
     @Formula("datediff(now(),reg_time)")
     private int diffDate;
