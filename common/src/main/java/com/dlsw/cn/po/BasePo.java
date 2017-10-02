@@ -16,7 +16,7 @@ import javax.persistence.*;
 @DynamicInsert
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class BasePo {
+public abstract class BasePo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
