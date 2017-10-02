@@ -1,9 +1,6 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * @author zhanwang
@@ -11,12 +8,7 @@ import java.util.Set;
  **/
 @Entity
 @Table(name = "t_pay_order_notify")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class WxPayOrderNotify {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class WxPayOrderNotify extends BasePo{
     /**
      * <pre>
      * 字段名：设备号
@@ -258,13 +250,6 @@ public class WxPayOrderNotify {
         this.order = order;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getDeviceInfo() {
         return deviceInfo;

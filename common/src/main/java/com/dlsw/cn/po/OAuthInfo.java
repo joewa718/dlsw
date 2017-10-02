@@ -8,10 +8,7 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_oauth_info")
-public class OAuthInfo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class OAuthInfo extends BasePo{
     @Column(name = "refreshToken")
     private String refreshToken;
     @Column(name = "accessToken")
@@ -27,14 +24,6 @@ public class OAuthInfo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public int getExpiresIn() {
         return expiresIn;

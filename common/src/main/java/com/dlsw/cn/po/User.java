@@ -13,15 +13,9 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
-
 @Entity
 @Table(name = "t_user")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class User implements Serializable,Comparable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class User extends BasePo implements Serializable,Comparable{
     @Column(name = "nickname")
     private String nickname;
     @Column(name = "head_Portrait")
@@ -91,14 +85,6 @@ public class User implements Serializable,Comparable{
 
     public void setLevel(Integer level) {
         this.level = level;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNickname() {

@@ -4,7 +4,6 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,9 +15,7 @@ import java.util.Date;
  **/
 @Entity
 @Table(name = "t_rebate")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class Rebate {
+public class Rebate extends BasePo{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

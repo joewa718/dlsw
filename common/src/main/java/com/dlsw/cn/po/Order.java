@@ -7,6 +7,7 @@ import com.dlsw.cn.enumerate.PayType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -20,9 +21,7 @@ import java.util.TreeSet;
  **/
 @Entity
 @Table(name = "t_order")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class Order{
+public class Order extends BasePo{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
