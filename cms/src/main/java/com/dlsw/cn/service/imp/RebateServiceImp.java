@@ -38,7 +38,7 @@ public class RebateServiceImp extends BaseService implements RebateService{
                 list.add(cb.equal(root.get("order").get("orderCode").as(String.class),rebateVo.getOrderCode()));
             }
             if(!StringUtils.isBlank(rebateVo.getYearMonth())){
-                list.add(cb.like(root.get("rebateTime").as(String.class), rebateVo.getYearMonth()+"%"));
+                list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getYearMonth()+"%"));
             }
             if(rebateVo.getRebateStatus() != null){
                 list.add(cb.equal(root.get("rebateStatus").as(RebateStatus.class), rebateVo.getRebateStatus()));
@@ -55,7 +55,7 @@ public class RebateServiceImp extends BaseService implements RebateService{
 
 
     @Override
-    public void updateRebate(String ids) {
+    public void setStatus(String ids) {
         String[] id_list = ids.split(",");
         for(String id : id_list){
             Rebate rebate = rebateRepository.findOne(Long.parseLong(id));

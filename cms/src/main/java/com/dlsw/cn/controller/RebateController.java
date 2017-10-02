@@ -2,7 +2,6 @@ package com.dlsw.cn.controller;
 
 import com.dlsw.cn.dto.PageDTO;
 import com.dlsw.cn.dto.RebateDTO;
-import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.vo.RebateVo;
 import io.swagger.annotations.ApiOperation;
@@ -10,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/rebate")
@@ -29,9 +25,9 @@ public class RebateController extends BaseController {
     }
 
     @ApiOperation(value = "更新返利状态")
-    @RequestMapping(value = "/updateRebate", method = RequestMethod.POST)
-    public  ResponseEntity updateRebate(@RequestParam("ids") String ids){
-        rebateService.updateRebate(ids);
+    @RequestMapping(value = "/setStatus", method = RequestMethod.POST)
+    public  ResponseEntity setStatus(@RequestParam("ids") String ids){
+        rebateService.setStatus(ids);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

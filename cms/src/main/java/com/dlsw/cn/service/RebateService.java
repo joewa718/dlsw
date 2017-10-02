@@ -15,5 +15,5 @@ public interface RebateService {
 
     PageDTO<RebateDTO> fetchPage(RebateVo rebateVo);
 
-    void updateRebate(String ids);
+    void setStatus(String ids);
 }
