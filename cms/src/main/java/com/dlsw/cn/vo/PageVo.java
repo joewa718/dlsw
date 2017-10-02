@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiParam;
  * @create 2017-06-12 19:22
  **/
 public class PageVo {
+    @ApiParam(value = "默认值第一页")
     protected int page;
     @ApiParam(value = "默认值每页10条")
     protected int size;

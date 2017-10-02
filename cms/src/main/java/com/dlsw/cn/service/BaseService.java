@@ -9,7 +9,7 @@ public abstract class BaseService {
     public static final String SORT_PREFIX = "+";
 
     private PageRequest buildPageRequest(int pageNumber, int pageSize, Sort sort) {
-        return new PageRequest(pageNumber - 1, pageSize == 0 ? 10 : pageSize, sort);
+        return new PageRequest(pageNumber == 0 ? pageNumber : pageNumber - 1, pageSize == 0 ? 10 : pageSize, sort);
     }
 
     protected PageRequest getPageRequest(PageVo request) {
