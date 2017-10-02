@@ -435,7 +435,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
                     rebate.setRebate(new BigDecimal(LevelType.第三代.getReward()).multiply(new BigDecimal(order.getProductNum())));
                     rebate.setReason("三代返利奖励");
                 }
-                rebate.setRebateStatus(RebateStatus.已返利);
+                rebate.setRebateStatus(RebateStatus.未返利);
                 rebate.setRebateTime(DateUtil.getCurrentDate());
                 order.setRebate(rebate);
                 user.getRebateSet().add(rebate);
@@ -452,6 +452,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
                 rebate.setRebate(new BigDecimal(30).multiply(new BigDecimal(order.getProductNum())));
                 rebate.setReason("发展合伙人返利奖励");
                 rebate.setRebateTime(new Date());
+                rebate.setRebateStatus(RebateStatus.未返利);
                 rebate.setRebateTime(DateUtil.getCurrentDate());
                 user.getRebateSet().add(rebate);
                 rebateRepository.save(rebate);
