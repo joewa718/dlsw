@@ -2,12 +2,16 @@ package com.dlsw.cn.vo;/**
  * Created by zhanwa01 on 2017/6/12.
  */
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 /**
  * @author zhanwang
  * @create 2017-06-12 19:22
  **/
 public class PageVo {
     protected int page;
+    @ApiParam(value = "默认值每页10条")
     protected int size;
     protected String sort;
 

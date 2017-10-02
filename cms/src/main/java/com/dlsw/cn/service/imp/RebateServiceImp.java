@@ -6,7 +6,6 @@ import com.dlsw.cn.enumerate.RebateStatus;
 import com.dlsw.cn.mapper.RebateMapper;
 import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.repositories.RebateRepository;
-import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.vo.RebateVo;
@@ -14,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,10 @@ public class RebateServiceImp extends BaseService implements RebateService{
                 list.add(cb.equal(root.get("order").get("orderCode").as(String.class),rebateVo.getOrderCode()));
             }
             if(!StringUtils.isBlank(rebateVo.getYearMonth())){
-                list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getYearMonth()+"%"));
+                list.add(cb.like(root.get("rebateTime").as(String.class), rebateVo.getYearMonth()+"%"));
+            }
+            if(rebateVo.getRebateStatus() != null){
+                list.add(cb.equal(root.get("rebateStatus").as(RebateStatus.class), rebateVo.getRebateStatus()));
             }
             Predicate[] p = new Predicate[list.size()];
             return cb.and(list.toArray(p));
@@ -56,7 +59,7 @@ public class RebateServiceImp extends BaseService implements RebateService{
         String[] id_list = ids.split(",");
         for(String id : id_list){
             Rebate rebate = rebateRepository.findOne(Long.parseLong(id));
-            rebate.setRebateStatus(RebateStatus.已确认);
+            rebate.setRebateStatus(RebateStatus.已返利);
             rebateRepository.save(rebate);
         }
     }

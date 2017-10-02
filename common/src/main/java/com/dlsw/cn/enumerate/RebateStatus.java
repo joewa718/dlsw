@@ -1,7 +1,7 @@
 package com.dlsw.cn.enumerate;
 
 public enum RebateStatus {
-    未确认("未确认", 1), 已确认("已确认", 2), 已返还("已返还", 3);
+    未返利("未返利", 1), 已返利("已返利", 2);
 
     RebateStatus(String name, int code) {
         this.name = name;
@@ -13,19 +13,15 @@ public enum RebateStatus {
 
     public static RebateStatus fromCode(int code) {
         if (code == 1) {
-            return 未确认;
+            return 未返利;
         }
         if (code == 2) {
-            return 已确认;
-        }
-        if (code == 3) {
-            return 已返还;
+            return 已返利;
         }
         throw new UnsupportedOperationException(
                 "The code " + code + " is not supported!"
         );
     }
-
 
     public String getName() {
         return name;

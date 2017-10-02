@@ -22,7 +22,7 @@ public class RebateController extends BaseController {
     RebateService rebateService;
 
     @ApiOperation(value = "获取返利列表")
-    @RequestMapping(value = "/getRebateList", method = RequestMethod.POST)
+    @RequestMapping(value = "/fetchPage", method = RequestMethod.POST)
     public ResponseEntity<PageDTO<RebateDTO>> getRebateList(@ModelAttribute RebateVo rebateVo){
         PageDTO<RebateDTO> pageDTO = rebateService.fetchPage(rebateVo);
         return new ResponseEntity<>(pageDTO,HttpStatus.OK);
