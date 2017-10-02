@@ -37,8 +37,8 @@ public class RebateServiceImp extends BaseService implements RebateService{
             if(!StringUtils.isBlank(rebateVo.getOrderCode())){
                 list.add(cb.equal(root.get("order").get("orderCode").as(String.class),rebateVo.getOrderCode()));
             }
-            if(!StringUtils.isBlank(rebateVo.getYearMonth())){
-                list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getYearMonth()+"%"));
+            if(!StringUtils.isBlank(rebateVo.getSearchDate())){
+                list.add(cb.like(root.get("rebateTime").as(String.class), "%"+rebateVo.getSearchDate()+"%"));
             }
             if(rebateVo.getRebateStatus() != null){
                 list.add(cb.equal(root.get("rebateStatus").as(RebateStatus.class), rebateVo.getRebateStatus()));
