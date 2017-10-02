@@ -6,7 +6,6 @@ import java.util.List;
  * Created by zhanwa01 on 2016/12/2.
  */
 public class PageDTO<T> {
-    private String message;
     private long totalElements;
     private List<T> Content;
 
@@ -24,13 +23,5 @@ public class PageDTO<T> {
 
     public void setContent(List<T> content) {
         Content = content;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }
