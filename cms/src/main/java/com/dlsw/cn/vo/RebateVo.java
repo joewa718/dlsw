@@ -3,7 +3,7 @@ package com.dlsw.cn.vo;
  * @author zhanwang
  * @create 2017-10-01 10:44
  **/
-public class RebateVo {
+public class RebateVo extends PageVo{
 
     private String orderCode;
     private String yearMonth;

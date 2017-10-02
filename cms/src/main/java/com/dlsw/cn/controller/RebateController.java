@@ -1,5 +1,6 @@
 package com.dlsw.cn.controller;
 
+import com.dlsw.cn.dto.PageDTO;
 import com.dlsw.cn.dto.RebateDTO;
 import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.service.RebateService;
@@ -22,9 +23,9 @@ public class RebateController extends BaseController {
 
     @ApiOperation(value = "获取返利列表")
     @RequestMapping(value = "/getRebateList", method = RequestMethod.POST)
-    public ResponseEntity<List<RebateDTO>> getRebateList(@ModelAttribute RebateVo rebateVo){
-        List<RebateDTO> rebateList = rebateService.getRebateList(rebateVo);
-        return new ResponseEntity<>(rebateList,HttpStatus.OK);
+    public ResponseEntity<PageDTO<RebateDTO>> getRebateList(@ModelAttribute RebateVo rebateVo){
+        PageDTO<RebateDTO> pageDTO = rebateService.fetchPage(rebateVo);
+        return new ResponseEntity<>(pageDTO,HttpStatus.OK);
     }
 
     @ApiOperation(value = "更新返利状态")
