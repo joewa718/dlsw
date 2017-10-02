@@ -4,10 +4,7 @@ import com.dlsw.cn.converter.ProductTypeConverter;
 import com.dlsw.cn.enumerate.ProductType;
 import com.dlsw.cn.enumerate.RoleType;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
@@ -17,6 +14,18 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "t_product")
 public class Product extends BasePo{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

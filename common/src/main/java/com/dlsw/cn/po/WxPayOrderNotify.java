@@ -1,5 +1,7 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -9,6 +11,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_pay_order_notify")
 public class WxPayOrderNotify extends BasePo{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     /**
      * <pre>
      * 字段名：设备号
@@ -238,9 +244,16 @@ public class WxPayOrderNotify extends BasePo{
     @Column(name = "time_end",length = 14,nullable = true)
     private String timeEnd;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private Order order;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Order getOrder() {
         return order;
@@ -394,4 +407,5 @@ public class WxPayOrderNotify extends BasePo{
     public void setTimeEnd(String timeEnd) {
         this.timeEnd = timeEnd;
     }
+
 }

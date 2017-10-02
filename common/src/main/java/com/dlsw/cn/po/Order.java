@@ -81,31 +81,29 @@ public class Order extends BasePo{
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<WxPayOrderNotify> wxPayOrderNotify = new TreeSet<>();
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private WxPayOrderNotify wxPayOrderNotify;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Rebate> rebate = new TreeSet<>();
+    @PrimaryKeyJoinColumn
+    private Rebate rebate;
 
     public WxPayOrderNotify getWxPayOrderNotify() {
-        Optional<WxPayOrderNotify> optional = wxPayOrderNotify.stream().findFirst();
-        optional.orElse(null);
-        return optional.get();
+        return wxPayOrderNotify;
     }
 
     public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
-        this.wxPayOrderNotify.add(wxPayOrderNotify);
+        this.wxPayOrderNotify = wxPayOrderNotify;
     }
 
     public Rebate getRebate() {
-        Optional<Rebate> optional = rebate.stream().findFirst();
-        optional.orElse(null);
-        return optional.get();
+        return rebate;
     }
 
     public void setRebate(Rebate rebate) {
-        this.rebate.add(rebate);
+        this.rebate = rebate;
     }
     public String getProductName() {
         return productName;

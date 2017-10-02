@@ -16,6 +16,9 @@ import java.util.TreeSet;
 @Entity
 @Table(name = "t_user")
 public class User extends BasePo implements Serializable,Comparable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
     @Column(name = "nickname")
     private String nickname;
     @Column(name = "head_Portrait")
@@ -42,12 +45,14 @@ public class User extends BasePo implements Serializable,Comparable{
     private Date regTime;
     @Column(name = "is_we_user")
     private Boolean isWeUser = false;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<RealInfo> realInfo = new TreeSet<>();
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private RealInfo realInfo;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<OAuthInfo> oAuthInfo = new TreeSet<>();
+    @PrimaryKeyJoinColumn
+    private OAuthInfo oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -78,6 +83,14 @@ public class User extends BasePo implements Serializable,Comparable{
     private Integer level;
     @OneToMany(mappedBy = "user", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
     private Set<Rebate> rebateSet = new TreeSet<>();
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Integer getLevel() {
         return level;
@@ -315,23 +328,19 @@ public class User extends BasePo implements Serializable,Comparable{
     }
 
     public RealInfo getRealInfo() {
-        Optional<RealInfo> optional = realInfo.stream().findFirst();
-        optional.orElse(null);
-        return optional.get();
+        return realInfo;
     }
 
     public void setRealInfo(RealInfo realInfo) {
-        this.realInfo.add(realInfo);
+        this.realInfo = realInfo;
     }
 
     public OAuthInfo getOAuthInfo() {
-        Optional<OAuthInfo> optional = oAuthInfo.stream().findFirst();
-        optional.orElse(null);
-        return optional.get();
+        return oAuthInfo;
     }
 
     public void setOAuthInfo(OAuthInfo oAuthInfo) {
-        this.oAuthInfo.add(oAuthInfo);
+        this.oAuthInfo = oAuthInfo;
     }
 
 }

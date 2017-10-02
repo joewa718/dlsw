@@ -4,6 +4,7 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -24,8 +25,7 @@ public class Rebate extends BasePo{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private Order order;
     @Column(name = "reason")
     private String reason;
@@ -60,14 +60,6 @@ public class Rebate extends BasePo{
         this.reason = reason;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public BigDecimal getRebate() {
         return rebate;
     }
@@ -90,5 +82,13 @@ public class Rebate extends BasePo{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

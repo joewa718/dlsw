@@ -17,15 +17,4 @@ import javax.persistence.*;
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
 public abstract class BasePo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected long id;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }

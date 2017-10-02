@@ -1,10 +1,17 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 @Entity
 @Table(name = "t_real_info")
 public class RealInfo extends BasePo implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @Column(name = "idCard")
     private String idCard;
     @Column(name = "real_name")
@@ -27,8 +34,7 @@ public class RealInfo extends BasePo implements Serializable {
     private String region;
     @Column(name = "is_audited")
     private boolean isAudited;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
     public void setIdCard(String idCard) {
@@ -129,5 +135,13 @@ public class RealInfo extends BasePo implements Serializable {
         this.region = region;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
 }

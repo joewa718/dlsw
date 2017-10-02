@@ -1,6 +1,11 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import org.hibernate.annotations.Parameter;
 
 /**
  * @author zhanwang
@@ -8,7 +13,10 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_oauth_info")
-public class OAuthInfo extends BasePo{
+public class OAuthInfo extends BasePo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @Column(name = "refreshToken")
     private String refreshToken;
     @Column(name = "accessToken")
@@ -21,8 +29,7 @@ public class OAuthInfo extends BasePo{
     private String scope;
     @Column(name = "union_id")
     private String unionId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
     public int getExpiresIn() {
@@ -80,6 +87,14 @@ public class OAuthInfo extends BasePo{
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }
