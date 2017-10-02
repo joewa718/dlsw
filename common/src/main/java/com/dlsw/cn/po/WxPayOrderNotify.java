@@ -1,7 +1,5 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -10,7 +8,7 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_pay_order_notify")
-public class WxPayOrderNotify extends BasePo{
+public class WxPayOrderNotify extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

@@ -11,7 +11,6 @@ import org.hibernate.annotations.Formula;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -21,7 +20,7 @@ import java.util.TreeSet;
  **/
 @Entity
 @Table(name = "t_order")
-public class Order extends BasePo{
+public class Order extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

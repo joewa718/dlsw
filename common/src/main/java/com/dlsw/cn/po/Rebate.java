@@ -4,7 +4,6 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,7 +15,7 @@ import java.util.Date;
  **/
 @Entity
 @Table(name = "t_rebate")
-public class Rebate extends BasePo{
+public class Rebate extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

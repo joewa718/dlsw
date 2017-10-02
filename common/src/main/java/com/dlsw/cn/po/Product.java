@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  **/
 @Entity
 @Table(name = "t_product")
-public class Product extends BasePo{
+public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;

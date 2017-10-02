@@ -8,7 +8,7 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_deliver_address")
-public class DeliveryAddress extends BasePo {
+public class DeliveryAddress extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;

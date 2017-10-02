@@ -10,12 +10,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 @Entity
 @Table(name = "t_user")
-public class User extends BasePo implements Serializable,Comparable{
+public class User extends BaseEntity implements Serializable,Comparable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;

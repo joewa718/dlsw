@@ -1,14 +1,12 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.*;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 @Entity
 @Table(name = "t_real_info")
-public class RealInfo extends BasePo implements Serializable {
+public class RealInfo extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

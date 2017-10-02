@@ -1,11 +1,8 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.*;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import org.hibernate.annotations.Parameter;
 
 /**
  * @author zhanwang
@@ -13,7 +10,7 @@ import org.hibernate.annotations.Parameter;
  **/
 @Entity
 @Table(name = "t_oauth_info")
-public class OAuthInfo extends BasePo {
+public class OAuthInfo extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

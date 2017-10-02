@@ -16,5 +16,5 @@ import javax.persistence.*;
 @DynamicInsert
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public abstract class BasePo {
+public abstract class BaseEntity {
 }
