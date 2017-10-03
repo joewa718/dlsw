@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.configuration;
 
-import com.dlsw.cn.web.util.encrypt.AESCryptPasswordEncoder;
+import com.dlsw.cn.util.encrypt.AESCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;

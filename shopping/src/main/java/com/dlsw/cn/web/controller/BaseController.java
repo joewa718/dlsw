@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.web.dto.UserSecurityDTO;
+import com.dlsw.cn.dto.UserSecurityDTO;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 

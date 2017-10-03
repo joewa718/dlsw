@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.controller;
 
 import com.dlsw.cn.web.service.UserService;
-import com.dlsw.cn.web.util.GenerateRandomCode;
+import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.po.User;
 import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.exception.WxErrorException;

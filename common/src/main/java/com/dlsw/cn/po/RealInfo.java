@@ -1,16 +1,12 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
-
 @Entity
 @Table(name = "t_real_info")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class RealInfo implements Serializable {
+public class RealInfo extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -37,7 +33,6 @@ public class RealInfo implements Serializable {
     @Column(name = "is_audited")
     private boolean isAudited;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
     private User user;
 
     public void setIdCard(String idCard) {
@@ -93,14 +88,6 @@ public class RealInfo implements Serializable {
         this.idCardPhotoBack = idCardPhotoBack;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public boolean isAudited() {
         return isAudited;
     }
@@ -146,5 +133,13 @@ public class RealInfo implements Serializable {
         this.region = region;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
 }

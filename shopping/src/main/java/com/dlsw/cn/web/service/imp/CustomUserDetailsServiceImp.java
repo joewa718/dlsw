@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.web.dto.UserSecurityDTO;
+import com.dlsw.cn.dto.UserSecurityDTO;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

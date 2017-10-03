@@ -1,7 +1,5 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
 
 /**
@@ -10,12 +8,11 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_pay_order_notify")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class WxPayOrderNotify {
+public class WxPayOrderNotify extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     /**
      * <pre>
      * 字段名：设备号
@@ -246,8 +243,15 @@ public class WxPayOrderNotify {
     private String timeEnd;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
     private Order order;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Order getOrder() {
         return order;
@@ -257,13 +261,6 @@ public class WxPayOrderNotify {
         this.order = order;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getDeviceInfo() {
         return deviceInfo;
@@ -408,4 +405,5 @@ public class WxPayOrderNotify {
     public void setTimeEnd(String timeEnd) {
         this.timeEnd = timeEnd;
     }
+
 }

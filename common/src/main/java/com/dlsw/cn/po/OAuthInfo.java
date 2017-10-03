@@ -1,6 +1,8 @@
 package com.dlsw.cn.po;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * @author zhanwang
@@ -8,33 +10,24 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_oauth_info")
-public class OAuthInfo {
+public class OAuthInfo extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "refreshToken", nullable = true)
+    @Column(name = "refreshToken")
     private String refreshToken;
-    @Column(name = "accessToken", nullable = true)
+    @Column(name = "accessToken")
     private String accessToken;
-    @Column(name = "expires_in", nullable = true)
+    @Column(name = "expires_in")
     private int expiresIn = -1;
-    @Column(name = "open_id", nullable = true)
+    @Column(name = "open_id")
     private String openId;
-    @Column(name = "scope", nullable = true)
+    @Column(name = "scope")
     private String scope;
-    @Column(name = "union_id", nullable = true)
+    @Column(name = "union_id")
     private String unionId;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
     private User user;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public int getExpiresIn() {
         return expiresIn;
@@ -91,6 +84,14 @@ public class OAuthInfo {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

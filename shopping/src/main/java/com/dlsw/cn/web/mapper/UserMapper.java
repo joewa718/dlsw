@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.mapper;
 
-import com.dlsw.cn.web.dto.UserDTO;
+import com.dlsw.cn.dto.UserDTO;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.web.vo.UserVo;
 import org.mapstruct.Mapper;

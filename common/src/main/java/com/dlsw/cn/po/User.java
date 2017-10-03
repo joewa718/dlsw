@@ -12,22 +12,19 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 import java.util.TreeSet;
-
 @Entity
 @Table(name = "t_user")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class User implements Serializable,Comparable{
+public class User extends BaseEntity implements Serializable,Comparable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    protected long id;
     @Column(name = "nickname")
     private String nickname;
     @Column(name = "head_Portrait")
     private String headPortrait;
-    @Column(name = "phone", nullable = true, unique = true)
+    @Column(name = "phone", unique = true)
     private String phone;
-    @Column(name = "password", nullable = true)
+    @Column(name = "password")
     private String password;
     @Column(name = "email")
     private String email;
@@ -49,48 +46,42 @@ public class User implements Serializable,Comparable{
     private Boolean isWeUser = false;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @PrimaryKeyJoinColumn
     private RealInfo realInfo;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @PrimaryKeyJoinColumn
     private OAuthInfo oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<DeliveryAddress> deliveryAddressList;
+    private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @OrderBy("id DESC")
     private Set<Order> orderList = new TreeSet<>();;
     @OneToMany(mappedBy = "higher", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-    private Set<User> lower;
-    @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST })
+    private Set<User> lower = new TreeSet<>();
+    @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST },fetch = FetchType.LAZY)
     @JoinColumn(name = "h_uid")
     private User higher;
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(name = "t_user_service_order",joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "order_id")})
     @OrderBy("id DESC")
     private Set<Order> serviceOrderList = new TreeSet<>();
-    @Column(name = "org_path", nullable = true)
+    @Column(name = "org_path")
     private String orgPath;
-    @Column(name = "app_id", nullable = true)
+    @Column(name = "app_id")
     private String appId;
-    @Column(name = "isVerificationPhone", nullable = true)
+    @Column(name = "isVerificationPhone")
     private Boolean isVerificationPhone = false;
-    @Column(name = "wx_password", nullable = true)
+    @Column(name = "wx_password")
     private String wxPassword;
-    @Column(name = "isWxLogin", nullable = true)
+    @Column(name = "isWxLogin")
     private Boolean is_wxLogin;
     @Formula("datediff(now(),reg_time)")
     private int diffDate;
     @Column(name = "level")
     private Integer level;
     @OneToMany(mappedBy = "user", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-    private Set<Rebate> rebateSet;
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
+    private Set<Rebate> rebateSet = new TreeSet<>();
 
     public long getId() {
         return id;
@@ -98,6 +89,14 @@ public class User implements Serializable,Comparable{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
     public String getNickname() {
@@ -178,14 +177,6 @@ public class User implements Serializable,Comparable{
 
     public void setReceiveMessage(Boolean receiveMessage) {
         isReceiveMessage = receiveMessage;
-    }
-
-    public RealInfo getRealInfo() {
-        return realInfo;
-    }
-
-    public void setRealInfo(RealInfo realInfo) {
-        this.realInfo = realInfo;
     }
 
     public Date getRegTime() {
@@ -327,14 +318,6 @@ public class User implements Serializable,Comparable{
         return isVerificationPhone;
     }
 
-    public OAuthInfo getoAuthInfo() {
-        return oAuthInfo;
-    }
-
-    public void setoAuthInfo(OAuthInfo oAuthInfo) {
-        this.oAuthInfo = oAuthInfo;
-    }
-
     public Set<Rebate> getRebateSet() {
         return rebateSet;
     }
@@ -343,5 +326,20 @@ public class User implements Serializable,Comparable{
         this.rebateSet = rebateSet;
     }
 
+    public RealInfo getRealInfo() {
+        return realInfo;
+    }
+
+    public void setRealInfo(RealInfo realInfo) {
+        this.realInfo = realInfo;
+    }
+
+    public OAuthInfo getOAuthInfo() {
+        return oAuthInfo;
+    }
+
+    public void setOAuthInfo(OAuthInfo oAuthInfo) {
+        this.oAuthInfo = oAuthInfo;
+    }
 
 }

@@ -4,6 +4,7 @@ import com.dlsw.cn.converter.OrderStatusConverter;
 import com.dlsw.cn.converter.PayTypeConverter;
 import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.enumerate.PayType;
+import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
 
@@ -19,9 +20,7 @@ import java.util.TreeSet;
  **/
 @Entity
 @Table(name = "t_order")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class Order{
+public class Order extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -72,7 +71,7 @@ public class Order{
     private OrderStatus orderStatus;
     @Column(name = "recommend_phone")
     private String recommendPhone;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     @ManyToMany(mappedBy = "serviceOrderList",fetch = FetchType.LAZY)
@@ -81,22 +80,14 @@ public class Order{
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @PrimaryKeyJoinColumn
     private WxPayOrderNotify wxPayOrderNotify;
-
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @PrimaryKeyJoinColumn
     private Rebate rebate;
-
-    public Rebate getRebate() {
-        return rebate;
-    }
-
-    public void setRebate(Rebate rebate) {
-        this.rebate = rebate;
-    }
 
     public WxPayOrderNotify getWxPayOrderNotify() {
         return wxPayOrderNotify;
@@ -106,6 +97,13 @@ public class Order{
         this.wxPayOrderNotify = wxPayOrderNotify;
     }
 
+    public Rebate getRebate() {
+        return rebate;
+    }
+
+    public void setRebate(Rebate rebate) {
+        this.rebate = rebate;
+    }
     public String getProductName() {
         return productName;
     }

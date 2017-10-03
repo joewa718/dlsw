@@ -1,12 +1,12 @@
 package com.dlsw.cn.web.service.imp;
 
 import com.dlsw.cn.web.configuration.WxPayProperties;
-import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.web.mapper.OrderMapper;
 import com.dlsw.cn.web.mapper.WxPayOrderNotifyMapper;
 import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.OrderService;
-import com.dlsw.cn.web.util.DateUtil;
+import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
 import com.dlsw.cn.enumerate.*;
@@ -155,7 +155,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Order order = orderRepository.findOne(orderId);
         try {
             WxPayUnifiedOrderRequest orderRequest = new WxPayUnifiedOrderRequest();
-            orderRequest.setOpenid(order.getUser().getoAuthInfo().getOpenId());
+            orderRequest.setOpenid(order.getUser().getOAuthInfo().getOpenId());
             orderRequest.setBody(order.getProductName() + "订单支付");
             orderRequest.setOutTradeNo(order.getOrderCode());
             orderRequest.setAppid(wxPayProperties.getAppId());
@@ -435,7 +435,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
                     rebate.setRebate(new BigDecimal(LevelType.第三代.getReward()).multiply(new BigDecimal(order.getProductNum())));
                     rebate.setReason("三代返利奖励");
                 }
-                rebate.setRebateStatus(RebateStatus.未确认);
+                rebate.setRebateStatus(RebateStatus.未返利);
+                rebate.setRebateTime(DateUtil.getCurrentDate());
                 order.setRebate(rebate);
                 user.getRebateSet().add(rebate);
                 rebateRepository.save(rebate);
@@ -450,7 +451,9 @@ public class OrderServiceImp extends BaseService implements OrderService {
                 rebate.setUser(user);
                 rebate.setRebate(new BigDecimal(30).multiply(new BigDecimal(order.getProductNum())));
                 rebate.setReason("发展合伙人返利奖励");
-                order.setRebate(rebate);
+                rebate.setRebateTime(new Date());
+                rebate.setRebateStatus(RebateStatus.未返利);
+                rebate.setRebateTime(DateUtil.getCurrentDate());
                 user.getRebateSet().add(rebate);
                 rebateRepository.save(rebate);
             }

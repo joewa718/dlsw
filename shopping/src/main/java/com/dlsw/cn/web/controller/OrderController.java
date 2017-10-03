@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.web.service.ProductService;
 import com.dlsw.cn.web.service.UserService;

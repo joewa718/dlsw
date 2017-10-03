@@ -1,7 +1,7 @@
 package com.dlsw.cn.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.web.dto.EntryDTO;
+import com.dlsw.cn.dto.EntryDTO;
 import com.dlsw.cn.web.service.ReportService;
 import com.dlsw.cn.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

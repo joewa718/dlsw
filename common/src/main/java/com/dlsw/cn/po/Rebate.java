@@ -4,10 +4,10 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author zhanwang
@@ -15,25 +15,33 @@ import java.math.BigDecimal;
  **/
 @Entity
 @Table(name = "t_rebate")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class Rebate {
+public class Rebate extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
     private Order order;
     @Column(name = "reason")
     private String reason;
     @Convert(converter = RebateStatusConverter.class)
     @Column(name = "rebate_status")
     private RebateStatus rebateStatus;
+    @Column(name = "rebate_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Date rebateTime;
+
+    public Date getRebateTime() {
+        return rebateTime;
+    }
+
+    public void setRebateTime(Date rebateTime) {
+        this.rebateTime = rebateTime;
+    }
 
     public RebateStatus getRebateStatus() {
         return rebateStatus;
@@ -49,14 +57,6 @@ public class Rebate {
 
     public void setReason(String reason) {
         this.reason = reason;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public BigDecimal getRebate() {
@@ -81,5 +81,13 @@ public class Rebate {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

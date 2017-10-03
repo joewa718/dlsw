@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.web.dto.ProductDTO;
+import com.dlsw.cn.dto.ProductDTO;
 import com.dlsw.cn.enumerate.ProductType;
 import com.dlsw.cn.web.mapper.ProductMapper;
 import com.dlsw.cn.po.Product;

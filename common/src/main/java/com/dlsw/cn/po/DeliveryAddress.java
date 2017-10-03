@@ -1,8 +1,5 @@
 package com.dlsw.cn.po;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
 
 /**
@@ -11,12 +8,10 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "t_deliver_address")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class DeliveryAddress {
+public class DeliveryAddress extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    protected long id;
     @Column(name = "deliveryMan")
     private String deliveryMan;
     @Column(name = "phone")
@@ -34,6 +29,14 @@ public class DeliveryAddress {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getDeliveryMan() {
         return deliveryMan;
@@ -75,14 +78,6 @@ public class DeliveryAddress {
         this.region = region;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public boolean getIsDefault() {
         return isDefault;
     }
@@ -107,7 +102,6 @@ public class DeliveryAddress {
     public void setDetailed(String detailed) {
         this.detailed = detailed;
     }
-
 
     @Override
     public boolean equals(Object o) {

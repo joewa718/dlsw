@@ -3,8 +3,6 @@ package com.dlsw.cn.po;
 import com.dlsw.cn.converter.ProductTypeConverter;
 import com.dlsw.cn.enumerate.ProductType;
 import com.dlsw.cn.enumerate.RoleType;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -15,9 +13,19 @@ import java.math.BigDecimal;
  **/
 @Entity
 @Table(name = "t_product")
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "entityCache")
-public class Product {
+public class Product extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,10 +43,6 @@ public class Product {
         result = 31 * result + productCode.hashCode();
         return result;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     @Column(name = "product_code")
     private String productCode;
     @Column(name = "product_name")
@@ -107,14 +111,6 @@ public class Product {
 
     public void setOffShelf(Boolean offShelf) {
         isOffShelf = offShelf;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public BigDecimal getPrice1() {

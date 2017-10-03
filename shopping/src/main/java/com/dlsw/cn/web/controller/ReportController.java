@@ -1,8 +1,8 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.web.dto.EntryDTO;
+import com.dlsw.cn.dto.EntryDTO;
 import com.dlsw.cn.web.service.ReportService;
-import com.dlsw.cn.web.dto.UserDTO;
+import com.dlsw.cn.dto.UserDTO;
 import com.dlsw.cn.web.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
