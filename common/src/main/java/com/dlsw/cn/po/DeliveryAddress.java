@@ -30,7 +30,6 @@ public class DeliveryAddress extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-
     public long getId() {
         return id;
     }
@@ -38,6 +37,7 @@ public class DeliveryAddress extends BaseEntity {
     public void setId(long id) {
         this.id = id;
     }
+
     public String getDeliveryMan() {
         return deliveryMan;
     }
@@ -102,7 +102,6 @@ public class DeliveryAddress extends BaseEntity {
     public void setDetailed(String detailed) {
         this.detailed = detailed;
     }
-
 
     @Override
     public boolean equals(Object o) {
