@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/vcs.xml
 cms/target/
 common/target/
 shopping/target/
+.idea/
+cache/
