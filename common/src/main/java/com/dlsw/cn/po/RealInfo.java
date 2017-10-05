@@ -1,5 +1,7 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -8,7 +10,13 @@ import java.io.Serializable;
 @Table(name = "t_real_info")
 public class RealInfo extends BaseEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "generator",
+            strategy = "foreign",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "property", value = "user")
+            })
+    @GeneratedValue(generator = "generator")
+    @Column(name = "ID")
     private long id;
     @Column(name = "idCard")
     private String idCard;
@@ -32,7 +40,7 @@ public class RealInfo extends BaseEntity implements Serializable {
     private String region;
     @Column(name = "is_audited")
     private boolean isAudited;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,optional = false)
     private User user;
 
     public void setIdCard(String idCard) {

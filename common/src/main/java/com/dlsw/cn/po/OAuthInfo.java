@@ -1,5 +1,7 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,7 +14,13 @@ import javax.persistence.Table;
 @Table(name = "t_oauth_info")
 public class OAuthInfo extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "generator",
+            strategy = "foreign",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "property", value = "user")
+            })
+    @GeneratedValue(generator = "generator")
+    @Column(name = "ID")
     private long id;
     @Column(name = "refreshToken")
     private String refreshToken;
@@ -26,7 +34,7 @@ public class OAuthInfo extends BaseEntity {
     private String scope;
     @Column(name = "union_id")
     private String unionId;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,optional = false)
     private User user;
 
     public int getExpiresIn() {
