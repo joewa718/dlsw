@@ -25,7 +25,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public OrderDTO getOrder(String phone, long orderId) {
+    public OrderDTO getOrder(long orderId) {
         Order order = orderRepository.findOneById(orderId);
         return orderMapper.orderToOrderDTO(order);
     }

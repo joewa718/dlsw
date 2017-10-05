@@ -11,10 +11,9 @@ public interface OrderService {
     /**
      * 获得订单详细信息
      *
-     * @param phone
      * @param orderId
      * @return
      */
-    OrderDTO getOrder(String phone, long orderId);
+    OrderDTO getOrder(long orderId);
 
 }
