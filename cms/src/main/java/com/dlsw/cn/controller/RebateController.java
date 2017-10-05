@@ -1,7 +1,9 @@
 package com.dlsw.cn.controller;
 
+import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.dto.PageDTO;
 import com.dlsw.cn.dto.RebateDTO;
+import com.dlsw.cn.service.OrderService;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.vo.RebateVo;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/rebate")
 public class RebateController extends BaseController {
+    @Autowired
+    OrderService orderService;
 
     @Autowired
     RebateService rebateService;
@@ -31,4 +35,12 @@ public class RebateController extends BaseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+
+    @ApiOperation(value = "获取订单明细")
+    @RequestMapping(value = "/getOrder", method = RequestMethod.POST)
+    public ResponseEntity<OrderDTO> getOrder(@RequestParam long orderId) {
+        String phone = super.getCurrentUser().getUsername();
+        OrderDTO orderDTO = orderService.getOrder(phone, orderId);
+        return new ResponseEntity<>(orderDTO, HttpStatus.OK);
+    }
 }
