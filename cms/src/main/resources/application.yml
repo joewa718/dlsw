@@ -34,7 +34,7 @@ server:
     timeout: 3600
 ---
 server:
-  port: 8080
+  port: 8090
 spring:
   devtools:
     livereload:
@@ -57,7 +57,7 @@ spring:
       #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw?useUnicode=true&characterEncoding=utf-8&useSSL=false
       url: jdbc:mysql://localhost:3306/dlsw
       username: root
-      password:
+      password: 123456
       connectionInitSqls: set names utf8mb4;
       initialSize: 5
       minIdle: 5
@@ -82,7 +82,7 @@ flush:
   path: http://localhost:8080/api/user/flushUserRoleType
 ---
 server:
-  port: 8888
+  port: 8091
 spring:
   profiles: st
   jpa:
@@ -127,7 +127,7 @@ flush:
 ---
 ---
 server:
-  port: 80
+  port: 8093
 spring:
   profiles: prd
   jpa:

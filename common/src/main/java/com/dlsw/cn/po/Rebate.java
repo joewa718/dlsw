@@ -4,7 +4,6 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -18,13 +17,7 @@ import java.util.Date;
 @Table(name = "t_rebate")
 public class Rebate extends BaseEntity {
     @Id
-    @GenericGenerator(name = "generator",
-            strategy = "foreign",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "property", value = "order")
-            })
-    @GeneratedValue(generator = "generator")
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;

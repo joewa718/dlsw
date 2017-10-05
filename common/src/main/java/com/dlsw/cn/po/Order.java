@@ -80,13 +80,11 @@ public class Order extends BaseEntity {
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY,optional = false)
+    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @PrimaryKeyJoinColumn
     private WxPayOrderNotify wxPayOrderNotify;
-    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY,optional = false)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @PrimaryKeyJoinColumn
     private Rebate rebate;
 
     public WxPayOrderNotify getWxPayOrderNotify() {
