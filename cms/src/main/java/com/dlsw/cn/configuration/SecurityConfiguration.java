@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
@@ -36,12 +37,8 @@ import java.io.IOException;
 @Configuration
 @EnableWebSecurity()
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
     @Value("${web.maximumSessions}")
     private int maximumSessions;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
     @Autowired
     private RESTAuthenticationEntryPoint authenticationEntryPoint;
     @Autowired
@@ -56,43 +53,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new ServletListenerRegistrationBean(new HttpSessionEventPublisher());
     }
 
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new AESCryptPasswordEncoder();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setHideUserNotFoundExceptions(false);
-        authenticationProvider.setUserDetailsService(userDetailsService);
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
-        return authenticationProvider;
-    }
-
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**");
     }
 
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("USER");
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().failureHandler(new AuthenticationFailureHandler() {
-            @Override
-            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
-            }
+        http.formLogin().failureHandler((request, response, exception) -> {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
         });
         http.logout().invalidateHttpSession(true).logoutSuccessHandler(logoutSuccessHandler);
         http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**","/extend/**","/image/**", "/vendor/**",
-                        "/*.html", "/","/*.txt","/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
-                        "/api/user/login","/druid/**","/api/rebate/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**", "/extend/**", "/image/**", "/vendor/**",
+                        "/*.html", "/", "/*.txt", "/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
+                        "/api/user/login", "/druid/**", "/api/rebate/**").permitAll()
                 //.antMatchers("/api/rebate/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()

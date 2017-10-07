@@ -82,11 +82,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().failureHandler(new AuthenticationFailureHandler() {
-            @Override
-            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
-            }
+        http.formLogin().failureHandler(( request,  response,  exception) ->{
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
         });
         http.logout().invalidateHttpSession(true).logoutSuccessHandler(logoutSuccessHandler);
         http.authorizeRequests()
