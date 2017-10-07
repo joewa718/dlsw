@@ -73,7 +73,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**", "/extend/**", "/image/**", "/vendor/**",
                         "/*.html", "/", "/*.txt", "/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
                         "/api/user/login", "/druid/**", "/api/rebate/**").permitAll()
-                //.antMatchers("/api/rebate/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .and()
