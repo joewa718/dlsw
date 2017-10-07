@@ -54,8 +54,8 @@ public class WeLoginController extends WxMpUserQuery {
     @ApiOperation(value = "用户登录")
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        GenerateRandomCode generateRandomCode =new GenerateRandomCode();
-        String connectUrl = wxService.oauth2buildAuthorizationUrl( defaultPwd, "snsapi_userinfo", generateRandomCode.generate(5));
+        GenerateRandomCode generateRandomCode = new GenerateRandomCode();
+        String connectUrl = wxService.oauth2buildAuthorizationUrl(defaultPwd, "snsapi_userinfo", generateRandomCode.generate(5));
         response.sendRedirect(connectUrl);
     }
 
@@ -66,13 +66,13 @@ public class WeLoginController extends WxMpUserQuery {
         try {
             WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
             WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");
-            User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken,wxMpUser);
-            userServiceImp.setWxLogin(user.getAppId(),true);
+            User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
+            userServiceImp.setWxLogin(user.getAppId(), true);
             Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), defaultPwd);
-            Authentication result =daoAuthenticationProvider.authenticate(token);
+            Authentication result = daoAuthenticationProvider.authenticate(token);
             SecurityContextHolder.getContext().setAuthentication(result);
-            userServiceImp.setWxLogin(user.getAppId(),false);
-            response.sendRedirect(loginSuccess);
+            userServiceImp.setWxLogin(user.getAppId(), false);
+            response.sendRedirect(loginSuccess + "?id=" + user.getId());
         } catch (WxErrorException e) {
             log.error(e.getMessage(), e);
         }
