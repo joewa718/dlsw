@@ -28,7 +28,7 @@ public interface UserService {
 
     User regWxUser(WxMpOAuth2AccessToken auth2AccessToken, WxMpUser user);
 
-    UserDTO regUser(UserVo userVo, HttpSession session) throws DuplicateAccountException, OperationNotSupportedException;
+    UserDTO bindPhone(UserVo userVo, HttpSession session) throws DuplicateAccountException, OperationNotSupportedException;
 
     void regRealInfo(String phone, RealInfoVo vo);
 

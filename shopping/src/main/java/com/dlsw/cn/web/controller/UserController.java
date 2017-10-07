@@ -49,16 +49,16 @@ public class UserController extends BaseController {
     @ApiOperation(value = "上传文件")
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public ResponseEntity<ImageDTO> uploadFile(@RequestParam(value = "file") MultipartFile file) throws ServletException, IOException {
-        return upload(file,filePath);
+        return upload(file, filePath);
     }
 
     @ApiOperation(value = "上传凭证文件")
     @RequestMapping(value = "/uploadPayCertFile", method = RequestMethod.POST)
     public ResponseEntity<ImageDTO> uploadPayCertFile(@RequestParam(value = "file") MultipartFile file) throws ServletException, IOException {
-        return upload(file,payCentPath);
+        return upload(file, payCentPath);
     }
 
-    private ResponseEntity<ImageDTO> upload(@RequestParam(value = "file") MultipartFile file,String path) {
+    private ResponseEntity<ImageDTO> upload(@RequestParam(value = "file") MultipartFile file, String path) {
         ImageDTO imageDTO = new ImageDTO();
         String fileName;
         try {
@@ -94,16 +94,16 @@ public class UserController extends BaseController {
         return new ResponseEntity<>(imageDTO, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "注册用户")
-    @RequestMapping(value = "/regUser", method = RequestMethod.POST)
-    public ResponseEntity<Object> regUser(@ModelAttribute UserVo user, HttpServletRequest request) throws ServletException, IOException {
+    @ApiOperation(value = "绑定手机号码")
+    @RequestMapping(value = "/bindPhone", method = RequestMethod.POST)
+    public ResponseEntity<Object> bindPhone(@ModelAttribute UserVo user, HttpServletRequest request) throws ServletException, IOException {
         UserDTO userDTO;
         try {
             HttpSession session = request.getSession();
-            userDTO = userService.regUser(user, session);
+            userDTO = userService.bindPhone(user, session);
         } catch (DuplicateAccountException e) {
             log.error(e.getMessage(), e);
-            return new ResponseEntity<>("账户已存在", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("绑定的手机号码已经存在", HttpStatus.INTERNAL_SERVER_ERROR);
         } catch (OperationNotSupportedException e) {
             log.error(e.getMessage(), e);
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -118,7 +118,7 @@ public class UserController extends BaseController {
         UserDTO userDTO;
         try {
             HttpSession session = request.getSession();
-            userDTO = userService.editPhone(phoneVo,phone, session);
+            userDTO = userService.editPhone(phoneVo, phone, session);
         } catch (OperationNotSupportedException e) {
             log.error(e.getMessage(), e);
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -175,7 +175,7 @@ public class UserController extends BaseController {
     public ResponseEntity<DeliveryAddressDTO> saveDeliverAddress(@ModelAttribute DeliveryAddressVo deliverAddressVo) {
         String phone = super.getCurrentUser().getUsername();
         DeliveryAddressDTO deliveryAddressDTO = userService.saveDeliveryAddress(phone, deliverAddressVo);
-        return new ResponseEntity<>(deliveryAddressDTO,HttpStatus.OK);
+        return new ResponseEntity<>(deliveryAddressDTO, HttpStatus.OK);
     }
 
     @ApiOperation(value = "修改收货地址")
@@ -191,7 +191,7 @@ public class UserController extends BaseController {
     public ResponseEntity<String> updatePassword(@RequestParam("password") String password) {
         String phone = super.getCurrentUser().getUsername();
         try {
-            userService.editPassword(phone,password);
+            userService.editPassword(phone, password);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -314,6 +314,6 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/flushUserRoleType", method = RequestMethod.GET)
     public ResponseEntity<Object> flushUserRoleTYpe() {
     /*   userService.upgradeUerRoleType();*/
-       return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -109,7 +109,6 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setNickname(wxMpUser.getNickname());
             user.setWxPassword(AESCryptUtil.encrypt(super.DEFAULT_PWD));
             user.setDisable(false);
-            user.setPhone(wxMpUser.getOpenId());
             user.setRoleType(RoleType.普通);
             user.setRegTime(new Date());
             user.setVerificationPhone(false);
@@ -143,7 +142,7 @@ public class UserServiceImp extends BaseService implements UserService {
     }
 
     @Override
-    public UserDTO regUser(UserVo userVo, HttpSession session) throws DuplicateAccountException, OperationNotSupportedException {
+    public UserDTO bindPhone(UserVo userVo ,HttpSession session) throws DuplicateAccountException, OperationNotSupportedException {
         User user = userRepository.findByPhone(userVo.getPhone());
         if (user != null) {
             throw new DuplicateAccountException("duplicate account phone.");
@@ -157,10 +156,8 @@ public class UserServiceImp extends BaseService implements UserService {
         if ((cur_time - regCodeTime) / 1000 > 600) {//10分钟
             throw new OperationNotSupportedException("手机验证码已经过期");
         }
-        user = userMapper.userToUserVo(userVo);
-        user.setPassword(AESCryptUtil.encrypt(user.getPassword()));
-        user.setDisable(false);
-        user.setRegTime(DateUtil.getCurrentDate());
+        user = userRepository.findOne(user.getId());
+        user.setPhone(userVo.getPhone());
         user = userRepository.save(user);
         session.removeAttribute("regCode");
         session.removeAttribute("regCodeTime");

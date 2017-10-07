@@ -12,6 +12,7 @@ import me.chanjar.weixin.mp.bean.result.WxMpUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -36,9 +37,12 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/api/wechat/user/")
 public class WeLoginController extends WxMpUserQuery {
-    private static final String DEFAULT_PWD="~!@Wz718718";
-    private static final String LOGIN_CALLBACK="http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback";
-    private static final String LOGIN_SUCCESS="http://www.jinhuishengwu.cn/u.html";
+    @Value("${wechat.login.defaultPwd}")
+    private String defaultPwd;
+    @Value("${wechat.login.loginCallback}")
+    private String loginCallback;
+    @Value("${wechat.login.loginSuccess}")
+    private String loginSuccess;
     @Autowired
     private DaoAuthenticationProvider daoAuthenticationProvider;
     private final static Logger log = LoggerFactory.getLogger(WeLoginController.class);
@@ -51,23 +55,24 @@ public class WeLoginController extends WxMpUserQuery {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         GenerateRandomCode generateRandomCode =new GenerateRandomCode();
-        String connectUrl = wxService.oauth2buildAuthorizationUrl( LOGIN_CALLBACK, "snsapi_userinfo", generateRandomCode.generate(5));
+        String connectUrl = wxService.oauth2buildAuthorizationUrl( defaultPwd, "snsapi_userinfo", generateRandomCode.generate(5));
         response.sendRedirect(connectUrl);
     }
 
     @ApiOperation(value = "用户登录回调")
     @RequestMapping(value = "/weLoginCallback", method = RequestMethod.GET)
-    public void weLoginCallback(@RequestParam("code") String code, @RequestParam("state") String state, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void weLoginCallback(@RequestParam("code") String code, @RequestParam("state") String state,
+                                HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
             WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");
             User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken,wxMpUser);
             userServiceImp.setWxLogin(user.getAppId(),true);
-            Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), DEFAULT_PWD);
+            Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), defaultPwd);
             Authentication result =daoAuthenticationProvider.authenticate(token);
             SecurityContextHolder.getContext().setAuthentication(result);
             userServiceImp.setWxLogin(user.getAppId(),false);
-            response.sendRedirect(LOGIN_SUCCESS);
+            response.sendRedirect(loginSuccess);
         } catch (WxErrorException e) {
             log.error(e.getMessage(), e);
         }

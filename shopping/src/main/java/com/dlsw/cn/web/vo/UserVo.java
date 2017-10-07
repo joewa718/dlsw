@@ -9,43 +9,16 @@ import com.dlsw.cn.enumerate.RoleType;
  * @create 2017-08-09 11:18
  **/
 public class UserVo {
-    private String nickname;
+    private long userId;
     private String phone;
-    private String password;
-    private String email;
     private String regCode;
-    private RoleType roleType = RoleType.普通;
 
-    public String getNickname() {
-        return nickname;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getPhone() {

@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +40,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     public final static int QUASI_SUPERFINE_THRESHOLD = 4;
     public final static int SUPERFINE_THRESHOLD = 6;
-    public final static String PAY_NOTICE = "http://www.jinhuishengwu.cn/api/wechat/pay/payNotice";
+    @Value("${wechat.pay.payNotice}")
+    public String payNotice;
     @Resource(name = "wxPayService")
     private WxPayService wxPayService;
     @Autowired
@@ -163,7 +165,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
             orderRequest.setTotalFee(WxPayBaseRequest.yuanToFee(order.getProductCost().toString()));//元转成分
             orderRequest.setSpbillCreateIp(ipAddress);
             orderRequest.setTradeType("JSAPI");
-            orderRequest.setNotifyURL(PAY_NOTICE);
+            orderRequest.setNotifyURL(payNotice);
             Map wxPayUnifiedOrderResult = wxPayService.getPayInfo(orderRequest);
             logger.debug(wxPayUnifiedOrderResult.toString());
             return wxPayUnifiedOrderResult;

@@ -13,7 +13,8 @@ import java.util.List;
 public interface RebateMapper {
     @Mappings({
             @Mapping(source = "user.nickname", target = "nickname"),
-            @Mapping(source = "order.orderCode", target = "orderCode")
+            @Mapping(source = "order.orderCode", target = "orderCode"),
+            @Mapping(source = "order.id", target = "orderId")
     })
     RebateDTO RebateToRebateDTO(Rebate Rebate);
 

@@ -25,7 +25,17 @@ public class RebateDTO {
 
     private String rebateStatus;
 
-    protected Date rebateTime;
+    private Date rebateTime;
+
+    private long orderId;
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
 
     public long getId() {
         return id;
