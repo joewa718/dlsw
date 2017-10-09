@@ -4,8 +4,11 @@ package com.dlsw.cn.po;/**
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,7 +20,9 @@ import java.util.Date;
 @Table(name = "t_rebate")
 public class Rebate extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="order_id", unique=true, nullable=false)
+    @GeneratedValue(generator="gen")
+    @GenericGenerator(name="gen", strategy="foreign", parameters=@org.hibernate.annotations.Parameter(name="property", value="order"))
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
@@ -25,6 +30,7 @@ public class Rebate extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
     @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Order order;
     @Column(name = "reason")
     private String reason;

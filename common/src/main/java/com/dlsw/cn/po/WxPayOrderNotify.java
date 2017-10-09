@@ -1,5 +1,7 @@
 package com.dlsw.cn.po;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -10,7 +12,9 @@ import javax.persistence.*;
 @Table(name = "t_pay_order_notify")
 public class WxPayOrderNotify extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="order_id", unique=true, nullable=false)
+    @GeneratedValue(generator="gen")
+    @GenericGenerator(name="gen", strategy="foreign", parameters=@org.hibernate.annotations.Parameter(name="property", value="order"))
     private long id;
 
     /**
@@ -243,6 +247,7 @@ public class WxPayOrderNotify extends BaseEntity {
     private String timeEnd;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Order order;
 
     public long getId() {
