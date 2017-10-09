@@ -106,6 +106,14 @@ photo:
   payCentPath: c:/project/dlsw/shopping/payCentPath/
 flush:
   path: http://localhost:8080/api/user/flushUserRoleType
+wechat:
+  pay:
+    keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
+    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+  login:
+    defaultPwd: ~!@Wz718718
+    loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
+    loginSuccess: http://www.jinhuishengwu.cn/bindPhone.html
 ---
 server:
   port: 8888
@@ -153,7 +161,14 @@ photo:
   payCentPath: /sdb1/projects/dlsw_st/photo/
 flush:
   path: http://127.0.0.1:8888/api/user/flushUserRoleType
----
+wechat:
+  pay:
+    keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
+    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+  login:
+    defaultPwd: ~!@Wz718718
+    loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
+    loginSuccess: http://www.jinhuishengwu.cn/bindPhone.html
 ---
 server:
   port: 80
@@ -204,7 +219,7 @@ flush:
 wechat:
   pay:
     keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
-  payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
     loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
