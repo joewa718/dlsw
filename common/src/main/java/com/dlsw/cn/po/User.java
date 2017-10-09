@@ -44,9 +44,9 @@ public class User extends BaseEntity implements Serializable,Comparable{
     private Date regTime;
     @Column(name = "is_we_user")
     private Boolean isWeUser = false;
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
     private RealInfo realInfo;
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
     private OAuthInfo oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();

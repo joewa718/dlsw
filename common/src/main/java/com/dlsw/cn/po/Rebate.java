@@ -26,10 +26,10 @@ public class Rebate extends BaseEntity {
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private Order order;
     @Column(name = "reason")

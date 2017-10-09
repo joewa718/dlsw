@@ -80,10 +80,10 @@ public class Order extends BaseEntity {
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-    @OneToOne(mappedBy="order", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="order", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private WxPayOrderNotify wxPayOrderNotify;
-    @OneToOne(mappedBy="order", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="order", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Rebate rebate;
 
