@@ -1,6 +1,4 @@
-package com.dlsw.cn.po;/**
- * Created by zhanwa01 on 2017/9/24.
- */
+package com.dlsw.cn.po;
 
 import com.dlsw.cn.converter.RebateStatusConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
@@ -20,9 +18,9 @@ import java.util.Date;
 @Table(name = "t_rebate")
 public class Rebate extends BaseEntity {
     @Id
-    @Column(name="order_id", unique=true, nullable=false)
-    @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@org.hibernate.annotations.Parameter(name="property", value="order"))
+    @Column(name = "order_id", unique = true, nullable = false)
+    @GeneratedValue(generator = "gen")
+    @GenericGenerator(name = "gen", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "order"))
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
