@@ -4,6 +4,7 @@ import com.dlsw.cn.dto.UserSecurityDTO;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +17,8 @@ import java.util.List;
 
 @Service("customUserDetailsService")
 public class CustomUserDetailsServiceImp implements UserDetailsService {
+    @Value("${wechat.login.defaultPwd}")
+    private String defaultPwd;
     //普通用户权限
     public final static String ROLE_USER = "ROLE_USER";
     //管理员权限
@@ -34,9 +37,9 @@ public class CustomUserDetailsServiceImp implements UserDetailsService {
                     List<GrantedAuthority> authorities = new ArrayList<>();
                     authorities.add(new SimpleGrantedAuthority(ROLE_USER));
                     if(user.getAppId().equals(user.getPhone())){
-                        return new UserSecurityDTO(user.getAppId(), user.getWxPassword(), authorities, user);
+                        return new UserSecurityDTO(user.getAppId(), defaultPwd, authorities, user);
                     }else{
-                        return new UserSecurityDTO(user.getPhone(), user.getWxPassword(), authorities, user);
+                        return new UserSecurityDTO(user.getPhone(), defaultPwd, authorities, user);
                     }
                 }else{
                     throw new UsernameNotFoundException("username not found");
@@ -49,7 +52,7 @@ public class CustomUserDetailsServiceImp implements UserDetailsService {
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority(ROLE_USER));
                 if(user.getAppId().equals(user.getPhone())){
-                    return new UserSecurityDTO(user.getAppId(), user.getWxPassword(), authorities, user);
+                    return new UserSecurityDTO(user.getAppId(), defaultPwd, authorities, user);
                 }else{
                     return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);
                 }

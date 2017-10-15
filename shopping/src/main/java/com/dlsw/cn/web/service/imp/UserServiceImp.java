@@ -107,7 +107,6 @@ public class UserServiceImp extends BaseService implements UserService {
             }
             user.setAppId(wxMpUser.getOpenId());
             user.setNickname(wxMpUser.getNickname());
-            user.setWxPassword(AESCryptUtil.encrypt(super.DEFAULT_PWD));
             user.setDisable(false);
             user.setRoleType(RoleType.普通);
             user.setRegTime(new Date());

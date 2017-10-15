@@ -68,8 +68,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
     private String appId;
     @Column(name = "isVerificationPhone")
     private Boolean isVerificationPhone = false;
-    @Column(name = "wx_password")
-    private String wxPassword;
     @Column(name = "isWxLogin")
     private Boolean is_wxLogin;
     @Formula("datediff(now(),reg_time)")
@@ -292,14 +290,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
 
     public void setVerificationPhone(Boolean verificationPhone) {
         isVerificationPhone = verificationPhone;
-    }
-
-    public String getWxPassword() {
-        return wxPassword;
-    }
-
-    public void setWxPassword(String wxPassword) {
-        this.wxPassword = wxPassword;
     }
 
     public Boolean getIs_wxLogin() {
