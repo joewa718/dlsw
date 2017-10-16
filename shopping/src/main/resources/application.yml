@@ -223,4 +223,5 @@ wechat:
   login:
     defaultPwd: ~!@Wz718718
     loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
-    loginSuccess: http://www.jinhuishengwu.cn/bindPhone.html
+    bindPhonePath: http://www.jinhuishengwu.cn/bindPhone.html
+    loginSuccessPath: http://www.jinhuishengwu.cn/u.html

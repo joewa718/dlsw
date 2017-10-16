@@ -30,38 +30,9 @@ public class CustomUserDetailsServiceImp implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserSecurityDTO loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByPhone(username);
-        if (user == null) {
-            user = userRepository.findByAppId(username);
-            if (user != null) {
-                if(user.getIs_wxLogin() != null && user.getIs_wxLogin() == true){
-                    List<GrantedAuthority> authorities = new ArrayList<>();
-                    authorities.add(new SimpleGrantedAuthority(ROLE_USER));
-                    if(user.getAppId().equals(user.getPhone())){
-                        return new UserSecurityDTO(user.getAppId(), defaultPwd, authorities, user);
-                    }else{
-                        return new UserSecurityDTO(user.getPhone(), defaultPwd, authorities, user);
-                    }
-                }else{
-                    throw new UsernameNotFoundException("username not found");
-                }
-            }else{
-                throw new UsernameNotFoundException("username not found");
-            }
-        }else{
-            if(user.getIs_wxLogin() != null && user.getIs_wxLogin() == true){
-                List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority(ROLE_USER));
-                if(user.getAppId().equals(user.getPhone())){
-                    return new UserSecurityDTO(user.getAppId(), defaultPwd, authorities, user);
-                }else{
-                    return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);
-                }
-            }else{
-                List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority(ROLE_USER));
-                return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);
-            }
-        }
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(ROLE_USER));
+        return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);
     }
 
 }

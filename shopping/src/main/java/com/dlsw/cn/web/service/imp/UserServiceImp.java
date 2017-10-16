@@ -111,6 +111,7 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setRoleType(RoleType.普通);
             user.setRegTime(new Date());
             user.setVerificationPhone(false);
+            user.setPassword(AESCryptUtil.encrypt(user.getPassword()));
             user.setWeUser(true);
         }
         OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);

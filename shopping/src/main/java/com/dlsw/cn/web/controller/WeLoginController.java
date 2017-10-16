@@ -1,5 +1,6 @@
 package com.dlsw.cn.web.controller;
 
+import com.dlsw.cn.util.encrypt.AESCryptUtil;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.po.User;
@@ -41,8 +42,10 @@ public class WeLoginController extends WxMpUserQuery {
     private String defaultPwd;
     @Value("${wechat.login.loginCallback}")
     private String loginCallback;
-    @Value("${wechat.login.loginSuccess}")
-    private String loginSuccess;
+    @Value("${wechat.login.bindPhonePath}")
+    private String bindPhonePath;
+    @Value("${wechat.login.loginSuccessPath}")
+    private String loginSuccessPath;
     @Autowired
     private DaoAuthenticationProvider daoAuthenticationProvider;
     private final static Logger log = LoggerFactory.getLogger(WeLoginController.class);
@@ -67,12 +70,14 @@ public class WeLoginController extends WxMpUserQuery {
             WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
             WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");
             User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
-            userServiceImp.setWxLogin(user.getAppId(), true);
-            Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), defaultPwd);
-            Authentication result = daoAuthenticationProvider.authenticate(token);
-            SecurityContextHolder.getContext().setAuthentication(result);
-            userServiceImp.setWxLogin(user.getAppId(), false);
-            response.sendRedirect(loginSuccess + "?id=" + user.getId());
+            if(user.getPhone() == null){
+                response.sendRedirect(bindPhonePath + "?id=" + user.getId());
+            }else{
+                Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), AESCryptUtil.decrypt(user.getPassword()));
+                Authentication result = daoAuthenticationProvider.authenticate(token);
+                SecurityContextHolder.getContext().setAuthentication(result);
+                response.sendRedirect(loginSuccessPath);
+            }
         } catch (WxErrorException e) {
             log.error(e.getMessage(), e);
         }
