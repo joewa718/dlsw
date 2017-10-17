@@ -1,6 +1,7 @@
 package com.dlsw.cn.web.configuration;
 
 import com.dlsw.cn.util.encrypt.AESCryptPasswordEncoder;
+import com.dlsw.cn.web.Filter.VerificationPhoneFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
@@ -19,6 +20,7 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -90,7 +92,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**","/extend/**","/image/**", "/vendor/**",
                         "/*.html", "/","/*.txt","/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
                         "/api/user/login", "/api/user/regUser","/api/user/getUserByAuthorizationCode",  "/api/user/sendRegCode", "/api/user/captcha","/api/user/sendPwFoundCode",
-                        "/api/user/passwordFoundNext","/api/user/passwordFound","/api/user/flushUserRoleType", "/api/wechat/portal/**", "/api/wechat/user/**","/api/wechat/pay/**","/druid/**").permitAll()
+                        "/api/user/passwordFoundNext","/api/user/passwordFound","/api/user/bindPhone","/api/user/flushUserRoleType", "/api/wechat/portal/**", "/api/wechat/user/**","/api/wechat/pay/**","/druid/**").permitAll()
                 .antMatchers("/api/user/**", "/api/product/**", "/api/order/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()

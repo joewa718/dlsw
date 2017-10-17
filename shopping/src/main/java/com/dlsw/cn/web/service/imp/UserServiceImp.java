@@ -57,6 +57,8 @@ import java.util.stream.Collectors;
 @Scope("prototype")
 public class UserServiceImp extends BaseService implements UserService {
     private final static Logger log = LoggerFactory.getLogger(UserServiceImp.class);
+    @Value("${wechat.login.defaultPwd}")
+    private String defaultPwd;
     @Value("${photo.path}")
     private String filePath;
     @Autowired
@@ -111,7 +113,7 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setRoleType(RoleType.普通);
             user.setRegTime(new Date());
             user.setVerificationPhone(false);
-            user.setPassword(AESCryptUtil.encrypt(user.getPassword()));
+            user.setPassword(AESCryptUtil.encrypt(defaultPwd));
         }
         /*OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
         user.setOAuthInfo(oAuthInfo);
@@ -155,7 +157,7 @@ public class UserServiceImp extends BaseService implements UserService {
         if ((cur_time - regCodeTime) / 1000 > 600) {//10分钟
             throw new OperationNotSupportedException("手机验证码已经过期");
         }
-        user = userRepository.findOne(user.getId());
+        user = userRepository.findOne(userVo.getUserId());
         user.setPhone(userVo.getPhone());
         user = userRepository.save(user);
         session.removeAttribute("regCode");
@@ -180,14 +182,10 @@ public class UserServiceImp extends BaseService implements UserService {
         }
         user = userRepository.findByPhone(phone);
         user.setPhone(phoneVo.getPhone());
-        if (user.getVerificationPhone() == false) {
-            user.setPassword(AESCryptUtil.encrypt(DEFAULT_PWD));
-        }
-        user.setVerificationPhone(true);
         user = userRepository.save(user);
         session.removeAttribute("regCode");
         session.removeAttribute("regCodeTime");
-        Authentication token = new UsernamePasswordAuthenticationToken(user.getPhone(), super.DEFAULT_PWD);
+        Authentication token = new UsernamePasswordAuthenticationToken(user.getPhone(), AESCryptUtil.decrypt(user.getPassword()));
         Authentication result = daoAuthenticationProvider.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(result);
         return userMapper.userToUserDTO(user);

@@ -78,7 +78,7 @@ public class WeLoginController extends WxMpUserQuery {
             response.sendRedirect(bindPhonePath + "?id=" + user.getId());
         }else{
             try{
-                Authentication result = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(wxMpUser.getOpenId(), AESCryptUtil.decrypt(user.getPassword())));
+                Authentication result = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(user.getPhone(), AESCryptUtil.decrypt(user.getPassword())));
                 SecurityContextHolder.getContext().setAuthentication(result);
                 response.sendRedirect(loginSuccessPath);
             }catch(AuthenticationException e){
@@ -86,5 +86,6 @@ public class WeLoginController extends WxMpUserQuery {
                 throw e;
             }
         }
+
     }
 }

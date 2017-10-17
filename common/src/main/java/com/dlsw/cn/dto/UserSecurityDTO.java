@@ -7,8 +7,8 @@ import java.util.Collection;
 
 public class UserSecurityDTO extends org.springframework.security.core.userdetails.User {
     private long id;
-    private Boolean isWeUser;
     private String nickname;
+    private String phone;
     private String email;
     private Boolean disable;
     private String clientName;
@@ -22,13 +22,20 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
         super(phone, password, authorities);
         if (user != null) {
             this.nickname = user.getNickname();
+            this.phone = user.getPhone();
             this.id = user.getId();
             this.email = user.getEmail();
             this.disable = user.getDisable();
         }
     }
 
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
     public long getId() {
         return id;
     }
@@ -70,14 +77,6 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public Boolean getWeUser() {
-        return isWeUser;
-    }
-
-    public void setWeUser(Boolean weUser) {
-        isWeUser = weUser;
     }
 
 }

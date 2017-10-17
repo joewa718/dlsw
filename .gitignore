@@ -8,3 +8,5 @@ dlsw.iml
 shopping/shopping.iml
 common/common.iml
 cms/cms.iml
+common/src/main/resources/
+common/src/test/
