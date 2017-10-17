@@ -4,4 +4,7 @@ common/target/
 shopping/target/
 .idea/
 cache/
-*.iml
+dlsw.iml
+shopping/shopping.iml
+common/common.iml
+cms/cms.iml
