@@ -4,3 +4,4 @@ common/target/
 shopping/target/
 .idea/
 cache/
+*.iml

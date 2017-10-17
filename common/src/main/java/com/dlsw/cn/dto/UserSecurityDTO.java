@@ -25,7 +25,6 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
             this.id = user.getId();
             this.email = user.getEmail();
             this.disable = user.getDisable();
-            this.isWeUser = user.getWeUser();
         }
     }
 

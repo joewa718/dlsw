@@ -112,12 +112,11 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setRegTime(new Date());
             user.setVerificationPhone(false);
             user.setPassword(AESCryptUtil.encrypt(user.getPassword()));
-            user.setWeUser(true);
         }
-        OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
+        /*OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
         user.setOAuthInfo(oAuthInfo);
         oAuthInfo.setUser(user);
-        user = userRepository.save(user);
+        user = userRepository.save(user);*/
         return user;
     }
 
@@ -507,7 +506,6 @@ public class UserServiceImp extends BaseService implements UserService {
     public void setWxLogin(String appId, boolean isWxLogin) {
         User user = userRepository.findByAppId(appId);
         if (user != null) {
-            user.setIs_wxLogin(isWxLogin);
             userRepository.save(user);
         } else {
             throw new RuntimeException("not found appId");

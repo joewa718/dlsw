@@ -1,11 +1,9 @@
 package com.dlsw.cn.web.controller;
 
 import com.dlsw.cn.util.encrypt.AESCryptUtil;
-import com.dlsw.cn.web.configuration.SpringAuthenticationProvider;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.po.User;
-import com.dlsw.cn.web.service.imp.CustomUserDetailsServiceImp;
 import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -20,8 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -32,8 +28,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>
@@ -46,6 +40,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/api/wechat/user/")
 public class WeLoginController extends WxMpUserQuery {
+    private final static Logger log = LoggerFactory.getLogger(WeLoginController.class);
     @Value("${wechat.login.defaultPwd}")
     private String defaultPwd;
     @Value("${wechat.login.loginCallback}")
@@ -55,8 +50,7 @@ public class WeLoginController extends WxMpUserQuery {
     @Value("${wechat.login.loginSuccessPath}")
     private String loginSuccessPath;
     @Autowired
-    private SpringAuthenticationProvider springAuthenticationProvider;
-    private final static Logger log = LoggerFactory.getLogger(WeLoginController.class);
+    private DaoAuthenticationProvider daoAuthenticationProvider;
     @Autowired
     private WxMpService wxService;
     @Autowired
@@ -79,19 +73,17 @@ public class WeLoginController extends WxMpUserQuery {
         wxMpUser.setOpenId("oTQL_wV1ffX0EEf0kpFhaquV_qy4");
         /*WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
         WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");*/
-        try{
-            springAuthenticationProvider.setAvoidPassword(true);
-            Authentication result = springAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(wxMpUser.getOpenId(),null));
-            SecurityContextHolder.getContext().setAuthentication(result);
-            response.sendRedirect(loginSuccessPath);
-        }catch(AuthenticationException exception){
-            if(exception instanceof  UsernameNotFoundException){
-                User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
-                if(user.getPhone() == null){
-                    response.sendRedirect(bindPhonePath + "?id=" + user.getId());
-                }
-            }else{
-                throw exception;
+        User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
+        if(user.getPhone() == null){
+            response.sendRedirect(bindPhonePath + "?id=" + user.getId());
+        }else{
+            try{
+                Authentication result = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(wxMpUser.getOpenId(), AESCryptUtil.decrypt(user.getPassword())));
+                SecurityContextHolder.getContext().setAuthentication(result);
+                response.sendRedirect(loginSuccessPath);
+            }catch(AuthenticationException e){
+                log.error(e.getMessage(),e);
+                throw e;
             }
         }
     }

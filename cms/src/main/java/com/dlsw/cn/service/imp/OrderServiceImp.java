@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class OrderServiceImp extends BaseService implements OrderService {
+
     private final Logger logger = LoggerFactory.getLogger(OrderServiceImp.class);
 
     @Autowired

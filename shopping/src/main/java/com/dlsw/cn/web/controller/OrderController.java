@@ -52,7 +52,7 @@ public class OrderController extends BaseController {
         try {
             String phone = super.getCurrentUser().getUsername();
             User user = userService.findUserByPhone(phone);
-            if(user.getAppId() == null && !user.getIs_wxLogin()){
+            if(user.getAppId() == null && user.getAppId() == null){
                 throw new RuntimeException("线下用户无法，微信支付");
             }
             String ipAddress = orderService.getIpAddr(request);

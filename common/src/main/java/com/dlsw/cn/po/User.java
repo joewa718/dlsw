@@ -42,8 +42,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
     @Column(name = "reg_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date regTime;
-    @Column(name = "is_we_user")
-    private Boolean isWeUser = false;
     @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
     private RealInfo realInfo;
     @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
@@ -68,8 +66,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
     private String appId;
     @Column(name = "isVerificationPhone")
     private Boolean isVerificationPhone = false;
-    @Column(name = "isWxLogin")
-    private Boolean is_wxLogin;
     @Formula("datediff(now(),reg_time)")
     private int diffDate;
     @Column(name = "level")
@@ -260,22 +256,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
         this.diffDate = diffDate;
     }
 
-    public boolean isWeUser() {
-        return isWeUser;
-    }
-
-    public void setWeUser(boolean weUser) {
-        isWeUser = weUser;
-    }
-
-    public Boolean getWeUser() {
-        return isWeUser;
-    }
-
-    public void setWeUser(Boolean weUser) {
-        isWeUser = weUser;
-    }
-
     public String getAppId() {
         return appId;
     }
@@ -290,14 +270,6 @@ public class User extends BaseEntity implements Serializable,Comparable{
 
     public void setVerificationPhone(Boolean verificationPhone) {
         isVerificationPhone = verificationPhone;
-    }
-
-    public Boolean getIs_wxLogin() {
-        return is_wxLogin;
-    }
-
-    public void setIs_wxLogin(Boolean is_wxLogin) {
-        this.is_wxLogin = is_wxLogin;
     }
 
     public Boolean getVerificationPhone() {

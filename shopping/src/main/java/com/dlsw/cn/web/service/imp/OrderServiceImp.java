@@ -348,7 +348,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
 
     private class OrderCheck {
         public void applyOrder(User user, Product product, User recommend_man, DeliveryAddress deliveryAddress, OrderVo orderVo) {
-            if (user.isWeUser() && !user.isVerificationPhone()) {
+            if (user.getAppId() != null  && !user.isVerificationPhone()) {
                 throw new RuntimeException("您是微信用户还未验证过手机，请先设置手机");
             }
             if (product == null) {
@@ -375,7 +375,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
             if (recommend_man.getRoleType() == RoleType.普通) {
                 throw new RuntimeException("该推荐人不是合伙人");
             }
-            if (recommend_man.isWeUser() && !recommend_man.isVerificationPhone()) {
+            if (recommend_man.getAppId() != null && !recommend_man.isVerificationPhone()) {
                 throw new RuntimeException("你的推荐人还未验证过手机，无法填写");
             }
         }
