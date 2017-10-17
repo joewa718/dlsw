@@ -67,8 +67,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+    public SpringAuthenticationProvider authenticationProvider() {
+        SpringAuthenticationProvider authenticationProvider = new SpringAuthenticationProvider();
+        authenticationProvider.setAvoidPassword(false);
         authenticationProvider.setHideUserNotFoundExceptions(false);
         authenticationProvider.setUserDetailsService(userDetailsService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());
@@ -118,4 +119,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         SessionRegistry sessionRegistry = new SessionRegistryImpl();
         return sessionRegistry;
     }
+
 }

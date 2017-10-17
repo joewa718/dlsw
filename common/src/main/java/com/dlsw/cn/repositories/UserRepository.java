@@ -19,6 +19,9 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
     @Query("select u from User u where u.phone = ?1 and u.disable=0")
     User findByPhone(String phone);
 
+    @Query("select u from User u where u.phone = ?1 or u.appId =?1 and u.disable=0")
+    User findByPhoneOrAppId(String phone);
+
     User getByAuthorizationCode(String authorizationCode);
 
     @Query("select u.roleType,count(u) from User u where u.orgPath like ?1  group by u.roleType")

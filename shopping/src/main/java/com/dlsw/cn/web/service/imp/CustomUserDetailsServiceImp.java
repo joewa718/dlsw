@@ -29,7 +29,7 @@ public class CustomUserDetailsServiceImp implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserSecurityDTO loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByPhone(username);
+        User user = userRepository.findByPhoneOrAppId(username);
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(ROLE_USER));
         return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);

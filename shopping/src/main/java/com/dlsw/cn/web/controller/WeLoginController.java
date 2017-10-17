@@ -1,9 +1,11 @@
 package com.dlsw.cn.web.controller;
 
 import com.dlsw.cn.util.encrypt.AESCryptUtil;
+import com.dlsw.cn.web.configuration.SpringAuthenticationProvider;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.service.imp.CustomUserDetailsServiceImp;
 import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -17,7 +19,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +32,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <pre>
@@ -47,7 +55,7 @@ public class WeLoginController extends WxMpUserQuery {
     @Value("${wechat.login.loginSuccessPath}")
     private String loginSuccessPath;
     @Autowired
-    private DaoAuthenticationProvider daoAuthenticationProvider;
+    private SpringAuthenticationProvider springAuthenticationProvider;
     private final static Logger log = LoggerFactory.getLogger(WeLoginController.class);
     @Autowired
     private WxMpService wxService;
@@ -65,22 +73,26 @@ public class WeLoginController extends WxMpUserQuery {
     @ApiOperation(value = "用户登录回调")
     @RequestMapping(value = "/weLoginCallback", method = RequestMethod.GET)
     public void weLoginCallback(@RequestParam("code") String code, @RequestParam("state") String state,
-                                HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
-            WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");
-            User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
-            if(user.getPhone() == null){
-                response.sendRedirect(bindPhonePath + "?id=" + user.getId());
+                                HttpServletRequest request, HttpServletResponse response) throws IOException, WxErrorException {
+        WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
+        WxMpUser wxMpUser = new WxMpUser();
+        wxMpUser.setOpenId("oTQL_wV1ffX0EEf0kpFhaquV_qy4");
+        /*WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
+        WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");*/
+        try{
+            springAuthenticationProvider.setAvoidPassword(true);
+            Authentication result = springAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(wxMpUser.getOpenId(),null));
+            SecurityContextHolder.getContext().setAuthentication(result);
+            response.sendRedirect(loginSuccessPath);
+        }catch(AuthenticationException exception){
+            if(exception instanceof  UsernameNotFoundException){
+                User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
+                if(user.getPhone() == null){
+                    response.sendRedirect(bindPhonePath + "?id=" + user.getId());
+                }
             }else{
-                Authentication token = new UsernamePasswordAuthenticationToken(user.getAppId(), AESCryptUtil.decrypt(user.getPassword()));
-                Authentication result = daoAuthenticationProvider.authenticate(token);
-                SecurityContextHolder.getContext().setAuthentication(result);
-                response.sendRedirect(loginSuccessPath);
+                throw exception;
             }
-        } catch (WxErrorException e) {
-            log.error(e.getMessage(), e);
         }
     }
-
 }
