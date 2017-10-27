@@ -58,8 +58,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
     @Autowired
     private DeliveryAddressRepository deliveryAddressRepository;
     @Autowired
-    private RebateRepository rebateRepository;
-    @Autowired
     private WxPayOrderNotifyMapper notifyMapper;
     @Autowired
     private OrderCheckService orderCheckService;
