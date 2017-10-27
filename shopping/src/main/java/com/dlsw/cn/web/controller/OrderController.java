@@ -55,7 +55,7 @@ public class OrderController extends BaseController {
             if(user.getAppId() == null && user.getAppId() == null){
                 throw new RuntimeException("线下用户无法，微信支付");
             }
-            String ipAddress = orderService.getIpAddr(request);
+            String ipAddress = orderService.getIpAddress(request);
             Map map = orderService.payOrder(orderId,ipAddress);
             return new ResponseEntity<>(map,HttpStatus.OK);
         } catch (Exception e) {

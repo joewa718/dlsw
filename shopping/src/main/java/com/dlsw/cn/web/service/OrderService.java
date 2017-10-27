@@ -94,5 +94,5 @@ public interface OrderService {
 
     Map payOrder(long orderId,String ipAddress);
 
-    String getIpAddr(HttpServletRequest request);
+    String getIpAddress(HttpServletRequest request);
 }
