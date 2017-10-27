@@ -27,12 +27,6 @@ public class AESCryptUtil {
         return result;
     }
 
-    /**
-     * 解密功能
-     *
-     * @param sSrc
-     * @return
-     */
     public static String decrypt(String sSrc) {
         try {
             byte[] raw = sKey.getBytes("ASCII");
