@@ -63,7 +63,6 @@ public class OrderController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "线下订单提交给推荐人")
     @RequestMapping(value = "/savePayCert", method = RequestMethod.POST)
     public ResponseEntity<Object> submitOrder(@ModelAttribute PayCertificateVo payCertificateVo) {
