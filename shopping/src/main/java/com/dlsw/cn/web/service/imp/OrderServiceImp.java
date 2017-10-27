@@ -5,6 +5,7 @@ import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.web.mapper.OrderMapper;
 import com.dlsw.cn.web.mapper.WxPayOrderNotifyMapper;
 import com.dlsw.cn.web.service.BaseService;
+import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.web.vo.OrderVo;
@@ -60,10 +61,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private RebateRepository rebateRepository;
     @Autowired
     private WxPayOrderNotifyMapper notifyMapper;
-
-    private OrderCheck orderCheck = new OrderCheck();
-
-    private RebateAction rebateAction = new RebateAction();
+    @Autowired
+    private OrderCheckService orderCheckService;
 
     public String getIpAddr(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -78,7 +77,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         }
         return ip;
     }
-    
+
     @Override
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public OrderDTO applyOrder(String phone, OrderVo orderVo) {
@@ -86,7 +85,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Product product = productRepository.findOne(orderVo.getProductId());
         DeliveryAddress deliveryAddress = deliveryAddressRepository.findOneByIdAndUser(orderVo.getDeliverAddressId(), user);
         User recommend_man = userRepository.findByPhone(orderVo.getRecommendPhone());
-        orderCheck.applyOrder(user, product, recommend_man, deliveryAddress, orderVo);
+        orderCheckService.applyOrder(user, product, recommend_man, deliveryAddress, orderVo);
         int piece;
         BigDecimal price;
         if (product.getProductType() == ProductType.套餐产品) {
@@ -108,7 +107,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public OrderDTO savePayCert(String phone, PayCertificateVo payCertificateVo) {
         Order order = orderRepository.findOne(payCertificateVo.getOrderId());
-        orderCheck.savePayCert(order,payCertificateVo);
+        orderCheckService.savePayCert(order, payCertificateVo);
         String[] payCentPhoto = payCertificateVo.getPayCertPhoto();
         order.setPayCertPhoto(StringUtils.join(payCentPhoto, ","));
         order.setPayCertInfo(payCertificateVo.getPayCertInfo());
@@ -191,7 +190,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         User user = userRepository.findByPhone(phone);
         Order order = orderRepository.findOne(orderId);
         User orderUser = order.getUser();
-        orderCheck.sureOrder(order, user, orderUser);
+        orderCheckService.sureOrder(order, user, orderUser);
         //修改订单状态 为已支付
         order.setOrderStatus(OrderStatus.已支付);
         orderRepository.save(order);
@@ -221,21 +220,18 @@ public class OrderServiceImp extends BaseService implements OrderService {
             //查看直系下属的合伙人的数量，满足4个人升级准合伙人，6个特级合伙人
             List<User> seniorList = user.getLower().stream().filter(lowerUser -> lowerUser.getRoleType().getCode() >= RoleType.合伙人.getCode()).collect(Collectors.toList());
             if (seniorList.size() == QUASI_SUPERFINE_THRESHOLD) {
-                user.setRoleType(RoleType.准特级合伙人);
+                user.setRoleType(RoleType.合伙人);
                 userRepository.save(user);
             } else if (seniorList.size() == SUPERFINE_THRESHOLD) {
-                user.setRoleType(RoleType.特级合伙人);
+                user.setRoleType(RoleType.高级合伙人);
                 userRepository.save(user);
             }
-
-            rebateAction.expand(user, order);
         }
-        rebateAction.sale(user, order);
         return orderMapper.orderToOrderDTO(order);
     }
 
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
-    private Order saveOrder(OrderVo orderVo, User user, Product product, DeliveryAddress deliveryAddress, int piece, BigDecimal price, BigDecimal totalCost) {
+    public Order saveOrder(OrderVo orderVo, User user, Product product, DeliveryAddress deliveryAddress, int piece, BigDecimal price, BigDecimal totalCost) {
         Order order = new Order();
         order.setOrderCode(generateOrderCode(String.valueOf(user.getId())));
         order.setUser(user);
@@ -291,10 +287,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
             return product.getPrice2();
         } else if (roleType == RoleType.高级合伙人 && product.getPrice3() != null) {
             return product.getPrice3();
-        } else if (roleType == RoleType.准特级合伙人 && product.getPrice4() != null) {
-            return product.getPrice4();
-        } else if (roleType == RoleType.特级合伙人 && product.getPrice4() != null) {
-            return product.getPrice4();
         }
         return product.getRetailPrice();
     }
@@ -346,119 +338,4 @@ public class OrderServiceImp extends BaseService implements OrderService {
         return map;
     }
 
-    private class OrderCheck {
-        public void applyOrder(User user, Product product, User recommend_man, DeliveryAddress deliveryAddress, OrderVo orderVo) {
-            if (user.getAppId() != null  && !user.isVerificationPhone()) {
-                throw new RuntimeException("您是微信用户还未验证过手机，请先设置手机");
-            }
-            if (product == null) {
-                throw new RuntimeException("无法找到对应的商品");
-            }
-            if (deliveryAddress == null) {
-                throw new RuntimeException("无法找到对应的收货地址");
-            }
-            if (orderVo.getPayType() == PayType.线下转账 && StringUtils.isBlank(orderVo.getRecommendPhone())) {
-                throw new RuntimeException("线下订单推荐人不能为空");
-            }
-            if (orderVo.getRecommendPhone().equals(user.getPhone())) {
-                throw new RuntimeException("推荐人不能是本人");
-            }
-            if (userRepository.findOffspringCountByOrgPathAndPhone(getLikeStr(user), orderVo.getRecommendPhone()) != null) {
-                throw new RuntimeException("推荐人不能是自己的下属");
-            }
-            if (user.getHigher() != null && !user.getHigher().getPhone().equals(orderVo.getRecommendPhone())) {
-                throw new RuntimeException("推荐人必须是自己的上级,您的上级是(" + user.getHigher().getPhone() + ")");
-            }
-            if (recommend_man == null) {
-                throw new RuntimeException("推荐人没有找到");
-            }
-            if (recommend_man.getRoleType() == RoleType.普通) {
-                throw new RuntimeException("该推荐人不是合伙人");
-            }
-            if (recommend_man.getAppId() != null && !recommend_man.isVerificationPhone()) {
-                throw new RuntimeException("你的推荐人还未验证过手机，无法填写");
-            }
-        }
-
-        public void savePayCert(Order order, PayCertificateVo payCertificateVo) {
-            if (order == null) {
-                throw new RuntimeException("订单不存在");
-            }
-            if (order.getOrderStatus() != OrderStatus.待支付 && order.getOrderStatus() != OrderStatus.待确认) {
-                throw new RuntimeException("订单状态必须是待支付");
-            }
-            if (order.getPayWay() != PayType.线下转账) {
-                throw new RuntimeException("上传凭证，必须是线下订单类型");
-            }
-            if (StringUtils.isBlank(order.getRecommendPhone())) {
-                throw new RuntimeException("线下订单推荐人不能为空");
-            }
-            User recommend_man = userRepository.findByPhone(order.getRecommendPhone());
-            if (recommend_man == null) {
-                throw new RuntimeException("推荐人没有找到");
-            }
-            if (payCertificateVo.getPayCertPhoto() == null || payCertificateVo.getPayCertPhoto().length == 0) {
-                throw new RuntimeException("凭证照片不能为空");
-            }
-            if (StringUtils.isBlank(payCertificateVo.getPayCertInfo())) {
-                throw new RuntimeException("凭证信息不能为空");
-            }
-        }
-
-        public void sureOrder(Order order, User user, User orderUser) {
-            //线下转账，由属确认支付
-            if (StringUtils.isBlank(order.getRecommendPhone()) || !user.getPhone().equals(order.getRecommendPhone())) {
-                throw new RuntimeException("对不起，线下转账为成功，需要推荐人确认支付");
-            }
-            if (order.getPayWay() != PayType.线下转账) {
-                throw new RuntimeException("确认订单，必须是线下转账类型");
-            }
-            if (order.getOrderStatus() != OrderStatus.待确认) {
-                throw new RuntimeException("订单状态必须是待确认");
-            }
-            if (orderUser.getHigher() != null && !user.getPhone().equals(orderUser.getHigher().getPhone())) {
-                throw new RuntimeException("该用户已经有上级（" + orderUser.getHigher().getPhone() + "），先取消订单重新提交");
-            }
-        }
-    }
-
-    private class RebateAction {
-
-        public void sale(User user, Order order) {
-            //一代和三代返利奖励
-            if ((user.getLevel().intValue() == LevelType.第一代.getCode() || user.getLevel().intValue() == LevelType.第三代.getCode()) && user.getRoleType().getCode() >= RoleType.特级合伙人.getCode()) {
-                Rebate rebate = new Rebate();
-                rebate.setOrder(order);
-                rebate.setUser(user);
-                if (user.getLevel() == LevelType.第一代.getCode()) {
-                    rebate.setRebate(new BigDecimal(LevelType.第一代.getReward()).multiply(new BigDecimal(order.getProductNum())));
-                    rebate.setReason("一代返利奖励");
-                } else if (user.getLevel() == LevelType.第三代.getCode()) {
-                    rebate.setRebate(new BigDecimal(LevelType.第三代.getReward()).multiply(new BigDecimal(order.getProductNum())));
-                    rebate.setReason("三代返利奖励");
-                }
-                rebate.setRebateStatus(RebateStatus.未返利);
-                rebate.setRebateTime(DateUtil.getCurrentDate());
-                order.setRebate(rebate);
-                user.getRebateSet().add(rebate);
-                rebateRepository.save(rebate);
-            }
-        }
-
-        public void expand(User user, Order order) {
-            //发展合伙人返利奖励
-            if (user.getRoleType().getCode() == RoleType.准特级合伙人.getCode()) {
-                Rebate rebate = new Rebate();
-                rebate.setOrder(order);
-                rebate.setUser(user);
-                rebate.setRebate(new BigDecimal(30).multiply(new BigDecimal(order.getProductNum())));
-                rebate.setReason("发展合伙人返利奖励");
-                rebate.setRebateTime(new Date());
-                rebate.setRebateStatus(RebateStatus.未返利);
-                rebate.setRebateTime(DateUtil.getCurrentDate());
-                user.getRebateSet().add(rebate);
-                rebateRepository.save(rebate);
-            }
-        }
-    }
 }
