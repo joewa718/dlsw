@@ -1,7 +1,7 @@
 package com.dlsw.cn.enumerate;
 
 public enum RoleType {
-    普通("普通", 0), VIP("VIP", 1), 合伙人("合伙人", 2), 高级合伙人("高级合伙人", 3), 准特级合伙人("准特级合伙人", 4), 特级合伙人("特级合伙人", 5);
+    普通("普通", 0), VIP("VIP", 1), 合伙人("合伙人", 2), 高级合伙人("高级合伙人", 3);
 
     RoleType(String name, int code) {
         this.name = name;
@@ -24,17 +24,10 @@ public enum RoleType {
         if (code == 3) {
             return 高级合伙人;
         }
-        if (code == 4) {
-            return 准特级合伙人;
-        }
-        if (code == 5) {
-            return 特级合伙人;
-        }
         throw new UnsupportedOperationException(
                 "The code " + code + " is not supported!"
         );
     }
-
 
     public String getName() {
         return name;

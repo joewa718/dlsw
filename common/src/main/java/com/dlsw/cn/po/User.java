@@ -50,7 +50,7 @@ public class User extends BaseEntity implements Serializable,Comparable{
     private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @OrderBy("id DESC")
-    private Set<Order> orderList = new TreeSet<>();;
+    private Set<Order> orderList = new TreeSet<>();
     @OneToMany(mappedBy = "higher", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
     private Set<User> lower = new TreeSet<>();
     @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST },fetch = FetchType.LAZY)
