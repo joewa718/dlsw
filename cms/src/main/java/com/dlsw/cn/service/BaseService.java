@@ -30,7 +30,7 @@ public abstract class BaseService {
     }
 
     protected Sort buildSort(PageVo request) {
-        Sort sort = null;
+        Sort sort;
         if (request.getSort() != null) {
             if (request.getSort().startsWith(SORT_PREFIX)) {
                 sort = new Sort(Sort.Direction.ASC, request.getSort().substring(1, request.getSort().length()));
