@@ -12,6 +12,7 @@
 
     <modules>
         <module>shopping</module>
+        <module>promote</module>
         <module>common</module>
         <module>cms</module>
     </modules>
