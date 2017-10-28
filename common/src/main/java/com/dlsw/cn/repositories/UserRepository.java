@@ -45,7 +45,6 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
     @Query("select u from User u where u.roleType = ?1 and u.disable=0")
     List<User> findByEqualsRoleType(RoleType roleType);
 
-
     @Query("select u from User u where u.orgPath like ?1 and u.disable=0")
     List<User> findByLikeOrgPath(String orgPath);
 
@@ -61,11 +60,11 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
     @Query("select u.roleType,count(u) from User u where  u.orgPath = ?1 and u.roleType = ?2 and u not in (select o.user from Order o where o.diffDate <= 30) group by u.roleType")
     List<Object[]> analysisSleepMemberDistribution(String orgPath, RoleType roleType);
 
-    @Query(value = "select ifnull(sum(if(u.role_type=2,1,0)),0) from t_user u where u.org_path like ?1 and u.role_type > 0 and u.disable=0", nativeQuery = true)
-    Long findSumByLikeOrgPath(String orgPath);
+    @Query(value = "select count(*) from t_user u where u.org_path like ?1 and u.role_type = ?2 and u.disable=0", nativeQuery = true)
+    Long findSumByLikeOrgPath(String orgPath,RoleType roleType);
 
-    @Query(value = "select ifnull(sum(if(u.role_type=2,1,0)),0) from t_user u where u.org_path = ?1 and u.role_type > 0 and u.disable=0", nativeQuery = true)
-    Long findSumByOneLevelOrgPath(String orgPath);
+    @Query(value = "select count(*) from t_user u where u.org_path = ?1 and u.role_type = ?2 and u.disable=0", nativeQuery = true)
+    Long findSumByOneLevelOrgPath(String orgPath,RoleType roleType);
 
     User findByAppId(String appId);
 }

@@ -19,7 +19,7 @@ import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.util.GenerateRandomCode;
-import com.dlsw.cn.web.util.SmsSender;
+import com.dlsw.cn.util.SmsSender;
 import com.dlsw.cn.util.encrypt.AESCryptUtil;
 import com.dlsw.cn.web.vo.DeliveryAddressVo;
 import com.dlsw.cn.web.vo.PhoneVo;
@@ -419,32 +419,6 @@ public class UserServiceImp extends BaseService implements UserService {
             throw new RuntimeException("您的验证码无效,未查询到用户信息");
         }
         return userMapper.userToUserDTO(user);
-    }
-
-    @Override
-    public void upgradeUerRoleType() {
-        List<User> updateList = new ArrayList<>();
-        List<User> userList = userRepository.findByLessThanRoleType(RoleType.高级合伙人);
-        for (User user : userList) {
-            Long zxCount = userRepository.findSumByOneLevelOrgPath(getEqualStr(user));
-            if (zxCount >= 12) {
-                if (user.getAuthorizationCode() == null) {
-                    user.setAuthorizationCode(generateAuthCode());
-                }
-                user.setRoleType(RoleType.高级合伙人);
-                updateList.add(user);
-            } else {
-                Long allCount = userRepository.findSumByLikeOrgPath(getLikeStr(user));
-                if (allCount >= 12 && zxCount >= 4) {
-                    if (user.getAuthorizationCode() == null) {
-                        user.setAuthorizationCode(generateAuthCode());
-                    }
-                    user.setRoleType(RoleType.高级合伙人);
-                    updateList.add(user);
-                }
-            }
-        }
-        userRepository.save(updateList);
     }
 
     @Override

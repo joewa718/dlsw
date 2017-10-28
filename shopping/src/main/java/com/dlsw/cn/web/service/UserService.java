@@ -76,8 +76,6 @@ public interface UserService {
 
     Map<String,List<UserDTO>> findSleepMemberList(String person, String search);
 
-    void upgradeUerRoleType();
-
     void setWxLogin(String appId,boolean isWxLogin);
 
     User findUserByPhone(String phone);

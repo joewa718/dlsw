@@ -22,11 +22,6 @@
             <artifactId>common</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.richard</groupId>
-            <artifactId>sms-sdk</artifactId>
-            <version>1.0</version>
-        </dependency>
     </dependencies>
 
 </project>

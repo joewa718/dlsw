@@ -17,4 +17,11 @@
 		<relativePath>../</relativePath>
 		<version>1.0.0</version>
 	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>org.richard</groupId>
+			<artifactId>sms-sdk</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>

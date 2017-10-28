@@ -12,10 +12,10 @@
 
     <modules>
         <module>shopping</module>
-        <module>rebate</module>
-        <module>promote</module>
         <module>common</module>
         <module>cms</module>
+        <module>promote</module>
+        <module>rebate</module>
     </modules>
 
     <parent>
@@ -192,7 +192,6 @@
             <artifactId>thumbnailator</artifactId>
             <version>0.4.8</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
