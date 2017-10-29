@@ -1,18 +1,22 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.web.configuration.WxPayProperties;
 import com.dlsw.cn.dto.OrderDTO;
+import com.dlsw.cn.enumerate.*;
+import com.dlsw.cn.po.*;
+import com.dlsw.cn.repositories.DeliveryAddressRepository;
+import com.dlsw.cn.repositories.OrderRepository;
+import com.dlsw.cn.repositories.ProductRepository;
+import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.util.DateUtil;
+import com.dlsw.cn.util.GenerateRandomCode;
+import com.dlsw.cn.web.configuration.WxPayProperties;
 import com.dlsw.cn.web.mapper.OrderMapper;
 import com.dlsw.cn.web.mapper.WxPayOrderNotifyMapper;
 import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.service.OrderService;
-import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
-import com.dlsw.cn.enumerate.*;
-import com.dlsw.cn.po.*;
-import com.dlsw.cn.repositories.*;
 import com.github.binarywang.wxpay.bean.request.WxPayBaseRequest;
 import com.github.binarywang.wxpay.bean.request.WxPayUnifiedOrderRequest;
 import com.github.binarywang.wxpay.bean.result.WxPayOrderNotifyResult;
@@ -176,7 +180,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private void setPayRoleType(User user, Product product) {
         if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > user.getRoleType().getCode()) {
             if (user.getAuthorizationCode() == null) {
-                user.setAuthorizationCode(generateAuthCode());
+                user.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
             }
             user.setRoleType(product.getRoleType());
         }
@@ -196,7 +200,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Product product = productRepository.getProductByproductCode(order.getProductCode());
         if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > user.getRoleType().getCode()) {
             if (user.getAuthorizationCode() == null) {
-                user.setAuthorizationCode(generateAuthCode());
+                user.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
             }
             user.setRoleType(product.getRoleType());
         }
@@ -231,7 +235,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public Order saveOrder(OrderVo orderVo, User user, Product product, DeliveryAddress deliveryAddress, int piece, BigDecimal price, BigDecimal totalCost) {
         Order order = new Order();
-        order.setOrderCode(generateOrderCode(String.valueOf(user.getId())));
+        order.setOrderCode(GenerateRandomCode.generateOrderCode(String.valueOf(user.getId())));
         order.setUser(user);
         order.setOrderStatus(OrderStatus.待支付);
         order.setOrderTime(DateUtil.getCurrentDate());

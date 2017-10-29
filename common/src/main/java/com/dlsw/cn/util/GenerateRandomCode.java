@@ -4,6 +4,16 @@ import java.util.Random;
 
 public class GenerateRandomCode {
 
+    public static String generateOrderCode(String userId) {
+        GenerateRandomCode grc = new GenerateRandomCode();
+        return grc.generateOrderCode(20, userId).toUpperCase();
+    }
+
+    public static String generateAuthCode() {
+        GenerateRandomCode grc = new GenerateRandomCode();
+        return grc.generate(17).toUpperCase();
+    }
+
     public synchronized String generateOrderCode(int len, String userId) {
         int random = this.createRandomInt();
         String date = DateUtil.getTodayFormat();
