@@ -6,14 +6,6 @@ spring:
     jpa:
       repositories:
         enabled: true
-  http:
-    encoding:
-      charset: UTF-8
-    multipart:
-      enabled:  true
-      file-size-threshold: 1MB
-      max-file-size:  10MB
-      max-request-size:  10MB
   jpa:
     properties:
       hibernate:
@@ -23,18 +15,7 @@ spring:
           use_query_cache: true
           region:
             factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
-security:
-  enable-csrf: false
-  basic:
-    enabled: false
-server:
-  tomcat:
-    uri-encoding: UTF-8
-  session:
-    timeout: 3600
 ---
-server:
-  port: 8090
 spring:
   devtools:
     livereload:
@@ -68,8 +49,6 @@ spring:
       filters: stat,wall,log4j
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 ---
-server:
-  port: 8091
 spring:
   profiles: st
   jpa:
@@ -100,8 +79,6 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 ---
 ---
-server:
-  port: 8093
 spring:
   profiles: prd
   jpa:
