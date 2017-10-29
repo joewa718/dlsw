@@ -17,32 +17,6 @@ public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Product product = (Product) o;
-
-        if (id != product.id) return false;
-        return productCode.equals(product.productCode);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + productCode.hashCode();
-        return result;
-    }
     @Column(name = "product_code")
     private String productCode;
     @Column(name = "product_name")
@@ -225,4 +199,29 @@ public class Product extends BaseEntity {
         this.sendManHead = sendManHead;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (id != product.id) return false;
+        return productCode.equals(product.productCode);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + productCode.hashCode();
+        return result;
+    }
 }

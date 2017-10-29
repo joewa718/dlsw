@@ -68,7 +68,6 @@ public class RealInfo extends BaseEntity implements Serializable {
         this.birthday = birthday;
     }
 
-
     public String getOccupation() {
         return occupation;
     }
@@ -112,7 +111,6 @@ public class RealInfo extends BaseEntity implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-
 
     public String getProvince() {
         return province;
