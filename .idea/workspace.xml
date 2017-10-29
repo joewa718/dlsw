@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1db90baa-6155-4113-b2e0-0e2b32214813" name="Default" comment="等级升级">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/RebateService.java" />
+    <list default="true" id="1db90baa-6155-4113-b2e0-0e2b32214813" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateTypeConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.iml" afterPath="$PROJECT_DIR$/common/common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/promote/promote.iml" afterPath="$PROJECT_DIR$/promote/promote.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rebate/rebate.iml" afterPath="$PROJECT_DIR$/rebate/rebate.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/cms/target/" />
@@ -35,101 +34,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="Rebate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            <state relative-caret-position="180">
+              <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+              <folding>
+                <element signature="e#2563#2564#0" expanded="true" />
+                <element signature="e#2596#2597#0" expanded="true" />
+                <element signature="e#2652#2653#0" expanded="true" />
+                <element signature="e#2696#2697#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RebateRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/RebateRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderStatusConverter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/OrderStatusConverter.java">
+      <file leaf-file-name="RebateTypeConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateTypeConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RebateService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/RebateService.java">
+      <file leaf-file-name="RoleTypeConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RoleTypeConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/AbstractBuilder.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            <state relative-caret-position="177">
+              <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/ImageBuilder.java">
+      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            <state relative-caret-position="165">
+              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RebateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/RebateController.java">
+      <file leaf-file-name="RoleType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RoleType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="30">
+              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/BaseController.java">
+      <file leaf-file-name="PayType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/PayType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="30">
+              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/TextBuilder.java">
+      <file leaf-file-name="RebateType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="30">
+              <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShoppingApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/ShoppingApplication.java">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RebateApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/RebateApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="480">
+              <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -148,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DaoAuthenticationProvider</find>
       <find>authenticate</find>
       <find>forcePrincipalAsString</find>
       <find>retrieveUser</find>
@@ -178,6 +181,7 @@
       <find>&lt;packaging&gt;pom&lt;/packaging&gt;</find>
       <find>update</find>
       <find>upgradeUerRoleType</find>
+      <find>Service</find>
     </findStrings>
     <replaceStrings>
       <replace>1.0.0</replace>
@@ -204,12 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/TaskScheduleConfig.java" />
-        <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/SpringAuthenticationProvider.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" />
-        <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/CustomUserDetailsServiceImp.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java" />
         <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/SpringAuthenticationProvider.java" />
         <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/OrderServiceImp.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -255,6 +253,12 @@
         <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/PromoteService.java" />
         <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/PromoteService.java" />
         <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/RebateService.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/RealInfo.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Product.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/UserServiceOrder.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateTypeConverter.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java" />
       </list>
     </option>
   </component>
@@ -331,10 +335,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -387,6 +391,168 @@
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="converter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="enumerate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="encrypt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -414,11 +580,11 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zhanwa01\nielsen_space\dlsw\promote\src\main" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.dlsw.cn.web.service" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.dlsw.cn.configuration" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zhanwa01\nielsen_space\dlsw\rebate" />
@@ -428,14 +594,14 @@
       <recent name="C:\Users\zhanwa01\nielsen_space\dlsw\shopping" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dlsw.cn.converter" />
+      <recent name="com.dlsw.cn.enumerate" />
       <recent name="com.dlsw.cn" />
       <recent name="com.dlsw.cn.dto" />
       <recent name="com.dlsw.cn.util" />
-      <recent name="" />
-      <recent name="com.dlsw.cn.web.configuration" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zhanwa01\nielsen_space\dlsw\promote\src\main" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dlsw.cn.configuration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -962,9 +1128,9 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.ShoppingApplication" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.CommonApplication" />
-      <item index="2" class="java.lang.String" itemvalue="Spring Boot.CmsApplication" />
-      <item index="3" class="java.lang.String" itemvalue="Spring Boot.PromoteApplication" />
-      <item index="4" class="java.lang.String" itemvalue="Spring Boot.RebateApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.RebateApplication" />
+      <item index="3" class="java.lang.String" itemvalue="Spring Boot.CmsApplication" />
+      <item index="4" class="java.lang.String" itemvalue="Spring Boot.PromoteApplication" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -1014,21 +1180,8 @@
       <workItem from="1508572410828" duration="4081000" />
       <workItem from="1508638415367" duration="527000" />
       <workItem from="1509107817753" duration="1917000" />
-      <workItem from="1509176293294" duration="3531000" />
-    </task>
-    <task id="LOCAL-00018" summary="update @OneToOne to @OneToMany">
-      <created>1506850971608</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1506850971608</updated>
-    </task>
-    <task id="LOCAL-00019" summary="update @OneToOne to @OneToMany">
-      <created>1506851459669</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1506851459670</updated>
+      <workItem from="1509176293294" duration="11268000" />
+      <workItem from="1509276834166" duration="1421000" />
     </task>
     <task id="LOCAL-00020" summary="update @OneToOne to @OneToMany">
       <created>1506869406332</created>
@@ -1359,11 +1512,25 @@
       <option name="project" value="LOCAL" />
       <updated>1509177333242</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="等级升级">
+      <created>1509250028572</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1509250028572</updated>
+    </task>
+    <task id="LOCAL-00068" summary="等级升级">
+      <created>1509277140118</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1509277140118</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122131000" />
+    <option name="totallyTimeSpent" value="131289000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1380,28 +1547,27 @@
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3563748" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32612056" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39712557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1410,6 +1576,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1520,165 +1687,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/PayTypeConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rebate/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/promote/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="52" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rebate/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="81" column="54" lean-forward="false" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ReportService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WeLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderCheckServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/EntryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/promote/promote.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/OrderVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/dlsw/cn/service/ReportServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/RebateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/RebateServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/promote/src/main/java/com/dlsw/cn/service.java" />
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/CustomUserDetailsServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/OrderServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="81" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="65" column="87" lean-forward="false" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
-          <folding>
-            <marker date="1509172698980" expanded="true" signature="2908:2999" ph="select ifnul... t_user" />
-            <marker date="1509172698980" expanded="true" signature="3108:3196" ph="select ifnul... t_user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/promote/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1697,7 +1710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1705,7 +1717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1771,7 +1782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1779,7 +1789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="76" column="80" lean-forward="false" selection-start-line="76" selection-start-column="80" selection-end-line="76" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1787,15 +1796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1275">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1819,7 +1819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1835,7 +1834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1875,7 +1873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1891,7 +1888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,22 +1895,201 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/RebateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/BaseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/DeliveryAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/OAuthInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/RealInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="76" lean-forward="true" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/WxPayOrderNotify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/CodeDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/DeliveryAddressDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/OrderDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/ImageDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/EntryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/RebateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/UserServiceOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RoleType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/PayType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateTypeConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RoleTypeConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding>
+            <element signature="e#2563#2564#0" expanded="true" />
+            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2652#2653#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/RebateRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,7 +1,10 @@
 package com.dlsw.cn.po;
 
 import com.dlsw.cn.converter.RebateStatusConverter;
+import com.dlsw.cn.converter.RebateTypeConverter;
+import com.dlsw.cn.converter.RoleTypeConverter;
 import com.dlsw.cn.enumerate.RebateStatus;
+import com.dlsw.cn.enumerate.RebateType;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -32,6 +35,9 @@ public class Rebate extends BaseEntity {
     private Order order;
     @Column(name = "reason")
     private String reason;
+    @Convert(converter = RebateTypeConverter.class)
+    @Column(name = "rebateType")
+    private RebateType rebateType;
     @Convert(converter = RebateStatusConverter.class)
     @Column(name = "rebate_status")
     private RebateStatus rebateStatus;
@@ -93,5 +99,13 @@ public class Rebate extends BaseEntity {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public RebateType getRebateType() {
+        return rebateType;
+    }
+
+    public void setRebateType(RebateType rebateType) {
+        this.rebateType = rebateType;
     }
 }
