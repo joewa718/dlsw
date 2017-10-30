@@ -219,15 +219,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
             orderUser.setLevel(user.getLevel() + 1);
             orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
             userRepository.save(orderUser);
-            //查看直系下属的合伙人的数量，满足4个人升级准合伙人，6个特级合伙人
-            List<User> seniorList = user.getLower().stream().filter(lowerUser -> lowerUser.getRoleType().getCode() >= RoleType.合伙人.getCode()).collect(Collectors.toList());
-            if (seniorList.size() == QUASI_SUPERFINE_THRESHOLD) {
-                user.setRoleType(RoleType.合伙人);
-                userRepository.save(user);
-            } else if (seniorList.size() == SUPERFINE_THRESHOLD) {
-                user.setRoleType(RoleType.高级合伙人);
-                userRepository.save(user);
-            }
         }
         return orderMapper.orderToOrderDTO(order);
     }
