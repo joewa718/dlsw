@@ -1,5 +1,6 @@
 package com.dlsw.cn.dto;
 
+import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.User;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -12,6 +13,7 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
     private String email;
     private Boolean disable;
     private String clientName;
+    private RoleType roleType;
 
     public UserSecurityDTO() {
         super(null, null, null);
@@ -26,6 +28,7 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
             this.id = user.getId();
             this.email = user.getEmail();
             this.disable = user.getDisable();
+            this.roleType= user.getRoleType();
         }
     }
 
@@ -79,4 +82,12 @@ public class UserSecurityDTO extends org.springframework.security.core.userdetai
         this.nickname = nickname;
     }
 
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
 }
