@@ -78,23 +78,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
         return ip;
     }
 
-
-    private DirectorLevel getDirectorLevel(User user) {
-        long count = user.getLower().stream().filter(u -> u.getRoleType() == RoleType.高级合伙人).count();
-        if (count >= 2 && count <= 3) {
-            return DirectorLevel.仁;
-        } else if (count >= 4 && count <= 5) {
-            return DirectorLevel.义;
-        } else if (count >= 6 && count <= 7) {
-            return DirectorLevel.理;
-        } else if (count >= 8 && count <= 9) {
-            return DirectorLevel.智;
-        } else if (count >= 10) {
-            return DirectorLevel.信;
-        }
-        return DirectorLevel.无;
-    }
-
     @Override
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public OrderDTO applyOrder(String phone, OrderVo orderVo) {
@@ -102,19 +85,16 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Product product = productRepository.findOne(orderVo.getProductId());
         DeliveryAddress deliveryAddress = deliveryAddressRepository.findOneByIdAndUser(orderVo.getDeliverAddressId(), user);
         //向上查找比自己级别高的用户
-        User recommend_man = null;
-        while (user.getHigher() == null) {
-            User userHigher = user.getHigher();
-            if (userHigher.getRoleType().getCode() > user.getRoleType().getCode()
-                    || (userHigher.getRoleType() == user.getRoleType() && userHigher.getRoleType() == RoleType.高级合伙人)) {
-                recommend_man = userHigher;
-                break;
+        User recommend_man = userRepository.findByPhone(orderVo.getRecommendPhone());
+        orderCheckService.applyOrder(user, product, recommend_man, deliveryAddress, orderVo);
+        if (!orderCheckService.gtLevelSelf(user, recommend_man)) {
+            while (recommend_man == null) {
+                if (orderCheckService.gtLevelSelf(user, recommend_man)) {
+                    break;
+                }
+                recommend_man = recommend_man.getHigher();
             }
         }
-        if(recommend_man == null){
-            new RuntimeException("未找到匹配的上级代理商");
-        }
-        orderCheckService.applyOrder(user, product, recommend_man, deliveryAddress, orderVo);
         int piece;
         BigDecimal price;
         if (product.getProductType() == ProductType.套餐产品) {
@@ -127,13 +107,12 @@ public class OrderServiceImp extends BaseService implements OrderService {
         BigDecimal totalCost = price.multiply(BigDecimal.valueOf(piece));
         Order order = saveOrder(orderVo, user, product, deliveryAddress, piece, price, totalCost);
         order.getHigherUserList().add(recommend_man);
-        while (recommend_man != null) {
-            recommend_man.getHigher();
-        }
         recommend_man.getServiceOrderList().add(order);
         userRepository.save(recommend_man);
         return orderMapper.orderToOrderDTO(order);
     }
+
+
 
     @Override
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)

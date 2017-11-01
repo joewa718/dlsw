@@ -95,4 +95,8 @@ public class OrderCheckServiceImp extends BaseService implements com.dlsw.cn.web
             throw new RuntimeException("该用户已经有上级（" + orderUser.getHigher().getPhone() + "），先取消订单重新提交");
         }
     }
+
+    public boolean gtLevelSelf(User user, User recommend_man) {
+        return recommend_man.getRoleType().getCode() > user.getRoleType().getCode() || (recommend_man.getRoleType() == user.getRoleType() && recommend_man.getRoleType() == RoleType.高级合伙人);
+    }
  }

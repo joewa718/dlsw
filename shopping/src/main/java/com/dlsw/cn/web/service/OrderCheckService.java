@@ -14,4 +14,6 @@ public interface OrderCheckService {
     void savePayCert(Order order, PayCertificateVo payCertificateVo);
 
     void sureOrder(Order order, User user, User orderUser);
+
+    boolean gtLevelSelf(User user, User recommend_man);
 }
