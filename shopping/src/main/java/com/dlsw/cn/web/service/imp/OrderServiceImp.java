@@ -42,13 +42,7 @@ import java.util.stream.Collectors;
  **/
 @Service
 public class OrderServiceImp extends BaseService implements OrderService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Value("${wechat.pay.payNotice}")
-    public String payNotice;
-    @Resource(name = "wxPayService")
-    private WxPayService wxPayService;
-    @Autowired
-    private WxPayProperties wxPayProperties;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -112,8 +106,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
         return orderMapper.orderToOrderDTO(order);
     }
 
-
-
     @Override
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public OrderDTO savePayCert(String phone, PayCertificateVo payCertificateVo) {
@@ -126,73 +118,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
         order = orderRepository.save(order);
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
         return orderDTO;
-    }
-
-    @Override
-    @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
-    public void payWsSuccess(String orderCode, WxPayOrderNotifyResult result) {
-        Order order = orderRepository.findOneByOrderCode(orderCode);
-        if (order == null) {
-            throw new RuntimeException("订单不存在");
-        }
-        if (order.getPayWay() != PayType.余额支付) {
-            throw new RuntimeException("支付订单,必须是余额支付类型");
-        }
-        WxPayOrderNotify wxPayOrderNotify = notifyMapper.WxPayOrderNotifyResultToWxPayOrderNotify(result);
-        order.setWxPayOrderNotify(wxPayOrderNotify);
-        wxPayOrderNotify.setOrder(order);
-        User user = order.getUser();
-        User recommendMan = userRepository.findByPhone(order.getRecommendPhone());
-        orderRepository.updateOrderStatusByIdAndUser(OrderStatus.已支付, order.getId(), user);
-        Product product = productRepository.getProductByproductCode(order.getProductCode());
-        setPayRoleType(user, product);
-        if (user.getHigher() == null && user.getRoleType().getCode() > RoleType.普通.getCode()) {
-            List<User> offspringUser = userRepository.findByLikeOrgPath(getLikeStr(user));
-            if (offspringUser != null && offspringUser.size() > 0) {
-                offspringUser.forEach(lower -> {
-                    lower.setOrgPath(bindOffSpringOrgPath(recommendMan, lower));
-                    userRepository.save(lower);
-                });
-            }
-            recommendMan.getLower().add(user);
-            user.setHigher(recommendMan);
-            user.setLevel(recommendMan.getLevel() + 1);
-            user.setOrgPath(bindOffSpringOrgPath(recommendMan, user));
-        }
-        userRepository.save(order.getUser());
-    }
-
-    @Override
-    public Map payOrder(long orderId, String ipAddress) {
-        Order order = orderRepository.findOne(orderId);
-        try {
-            WxPayUnifiedOrderRequest orderRequest = new WxPayUnifiedOrderRequest();
-            orderRequest.setOpenid(order.getUser().getOAuthInfo().getOpenId());
-            orderRequest.setBody(order.getProductName() + "订单支付");
-            orderRequest.setOutTradeNo(order.getOrderCode());
-            orderRequest.setAppid(wxPayProperties.getAppId());
-            orderRequest.setMchId(wxPayProperties.getMchId());
-            orderRequest.setTotalFee(WxPayBaseRequest.yuanToFee(order.getProductCost().toString()));//元转成分
-            orderRequest.setSpbillCreateIp(ipAddress);
-            orderRequest.setTradeType("JSAPI");
-            orderRequest.setNotifyURL(payNotice);
-            Map wxPayUnifiedOrderResult = wxPayService.getPayInfo(orderRequest);
-            logger.debug(wxPayUnifiedOrderResult.toString());
-            return wxPayUnifiedOrderResult;
-        } catch (Exception e) {
-            String error = "微信支付失败！订单号：{" + order.getOrderCode() + "},原因:{" + e.getMessage() + "}";
-            logger.error(error);
-            throw new RuntimeException(error);
-        }
-    }
-
-    private void setPayRoleType(User user, Product product) {
-        if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > user.getRoleType().getCode()) {
-            if (user.getAuthorizationCode() == null) {
-                user.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
-            }
-            user.setRoleType(product.getRoleType());
-        }
     }
 
     @Override

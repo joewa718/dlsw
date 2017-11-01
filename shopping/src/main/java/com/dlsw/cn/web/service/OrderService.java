@@ -30,15 +30,6 @@ public interface OrderService {
     OrderDTO applyOrder(String phone, OrderVo orderVo);
 
     /**
-     * 订单支付成功回调
-     *
-     * @param orderCode
-     * @return
-     * @throws OperationNotSupportedException
-     */
-    void payWsSuccess(String orderCode, WxPayOrderNotifyResult result);
-
-    /**
      * 提交凭证信息
      * @param phone
      * @return
@@ -89,10 +80,18 @@ public interface OrderService {
      */
     OrderDTO sureOrder(String phone, long orderId);
 
-
+    /**
+     * 获取订单价格
+     * @param roleType
+     * @param product
+     * @return
+     */
     BigDecimal getProductPrice(RoleType roleType, Product product);
 
-    Map payOrder(long orderId,String ipAddress);
-
+    /**
+     * 获取IP地址
+     * @param request
+     * @return
+     */
     String getIpAddress(HttpServletRequest request);
 }

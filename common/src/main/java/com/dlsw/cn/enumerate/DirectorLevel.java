@@ -1,7 +1,9 @@
 package com.dlsw.cn.enumerate;
 
+import com.dlsw.cn.po.User;
+
 public enum DirectorLevel {
-    无("无", 0),仁("仁", 2), 义("义", 4), 理("理", 6), 智("智", 8), 信("信", 10);
+    无("无", 0),仁("仁", 2), 义("义", 4), 礼("礼", 6), 智("智", 8), 信("信", 10);
     DirectorLevel(String name, int code) {
         this.name = name;
         this.code = code;
@@ -36,7 +38,7 @@ public enum DirectorLevel {
             return 义;
         }
         if (code == 6) {
-            return 理;
+            return 礼;
         }
         if (code == 8) {
             return 智;
@@ -47,5 +49,21 @@ public enum DirectorLevel {
         throw new UnsupportedOperationException(
                 "The code " + code + " is not supported!"
         );
+    }
+
+    public static DirectorLevel getDirectorLevel(User user) {
+        long count = user.getLower().stream().filter(u -> u.getRoleType() == RoleType.高级合伙人).count();
+        if (count >= 2 && count <= 3) {
+            return DirectorLevel.仁;
+        } else if (count >= 4 && count <= 5) {
+            return DirectorLevel.义;
+        } else if (count >= 6 && count <= 7) {
+            return DirectorLevel.礼;
+        } else if (count >= 8 && count <= 9) {
+            return DirectorLevel.智;
+        } else if (count >= 10) {
+            return DirectorLevel.信;
+        }
+        return DirectorLevel.无;
     }
 }
