@@ -45,24 +45,6 @@ public class OrderController extends BaseController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @ApiOperation(value = "支付订单")
-    @RequestMapping(value = "/payOrder", method = RequestMethod.POST)
-    public ResponseEntity<Object> payOrder(@RequestParam long orderId, HttpServletRequest request, HttpServletResponse response) {
-        try {
-            String phone = super.getCurrentUser().getUsername();
-            User user = userService.findUserByPhone(phone);
-            if(user.getAppId() == null && user.getAppId() == null){
-                throw new RuntimeException("线下用户无法，微信支付");
-            }
-            String ipAddress = orderService.getIpAddress(request);
-            Map map = orderService.payOrder(orderId,ipAddress);
-            return new ResponseEntity<>(map,HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     @ApiOperation(value = "线下订单提交给推荐人")
     @RequestMapping(value = "/savePayCert", method = RequestMethod.POST)
     public ResponseEntity<Object> submitOrder(@ModelAttribute PayCertificateVo payCertificateVo) {
