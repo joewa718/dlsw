@@ -1,4 +1,4 @@
-package com.dlsw.cn.service.imp;
+package com.dlsw.cn.web.service.imp;
 
 import com.dlsw.cn.dto.PageDTO;
 import com.dlsw.cn.dto.RebateDTO;
@@ -6,8 +6,8 @@ import com.dlsw.cn.enumerate.RebateStatus;
 import com.dlsw.cn.mapper.RebateMapper;
 import com.dlsw.cn.po.Rebate;
 import com.dlsw.cn.repositories.RebateRepository;
-import com.dlsw.cn.service.BaseService;
-import com.dlsw.cn.service.RebateService;
+import com.dlsw.cn.web.service.BaseService;
+import com.dlsw.cn.web.service.RebateService;
 import com.dlsw.cn.vo.RebateVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.List;
  * @create 2017-09-30 15:15
  **/
 @Service
-public class RebateServiceImp extends BaseService implements RebateService{
+public class RebateServiceImp extends BaseService implements RebateService {
 
     @Autowired
     RebateRepository rebateRepository;

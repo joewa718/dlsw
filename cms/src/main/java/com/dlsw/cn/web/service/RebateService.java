@@ -1,4 +1,4 @@
-package com.dlsw.cn.service;
+package com.dlsw.cn.web.service;
 
 import com.dlsw.cn.dto.PageDTO;
 import com.dlsw.cn.dto.RebateDTO;

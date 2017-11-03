@@ -1,24 +1,35 @@
-package com.dlsw;
+package com.nielsen.cn.web.service;
 
+import com.dlsw.cn.ShoppingApplication;
 import com.dlsw.cn.enumerate.DirectorLevel;
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
-public class DirectorLevelBZTest{
+@PowerMockRunnerDelegate(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = ShoppingApplication.class)
+@PowerMockIgnore({"javax.management.*","org.apache.http.conn.ssl.*", "javax.net.ssl.*" , "javax.crypto.*"})
+public class DirectorLevelTest{
+    @Autowired
+    OrderService orderService;
     @Test
     public void testGetDirectorLevel() {
         User user = mock(User.class);

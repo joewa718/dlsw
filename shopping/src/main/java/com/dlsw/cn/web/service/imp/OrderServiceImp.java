@@ -54,8 +54,6 @@ public class OrderServiceImp extends BaseService implements OrderService {
     @Autowired
     private DeliveryAddressRepository deliveryAddressRepository;
     @Autowired
-    private WxPayOrderNotifyMapper notifyMapper;
-    @Autowired
     private OrderCheckService orderCheckService;
 
     public String getIpAddress(HttpServletRequest request) {

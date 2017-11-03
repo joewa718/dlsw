@@ -1,4 +1,4 @@
-package com.dlsw.cn.service.imp;
+package com.dlsw.cn.web.service.imp;
 
 import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.dto.PageDTO;
@@ -6,15 +6,14 @@ import com.dlsw.cn.dto.RebateDTO;
 import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.enumerate.ProductType;
 import com.dlsw.cn.enumerate.RebateStatus;
-import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.mapper.OrderMapper;
 import com.dlsw.cn.po.Order;
 import com.dlsw.cn.po.Product;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.OrderRepository;
 import com.dlsw.cn.repositories.ProductRepository;
-import com.dlsw.cn.service.BaseService;
-import com.dlsw.cn.service.OrderService;
+import com.dlsw.cn.web.service.BaseService;
+import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.util.GenerateRandomCode;
 import com.dlsw.cn.vo.OrderVo;
 import org.apache.commons.lang3.StringUtils;
@@ -29,7 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author zhanwang

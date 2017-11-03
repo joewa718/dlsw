@@ -1,4 +1,5 @@
-package com.dlsw.cn.service;
+package com.dlsw.cn.web.service;
+
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.UserRepository;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
@@ -14,8 +16,8 @@ import java.util.List;
  * @create 2017-10-28 14:07
  **/
 @Service
-public class PromoteService implements CommandLineRunner {
-    private final Logger logger = LoggerFactory.getLogger(PromoteService.class);
+public class RebateService implements CommandLineRunner {
+    private final Logger logger = LoggerFactory.getLogger(RebateService.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -25,7 +27,7 @@ public class PromoteService implements CommandLineRunner {
      */
     public void monitorVip(){
         logger.debug("-开始执行VIP升级任务-");
-        List<User> vipList= userRepository.findByEqualsRoleType(RoleType.VIP);
+        List<User> vipList= userRepository.findByEqualsRoleType(RoleType.高级合伙人);
         vipList.forEach(user -> {
             long oneLevel = userRepository.findSumByOneLevelOrgPath(user.getOrgPath(),RoleType.VIP);
             if(oneLevel >= 3){
