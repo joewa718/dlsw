@@ -1,5 +1,6 @@
 package com.dlsw.cn.web.service.imp;
 
+import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.web.mapper.DeliveryAddressMapper;
 import com.dlsw.cn.dto.DeliveryAddressDTO;
 import com.dlsw.cn.dto.RealInfoDTO;
@@ -10,12 +11,10 @@ import com.dlsw.cn.web.mapper.OauthInfoMapper;
 import com.dlsw.cn.web.mapper.RealInfoMapper;
 import com.dlsw.cn.web.mapper.UserMapper;
 import com.dlsw.cn.po.DeliveryAddress;
-import com.dlsw.cn.po.OAuthInfo;
 import com.dlsw.cn.po.RealInfo;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.DeliveryAddressRepository;
 import com.dlsw.cn.repositories.UserRepository;
-import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.util.GenerateRandomCode;

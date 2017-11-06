@@ -87,21 +87,6 @@ public class Order extends BaseEntity {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Rebate rebate;
 
-    public WxPayOrderNotify getWxPayOrderNotify() {
-        return wxPayOrderNotify;
-    }
-
-    public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
-        this.wxPayOrderNotify = wxPayOrderNotify;
-    }
-
-    public Rebate getRebate() {
-        return rebate;
-    }
-
-    public void setRebate(Rebate rebate) {
-        this.rebate = rebate;
-    }
     public String getProductName() {
         return productName;
     }
@@ -334,4 +319,19 @@ public class Order extends BaseEntity {
         this.diffDate = diffDate;
     }
 
+    public WxPayOrderNotify getWxPayOrderNotify() {
+        return wxPayOrderNotify;
+    }
+
+    public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
+        this.wxPayOrderNotify = wxPayOrderNotify;
+    }
+
+    public Rebate getRebate() {
+        return rebate;
+    }
+
+    public void setRebate(Rebate rebate) {
+        this.rebate = rebate;
+    }
 }

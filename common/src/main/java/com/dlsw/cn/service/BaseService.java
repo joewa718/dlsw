@@ -1,7 +1,6 @@
-package com.dlsw.cn.web.service;
+package com.dlsw.cn.service;
 
 import com.dlsw.cn.po.User;
-import com.dlsw.cn.util.GenerateRandomCode;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class BaseService {

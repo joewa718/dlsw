@@ -3,34 +3,24 @@ package com.dlsw.cn.web.service.imp;
 import com.dlsw.cn.dto.OrderDTO;
 import com.dlsw.cn.enumerate.*;
 import com.dlsw.cn.po.*;
-import com.dlsw.cn.repositories.DeliveryAddressRepository;
-import com.dlsw.cn.repositories.OrderRepository;
-import com.dlsw.cn.repositories.ProductRepository;
-import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.repositories.*;
+import com.dlsw.cn.service.BaseService;
+import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.util.GenerateRandomCode;
-import com.dlsw.cn.web.configuration.WxPayProperties;
 import com.dlsw.cn.web.mapper.OrderMapper;
-import com.dlsw.cn.web.mapper.WxPayOrderNotifyMapper;
-import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
-import com.github.binarywang.wxpay.bean.request.WxPayBaseRequest;
-import com.github.binarywang.wxpay.bean.request.WxPayUnifiedOrderRequest;
-import com.github.binarywang.wxpay.bean.result.WxPayOrderNotifyResult;
-import com.github.binarywang.wxpay.service.WxPayService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.*;
@@ -42,7 +32,8 @@ import java.util.stream.Collectors;
  **/
 @Service
 public class OrderServiceImp extends BaseService implements OrderService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    ;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -55,6 +46,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private DeliveryAddressRepository deliveryAddressRepository;
     @Autowired
     private OrderCheckService orderCheckService;
+    @Autowired
+    private RebateService rebateService;
 
     public String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -152,6 +145,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
             orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
             userRepository.save(orderUser);
         }
+        rebateService.calSeniorRebate(user,order);
+        rebateService.calCreditRebate(user,order);
         return orderMapper.orderToOrderDTO(order);
     }
 
