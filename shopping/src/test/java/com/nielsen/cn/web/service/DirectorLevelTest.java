@@ -4,34 +4,31 @@ import com.dlsw.cn.ShoppingApplication;
 import com.dlsw.cn.enumerate.DirectorLevel;
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.User;
-import com.dlsw.cn.web.service.OrderService;
+import com.dlsw.cn.repositories.OrderRepository;
+import com.dlsw.cn.repositories.ProductRepository;
+import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.service.imp.OrderServiceImp;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.HashSet;
 import java.util.Set;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest(classes = {ShoppingApplication.class})
-public class DirectorLevelTest extends AbstractTestNGSpringContextTests{
-    @Autowired
-    private OrderService orderService;
-    @BeforeMethod
-    public void init(){
-        MockitoAnnotations.initMocks(OrderServiceImp.class);
-    }
-    @Test
-    public void testSureOrderCase() {
-        orderService.sureOrder("1123",444);
-    }
+public class DirectorLevelTest extends  BaseTestCase{
+    @InjectMocks
+    private OrderServiceImp orderService;
+    @Mock
+    private OrderRepository orderRepository;
+    @Mock
+    private ProductRepository productRepository;
+    @Mock
+    private OrderCheckService orderCheckService;
+
     @Test
     public void testGetDirectorLevel() {
         User user = mock(User.class);
@@ -59,5 +56,10 @@ public class DirectorLevelTest extends AbstractTestNGSpringContextTests{
             userSet.add(user1);
         }
         return userSet;
+    }
+
+    @Test
+    public void testSureOrderCase(){
+        orderService.sureOrder("",123);
     }
 }
