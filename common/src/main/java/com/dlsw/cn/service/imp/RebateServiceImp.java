@@ -2,6 +2,7 @@ package com.dlsw.cn.service.imp;
 
 import com.dlsw.cn.enumerate.DirectorLevel;
 import com.dlsw.cn.enumerate.OrderStatus;
+import com.dlsw.cn.enumerate.RebateType;
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.Order;
 import com.dlsw.cn.po.Rebate;
@@ -13,7 +14,6 @@ import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +39,9 @@ public class RebateServiceImp extends BaseService implements RebateService{
             Rebate rebate = new Rebate();
             rebate.setUser(user);
             rebate.setOrder(order);
+            rebate.setReason("高级平级返利");
+            rebate.setRebateType(RebateType.平级高级返利);
+            rebate.setRebateTime(order.getOrderTime());
             rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.12)));
             rebateRepository.save(rebate);
         }
@@ -50,6 +53,9 @@ public class RebateServiceImp extends BaseService implements RebateService{
             Rebate rebate = new Rebate();
             rebate.setUser(user);
             rebate.setOrder(order);
+            rebate.setRebateType(RebateType.平级信返利);
+            rebate.setReason("信平级返利");
+            rebate.setRebateTime(order.getOrderTime());
             rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
             rebateRepository.save(rebate);
         }
