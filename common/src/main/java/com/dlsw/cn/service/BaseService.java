@@ -4,13 +4,6 @@ import com.dlsw.cn.po.User;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class BaseService {
-    protected String getLikeStr(User user) {
-        if (StringUtils.isBlank(user.getOrgPath())) {
-            return '>' + String.valueOf(user.getId()) + ">%";
-        } else {
-            return user.getOrgPath() + String.valueOf(user.getId()) + ">%";
-        }
-    }
 
     protected String getEqualStr(User user) {
         if (StringUtils.isBlank(user.getOrgPath())) {

@@ -4,9 +4,11 @@ import com.dlsw.cn.ShoppingApplication;
 import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.po.Order;
 import com.dlsw.cn.repositories.OrderRepository;
+import com.dlsw.cn.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+import org.springframework.util.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -23,9 +25,10 @@ public class OrderRepositoryTestCase extends AbstractTransactionalTestNGSpringCo
     @Autowired
     OrderRepository orderRepository;
 
-    @Test(dataProvider = "orderList")
-    public void testFindOrderListByOrderTimeCase(List<Order> orderList) {
-        List<Object[]> list = orderRepository.findOrderListByOrderTime(">5>", OrderStatus.已支付, new Date(), new Date());
+    @Test()
+    public void testFindOrderListByOrderTimeCase() {
+       List<Object[]> list = orderRepository.findOrderListByOrderTime(">5>", OrderStatus.已支付, DateUtil.getCurMonth());
+        Assert.notNull(list,"aaa");
     }
 
 

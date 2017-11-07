@@ -31,7 +31,7 @@ public class ReportServiceImp extends BaseService implements ReportService {
     @Override
     public Map<String, Long> analysisMemberDistribution(String phone) {
         User user = userRepository.findByPhone(phone);
-        List<Object[]> list = userRepository.analysisMemberDistribution(getLikeStr(user));
+        List<Object[]> list = userRepository.analysisMemberDistribution(getEqualStr(user));
         return fillResult(list);
     }
 
@@ -45,7 +45,7 @@ public class ReportServiceImp extends BaseService implements ReportService {
     @Override
     public Map<String, Long> analysisNewMemberDistribution(String phone) {
         User user = userRepository.findByPhone(phone);
-        List<Object[]> list = userRepository.analysisNewMemberDistribution(getLikeStr(user));
+        List<Object[]> list = userRepository.analysisNewMemberDistribution(getEqualStr(user));
         return fillResult(list);
     }
 
@@ -60,7 +60,7 @@ public class ReportServiceImp extends BaseService implements ReportService {
     @Override
     public Map<String, Long> analysisSleepDistribution(String phone) {
         User user = userRepository.findByPhone(phone);
-        List<Object[]> list = userRepository.analysisSleepMemberDistribution(getLikeStr(user), RoleType.高级合伙人);
+        List<Object[]> list = userRepository.analysisSleepMemberDistribution(getEqualStr(user), RoleType.高级合伙人);
         return fillResult(list);
     }
 

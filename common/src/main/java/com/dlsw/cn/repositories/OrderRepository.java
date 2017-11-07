@@ -1,7 +1,6 @@
 package com.dlsw.cn.repositories;
 
 import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.Order;
 import com.dlsw.cn.po.User;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -31,6 +30,6 @@ public interface OrderRepository extends CrudRepository<Order, Long>, JpaSpecifi
     @Query("select t.month,sum (t.productNum) from Order t where t.user.orgPath =?1 and t.orderStatus >= ?2 and t.orderTime >= ?3 and t.orderTime <=?4 group by t.month")
     List<Object[]> analysisImmediateTeamOrdinaryOrderSaleVolume(String orgPath, OrderStatus orderStatus, Date begin, Date end);
 
-    @Query("select t.user,sum (t.productNum) from Order t where t.user.orgPath =?1 and t.orderStatus >= ?2 and t.orderTime >= ?3 and t.orderTime <=?4 group by t.user")
-    List<Object[]> findOrderListByOrderTime(String orgPath, OrderStatus orderStatus, Date begin, Date end);
+    @Query("select t.user,sum (t.productNum) from Order t where t.user.orgPath like CONCAT(?1,'%') and t.orderStatus >= ?2 and t.orderTime like CONCAT('%',?3,'%') group by t.user")
+    List<Object[]> findOrderListByOrderTime(String orgPath, OrderStatus orderStatus,String month);
 }

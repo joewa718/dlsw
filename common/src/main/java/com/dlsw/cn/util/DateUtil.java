@@ -13,8 +13,28 @@ import java.util.List;
  */
 public class DateUtil {
     private static final DateFormat format = new SimpleDateFormat("yyyyMMdd");
+    private static final DateFormat yyyy_MM = new SimpleDateFormat("yyyy-MM");
+
     private DateUtil() {
     }
+
+    public static String getLastMonth() {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR,0);
+        cal.set(Calendar.MINUTE,0);
+        return yyyy_MM.format(cal.getTime());
+    }
+
+    public static String getCurMonth() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR,0);
+        cal.set(Calendar.MINUTE,0);
+        return yyyy_MM.format(cal.getTime());
+    }
+
 
     public static Date getYearBeginDate() {
         Calendar a = Calendar.getInstance();
@@ -37,11 +57,12 @@ public class DateUtil {
         }
         return monthList;
     }
+
     public static String getTodayFormat() {
         return format.format(DateUtil.getCurrentDate());
     }
 
-    public static Date getCurrentDate(){
+    public static Date getCurrentDate() {
         return new Date();
     }
 }

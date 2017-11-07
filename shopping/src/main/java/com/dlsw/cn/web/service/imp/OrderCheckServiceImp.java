@@ -36,7 +36,7 @@ public class OrderCheckServiceImp extends BaseService implements com.dlsw.cn.web
         if (orderVo.getRecommendPhone().equals(user.getPhone())) {
             throw new RuntimeException("推荐人不能是本人");
         }
-        if (userRepository.findOffspringCountByOrgPathAndPhone(getLikeStr(user), orderVo.getRecommendPhone()) != null) {
+        if (userRepository.findOffspringCountByOrgPathAndPhone(getEqualStr(user), orderVo.getRecommendPhone()) != null) {
             throw new RuntimeException("推荐人不能是自己的下属");
         }
         if (user.getHigher() != null && !user.getHigher().getPhone().equals(orderVo.getRecommendPhone())) {

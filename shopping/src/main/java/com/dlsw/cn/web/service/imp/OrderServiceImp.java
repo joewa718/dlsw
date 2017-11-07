@@ -132,7 +132,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
         //当用户没有上级，切用户级别 非普通用户,则将用户以及其下属挂到自己下面
         if (orderUser.getHigher() == null && orderUser.getRoleType().getCode() > RoleType.普通.getCode()) {
             //更新子孙节点Path
-            List<User> grandUserList = userRepository.findByLikeOrgPath(getLikeStr(orderUser));
+            List<User> grandUserList = userRepository.findByLikeOrgPath(getEqualStr(orderUser));
             if (grandUserList != null && grandUserList.size() > 0) {
                 grandUserList.forEach(lower -> {
                     lower.setOrgPath(bindOffSpringOrgPath(user, lower));

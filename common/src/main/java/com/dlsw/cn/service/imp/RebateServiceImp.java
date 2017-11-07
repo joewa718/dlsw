@@ -12,6 +12,7 @@ import com.dlsw.cn.repositories.RebateRepository;
 import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
+import com.dlsw.cn.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -65,7 +66,7 @@ public class RebateServiceImp extends BaseService implements RebateService{
         List<User> userList = userRepository.findByEqualsRoleType(RoleType.高级合伙人);
         Map<User, BigDecimal> doubleMap =new HashMap<>();
         userList.forEach(user ->{
-            List<Object[]> list = orderRepository.findOrderListByOrderTime(getLikeStr(user), OrderStatus.已支付,null,null);
+            List<Object[]> list = orderRepository.findOrderListByOrderTime(getEqualStr(user), OrderStatus.已支付, DateUtil.getLastMonth());
             list.forEach(objects -> {
                 User lowUser = (User) objects[0];
                 Double cost = (Double) objects[1];
