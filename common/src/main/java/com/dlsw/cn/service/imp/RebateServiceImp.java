@@ -13,19 +13,19 @@ import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.util.DateUtil;
+import org.apache.poi.util.BinaryTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zhanwang
  * @create 2017-11-06 13:16
  **/
 @Service
-public class RebateServiceImp extends BaseService implements RebateService{
+public class RebateServiceImp extends BaseService implements RebateService {
 
     @Autowired
     RebateRepository rebateRepository;
@@ -62,17 +62,23 @@ public class RebateServiceImp extends BaseService implements RebateService{
         }
     }
 
-    public void calTeamRebate(){
+    public void calTeamRebate() {
+        List<User> rebateUserList = new ArrayList<>();
         List<User> userList = userRepository.findByEqualsRoleType(RoleType.高级合伙人);
-        Map<User, BigDecimal> doubleMap =new HashMap<>();
-        userList.forEach(user ->{
-            List<Object[]> list = orderRepository.findOrderListByOrderTime(getEqualStr(user), OrderStatus.已支付, DateUtil.getLastMonth());
-            list.forEach(objects -> {
-                User lowUser = (User) objects[0];
-                Double cost = (Double) objects[1];
-                int differ = DirectorLevel.getDirectorLevel(user).getCode() - DirectorLevel.getDirectorLevel(lowUser).getCode();
-                doubleMap.put(lowUser,new BigDecimal(cost).multiply(new BigDecimal(differ)));
-            });
+        userList.forEach(root -> {
+            if (root == null) return;
+            LinkedList<User> queue = new LinkedList<>();
+            queue.offer(root);
+            while (queue.size() > 0) {
+                User node = queue.poll();
+                rebateUserList.add(node);
+                node.getLower().forEach(c_node -> {
+                    if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
+                        queue.offer(c_node);
+                    }
+                });
+            }
         });
+
     }
 }
