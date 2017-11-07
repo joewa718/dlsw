@@ -63,22 +63,26 @@ public class RebateServiceImp extends BaseService implements RebateService {
     }
 
     public void calTeamRebate() {
-        List<User> rebateUserList = new ArrayList<>();
         List<User> userList = userRepository.findByEqualsRoleType(RoleType.高级合伙人);
         userList.forEach(root -> {
-            if (root == null) return;
-            LinkedList<User> queue = new LinkedList<>();
-            queue.offer(root);
-            while (queue.size() > 0) {
-                User node = queue.poll();
-                rebateUserList.add(node);
-                node.getLower().forEach(c_node -> {
-                    if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
-                        queue.offer(c_node);
-                    }
-                });
-            }
+            eachHierarchy(root);
         });
+    }
 
+    private List<User> eachHierarchy(User root) {
+        if (root == null) return null;
+        List<User> rebateUserList = new ArrayList<>();
+        LinkedList<User> queue = new LinkedList<>();
+        queue.offer(root);
+        while (queue.size() > 0) {
+            User node = queue.poll();
+            rebateUserList.add(node);
+            node.getLower().forEach(c_node -> {
+                if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
+                    queue.offer(c_node);
+                }
+            });
+        }
+        return rebateUserList;
     }
 }
