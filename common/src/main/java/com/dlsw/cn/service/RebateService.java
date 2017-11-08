@@ -30,11 +30,4 @@ public interface RebateService {
      * 计算返利
      */
     void calRebate(Order order);
-
-    /**
-     * 遍历下属用户
-     * @param root
-     * @return
-     */
-    List<User> eachHierarchy(User root);
 }

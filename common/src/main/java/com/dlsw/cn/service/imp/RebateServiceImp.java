@@ -69,24 +69,5 @@ public class RebateServiceImp extends BaseService implements RebateService {
         calSeniorRebate(recommend,order);
         calCreditRebate(recommend,order);
     }
-    @Override
-    public List<User> eachHierarchy(User root) {
-        if (root == null) return null;
-        List<User> rebateUserList = new ArrayList<>();
-        LinkedList<User> queue = new LinkedList<>();
-        queue.offer(root);
-        while (queue.size() > 0) {
-            User node = queue.poll();
-            rebateUserList.add(node);
-            logger.debug(node.getNickname() +"-------------");
-            node.getLower().forEach(c_node -> {
-              /*  if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
-                    queue.offer(c_node);
-                }*/
-                queue.offer(c_node);
-            });
-        }
-        return rebateUserList;
-    }
 
 }

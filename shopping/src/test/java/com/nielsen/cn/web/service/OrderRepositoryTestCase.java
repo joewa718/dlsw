@@ -36,11 +36,6 @@ public class OrderRepositoryTestCase extends AbstractTransactionalTestNGSpringCo
        List<Object[]> list = orderRepository.findOrderListByOrderTime(">5>", OrderStatus.已支付, DateUtil.getCurMonth());
         Assert.notNull(list,"aaa");
     }
-    @Test()
-    public void testEachHierarchyCase(){
-        User user = userRepository.findOne(5l);
-        rebateService.eachHierarchy(user);
-    }
 
     @DataProvider(name = "orderList")
     public static Object[][] dataProviderMethod() {

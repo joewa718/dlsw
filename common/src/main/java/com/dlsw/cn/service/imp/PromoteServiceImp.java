@@ -6,6 +6,8 @@ import com.dlsw.cn.po.Product;
 import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.ProductRepository;
 import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.service.BaseService;
+import com.dlsw.cn.service.PromoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ import java.util.List;
  * @create 2017-10-28 14:07
  **/
 @Service
-public class PromoteServiceImp implements com.dlsw.cn.service.PromoteService {
+public class PromoteServiceImp extends BaseService implements PromoteService {
     private final Logger logger = LoggerFactory.getLogger(PromoteServiceImp.class);
     @Autowired
     private UserRepository userRepository;
@@ -33,9 +35,9 @@ public class PromoteServiceImp implements com.dlsw.cn.service.PromoteService {
         User higher = orderUser.getHigher();
         while (higher != null) {
             if (higher.getRoleType() == RoleType.VIP) {
-                long oneLevel = userRepository.findSumByOneLevelOrgPath(higher.getOrgPath(), RoleType.VIP);
+                long oneLevel = userRepository.findSumByOneLevelOrgPath(getEqualStr(higher), RoleType.VIP);
                 if (oneLevel >= 3) {
-                    long otherLevel = userRepository.findSumByLikeOrgPath(higher.getOrgPath(), RoleType.VIP);
+                    long otherLevel = userRepository.findSumByLikeOrgPath(getEqualStr(higher), RoleType.VIP);
                     if (otherLevel >= 9) {
                         higher.setRoleType(RoleType.合伙人);
                         userRepository.save(higher);
@@ -56,9 +58,9 @@ public class PromoteServiceImp implements com.dlsw.cn.service.PromoteService {
         User higher = orderUser.getHigher();
         while (higher != null) {
             if (higher.getRoleType() == RoleType.合伙人) {
-                long oneLevel = userRepository.findSumByOneLevelOrgPath(higher.getOrgPath(), RoleType.合伙人);
+                long oneLevel = userRepository.findSumByOneLevelOrgPath(getEqualStr(higher), RoleType.合伙人);
                 if (oneLevel >= 3) {
-                    long otherLevel = userRepository.findSumByLikeOrgPath(higher.getOrgPath(), RoleType.合伙人);
+                    long otherLevel = userRepository.findSumByLikeOrgPath(getEqualStr(higher), RoleType.合伙人);
                     if (otherLevel >= 12) {
                         higher.setRoleType(RoleType.高级合伙人);
                         userRepository.save(higher);
