@@ -3,7 +3,10 @@ package com.nielsen.cn.web.service;
 import com.dlsw.cn.ShoppingApplication;
 import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.po.Order;
+import com.dlsw.cn.po.User;
 import com.dlsw.cn.repositories.OrderRepository;
+import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,13 +27,20 @@ import java.util.List;
 public class OrderRepositoryTestCase extends AbstractTransactionalTestNGSpringContextTests {
     @Autowired
     OrderRepository orderRepository;
-
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    RebateService rebateService;
     @Test()
     public void testFindOrderListByOrderTimeCase() {
        List<Object[]> list = orderRepository.findOrderListByOrderTime(">5>", OrderStatus.已支付, DateUtil.getCurMonth());
         Assert.notNull(list,"aaa");
     }
-
+    @Test()
+    public void testEachHierarchyCase(){
+        User user = userRepository.findOne(5l);
+        rebateService.eachHierarchy(user);
+    }
 
     @DataProvider(name = "orderList")
     public static Object[][] dataProviderMethod() {

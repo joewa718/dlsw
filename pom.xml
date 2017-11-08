@@ -14,8 +14,6 @@
         <module>shopping</module>
         <module>common</module>
         <module>cms</module>
-        <module>promote</module>
-        <module>rebate</module>
     </modules>
 
     <parent>

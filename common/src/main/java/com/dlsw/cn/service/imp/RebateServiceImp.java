@@ -14,6 +14,8 @@ import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.util.DateUtil;
 import org.apache.poi.util.BinaryTree;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,7 @@ import java.util.*;
  **/
 @Service
 public class RebateServiceImp extends BaseService implements RebateService {
-
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     RebateRepository rebateRepository;
     @Autowired
@@ -35,10 +37,10 @@ public class RebateServiceImp extends BaseService implements RebateService {
     OrderRepository orderRepository;
 
     @Override
-    public void calSeniorRebate(User user, Order order) {
-        if (order.getUser().getRoleType() == RoleType.高级合伙人 && user.getRoleType() == RoleType.高级合伙人) {
+    public void calSeniorRebate(User recommend, Order order) {
+        if (order.getUser().getRoleType() == RoleType.高级合伙人 && recommend.getRoleType() == RoleType.高级合伙人) {
             Rebate rebate = new Rebate();
-            rebate.setUser(user);
+            rebate.setUser(recommend);
             rebate.setOrder(order);
             rebate.setReason("高级平级返利");
             rebate.setRebateType(RebateType.平级高级返利);
@@ -49,10 +51,10 @@ public class RebateServiceImp extends BaseService implements RebateService {
     }
 
     @Override
-    public void calCreditRebate(User user, Order order) {
-        if (DirectorLevel.getDirectorLevel(user) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
+    public void calCreditRebate(User recommend, Order order) {
+        if (DirectorLevel.getDirectorLevel(recommend) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
             Rebate rebate = new Rebate();
-            rebate.setUser(user);
+            rebate.setUser(recommend);
             rebate.setOrder(order);
             rebate.setRebateType(RebateType.平级信返利);
             rebate.setReason("信平级返利");
@@ -61,15 +63,14 @@ public class RebateServiceImp extends BaseService implements RebateService {
             rebateRepository.save(rebate);
         }
     }
-
-    public void calTeamRebate() {
-        List<User> userList = userRepository.findByEqualsRoleType(RoleType.高级合伙人);
-        userList.forEach(root -> {
-            eachHierarchy(root);
-        });
+    @Override
+    public void calRebate(Order order) {
+        User recommend = userRepository.findByPhone(order.getRecommendPhone());
+        calSeniorRebate(recommend,order);
+        calCreditRebate(recommend,order);
     }
-
-    private List<User> eachHierarchy(User root) {
+    @Override
+    public List<User> eachHierarchy(User root) {
         if (root == null) return null;
         List<User> rebateUserList = new ArrayList<>();
         LinkedList<User> queue = new LinkedList<>();
@@ -77,12 +78,15 @@ public class RebateServiceImp extends BaseService implements RebateService {
         while (queue.size() > 0) {
             User node = queue.poll();
             rebateUserList.add(node);
+            logger.debug(node.getNickname() +"-------------");
             node.getLower().forEach(c_node -> {
-                if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
+              /*  if(DirectorLevel.getDirectorLevel(root).getCode() - DirectorLevel.getDirectorLevel(c_node).getCode() > 0){
                     queue.offer(c_node);
-                }
+                }*/
+                queue.offer(c_node);
             });
         }
         return rebateUserList;
     }
+
 }

@@ -5,6 +5,7 @@ import com.dlsw.cn.enumerate.*;
 import com.dlsw.cn.po.*;
 import com.dlsw.cn.repositories.*;
 import com.dlsw.cn.service.BaseService;
+import com.dlsw.cn.service.PromoteService;
 import com.dlsw.cn.service.RebateService;
 import com.dlsw.cn.util.DateUtil;
 import com.dlsw.cn.util.GenerateRandomCode;
@@ -33,7 +34,6 @@ import java.util.stream.Collectors;
 @Service
 public class OrderServiceImp extends BaseService implements OrderService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    ;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -48,6 +48,8 @@ public class OrderServiceImp extends BaseService implements OrderService {
     private OrderCheckService orderCheckService;
     @Autowired
     private RebateService rebateService;
+    @Autowired
+    private PromoteService promoteService;
 
     public String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -118,20 +120,21 @@ public class OrderServiceImp extends BaseService implements OrderService {
         Order order = orderRepository.findOne(orderId);
         User orderUser = order.getUser();
         orderCheckService.sureOrder(order, user, orderUser);
-        //修改订单状态 为已支付
         order.setOrderStatus(OrderStatus.已支付);
         orderRepository.save(order);
-        //更新订单人级别,如果是套餐 并且 套餐的产品级别大于用户级别 ，修改用户级别
         Product product = productRepository.getProductByproductCode(order.getProductCode());
         if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > user.getRoleType().getCode()) {
             if (user.getAuthorizationCode() == null) {
                 user.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
             }
             user.setRoleType(product.getRoleType());
+            if(user.getRoleType() == RoleType.VIP){
+                promoteService.monitorVip(order);
+            }else if(user.getRoleType() == RoleType.合伙人){
+                promoteService.monitorPartner(order);
+            }
         }
-        //当用户没有上级，切用户级别 非普通用户,则将用户以及其下属挂到自己下面
         if (orderUser.getHigher() == null && orderUser.getRoleType().getCode() > RoleType.普通.getCode()) {
-            //更新子孙节点Path
             List<User> grandUserList = userRepository.findByLikeOrgPath(getEqualStr(orderUser));
             if (grandUserList != null && grandUserList.size() > 0) {
                 grandUserList.forEach(lower -> {
@@ -145,8 +148,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
             orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
             userRepository.save(orderUser);
         }
-        rebateService.calSeniorRebate(user,order);
-        rebateService.calCreditRebate(user,order);
+        rebateService.calRebate(order);
         return orderMapper.orderToOrderDTO(order);
     }
 
