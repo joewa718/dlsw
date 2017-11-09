@@ -1,11 +1,11 @@
 package com.nielsen.cn.web.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.enumerate.DirectorLevel;
-import com.dlsw.cn.enumerate.RoleType;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.OrderRepository;
-import com.dlsw.cn.repositories.ProductRepository;
+import com.dlsw.cn.web.enumerate.DirectorLevel;
+import com.dlsw.cn.web.enumerate.RoleType;
+import com.dlsw.cn.web.po.User;
+import com.dlsw.cn.web.repositories.OrderRepository;
+import com.dlsw.cn.web.repositories.ProductRepository;
 import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.service.imp.OrderServiceImp;
 import org.mockito.InjectMocks;

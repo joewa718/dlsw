@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.mapper;
 
-import com.dlsw.cn.dto.DeliveryAddressDTO;
-import com.dlsw.cn.po.DeliveryAddress;
+import com.dlsw.cn.web.dto.DeliveryAddressDTO;
+import com.dlsw.cn.web.po.DeliveryAddress;
 import com.dlsw.cn.web.vo.DeliveryAddressVo;
 import org.mapstruct.Mapper;
 

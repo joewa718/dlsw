@@ -1,14 +1,15 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.enumerate.PayType;
-import com.dlsw.cn.enumerate.RoleType;
-import com.dlsw.cn.po.DeliveryAddress;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.UserRepository;
-import com.dlsw.cn.service.BaseService;
+import com.dlsw.cn.web.enumerate.OrderStatus;
+import com.dlsw.cn.web.enumerate.PayType;
+import com.dlsw.cn.web.enumerate.RoleType;
+import com.dlsw.cn.web.po.DeliveryAddress;
+import com.dlsw.cn.web.po.Order;
+import com.dlsw.cn.web.po.Product;
+import com.dlsw.cn.web.po.User;
+import com.dlsw.cn.web.repositories.UserRepository;
+import com.dlsw.cn.web.service.BaseService;
+import com.dlsw.cn.web.service.OrderCheckService;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
 import org.apache.commons.lang3.StringUtils;
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderCheckServiceImp extends BaseService implements com.dlsw.cn.web.service.OrderCheckService {
+public class OrderCheckServiceImp extends BaseService implements OrderCheckService {
     @Autowired
     private UserRepository userRepository;
     @Override

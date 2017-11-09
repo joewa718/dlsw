@@ -1,12 +1,12 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.dto.ProductDTO;
-import com.dlsw.cn.enumerate.ProductType;
+import com.dlsw.cn.web.dto.ProductDTO;
+import com.dlsw.cn.web.enumerate.ProductType;
 import com.dlsw.cn.web.mapper.ProductMapper;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.ProductRepository;
-import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.web.po.Product;
+import com.dlsw.cn.web.po.User;
+import com.dlsw.cn.web.repositories.ProductRepository;
+import com.dlsw.cn.web.repositories.UserRepository;
 import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

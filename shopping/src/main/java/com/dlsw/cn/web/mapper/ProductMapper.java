@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.mapper;
 
-import com.dlsw.cn.dto.ProductDTO;
-import com.dlsw.cn.po.Product;
+import com.dlsw.cn.web.dto.ProductDTO;
+import com.dlsw.cn.web.po.Product;
 import org.mapstruct.Mapper;
 
 import java.util.List;

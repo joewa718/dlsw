@@ -2,8 +2,6 @@ package com.dlsw.cn.web.vo;/**
  * Created by zhanwa01 on 2017/8/9.
  */
 
-import com.dlsw.cn.enumerate.RoleType;
-
 /**
  * @author zhanwang
  * @create 2017-08-09 11:18

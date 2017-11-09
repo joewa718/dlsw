@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.vo;
 
-import com.dlsw.cn.enumerate.PayType;
+import com.dlsw.cn.web.enumerate.PayType;
 
 /**
  * @author zhanwang

@@ -1,8 +1,8 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.dto.UserSecurityDTO;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.UserRepository;
+import com.dlsw.cn.web.dto.UserSecurityDTO;
+import com.dlsw.cn.web.po.User;
+import com.dlsw.cn.web.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;

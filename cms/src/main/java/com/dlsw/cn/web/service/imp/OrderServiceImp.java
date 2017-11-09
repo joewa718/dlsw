@@ -1,21 +1,22 @@
 package com.dlsw.cn.web.service.imp;
 
-import com.dlsw.cn.dto.OrderDTO;
-import com.dlsw.cn.dto.PageDTO;
-import com.dlsw.cn.dto.RebateDTO;
-import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.enumerate.ProductType;
-import com.dlsw.cn.enumerate.RebateStatus;
-import com.dlsw.cn.mapper.OrderMapper;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.OrderRepository;
-import com.dlsw.cn.repositories.ProductRepository;
-import com.dlsw.cn.web.service.BaseService;
+import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.web.dto.PageDTO;
+import com.dlsw.cn.web.dto.RebateDTO;
+import com.dlsw.cn.web.enumerate.OrderStatus;
+import com.dlsw.cn.web.enumerate.ProductType;
+import com.dlsw.cn.web.enumerate.RebateStatus;
+import com.dlsw.cn.web.mapper.OrderMapper;
+import com.dlsw.cn.web.po.Order;
+import com.dlsw.cn.web.po.Product;
+import com.dlsw.cn.web.po.User;
+import com.dlsw.cn.web.repositories.OrderRepository;
+import com.dlsw.cn.web.repositories.ProductRepository;
+import com.dlsw.cn.web.repositories.UserRepository;
 import com.dlsw.cn.web.service.OrderService;
-import com.dlsw.cn.util.GenerateRandomCode;
-import com.dlsw.cn.vo.OrderVo;
+import com.dlsw.cn.web.service.PageService;
+import com.dlsw.cn.web.util.GenerateRandomCode;
+import com.dlsw.cn.web.vo.OrderVo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +35,14 @@ import java.util.List;
  * @create 2017-08-09 13:27
  **/
 @Service
-public class OrderServiceImp extends BaseService implements OrderService {
+public class OrderServiceImp extends PageService implements OrderService {
 
     private final Logger logger = LoggerFactory.getLogger(OrderServiceImp.class);
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
@@ -89,6 +92,21 @@ public class OrderServiceImp extends BaseService implements OrderService {
             }
             orderUser.setRoleType(product.getRoleType());
         }
+        /*if (orderUser.getHigher() == null && orderUser.getRoleType().getCode() > RoleType.普通.getCode()) {
+            List<User> grandUserList = userRepository.findByLikeOrgPath(getEqualStr(orderUser));
+            if (grandUserList != null && grandUserList.size() > 0) {
+                grandUserList.forEach(lower -> {
+                    lower.setOrgPath(bindOffSpringOrgPath(user, lower));
+                    userRepository.save(lower);
+                });
+            }
+            user.getLower().add(orderUser);
+            orderUser.setHigher(user);
+            orderUser.setLevel(user.getLevel() + 1);
+            orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
+            userRepository.save(orderUser);
+        }
+        rebateService.calRebate(order);*/
         return orderMapper.orderToOrderDTO(order);
     }
 }

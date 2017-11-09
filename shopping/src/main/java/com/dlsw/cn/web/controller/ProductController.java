@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.controller;
 
 import com.dlsw.cn.web.service.ProductService;
-import com.dlsw.cn.dto.ProductDTO;
+import com.dlsw.cn.web.dto.ProductDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

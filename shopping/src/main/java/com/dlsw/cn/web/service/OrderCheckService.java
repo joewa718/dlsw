@@ -1,9 +1,9 @@
 package com.dlsw.cn.web.service;
 
-import com.dlsw.cn.po.DeliveryAddress;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.po.DeliveryAddress;
+import com.dlsw.cn.web.po.Order;
+import com.dlsw.cn.web.po.Product;
+import com.dlsw.cn.web.po.User;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
 

@@ -8,8 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cms" />
         <module name="common" />
-        <module name="promote" />
-        <module name="rebate" />
         <module name="shopping" />
       </profile>
     </annotationProcessing>

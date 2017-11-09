@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.configuration;
 
-import com.dlsw.cn.util.encrypt.AESCryptPasswordEncoder;
+import com.dlsw.cn.web.util.encrypt.AESCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
@@ -13,23 +13,17 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.cors.CorsUtils;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Created by zhanWang on 2016/03/17.

@@ -2,7 +2,7 @@ package com.dlsw.cn.web.service;/**
  * Created by zhanwa01 on 2017/8/19.
  */
 
-import com.dlsw.cn.dto.EntryDTO;
+import com.dlsw.cn.web.dto.EntryDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

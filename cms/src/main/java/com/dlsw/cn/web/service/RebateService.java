@@ -1,11 +1,8 @@
 package com.dlsw.cn.web.service;
 
-import com.dlsw.cn.dto.PageDTO;
-import com.dlsw.cn.dto.RebateDTO;
-import com.dlsw.cn.po.Rebate;
-import com.dlsw.cn.vo.RebateVo;
-
-import java.util.List;
+import com.dlsw.cn.web.dto.PageDTO;
+import com.dlsw.cn.web.dto.RebateDTO;
+import com.dlsw.cn.web.vo.RebateVo;
 
 /**
  * @author zhanwang

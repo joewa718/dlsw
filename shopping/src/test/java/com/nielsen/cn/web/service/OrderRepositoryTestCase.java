@@ -1,13 +1,12 @@
 package com.nielsen.cn.web.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.User;
-import com.dlsw.cn.repositories.OrderRepository;
-import com.dlsw.cn.repositories.UserRepository;
-import com.dlsw.cn.service.RebateService;
-import com.dlsw.cn.util.DateUtil;
+import com.dlsw.cn.web.enumerate.OrderStatus;
+import com.dlsw.cn.web.po.Order;
+import com.dlsw.cn.web.repositories.OrderRepository;
+import com.dlsw.cn.web.repositories.UserRepository;
+import com.dlsw.cn.web.service.RebateService;
+import com.dlsw.cn.web.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
@@ -16,7 +15,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**

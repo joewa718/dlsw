@@ -1,15 +1,12 @@
 package com.dlsw.cn.web.service;
 
-import com.dlsw.cn.dto.OrderDTO;
-import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.po.Order;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.dto.OrderDTO;
+import com.dlsw.cn.web.enumerate.OrderStatus;
+import com.dlsw.cn.web.po.Product;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
-import com.github.binarywang.wxpay.bean.result.WxPayOrderNotifyResult;
-import com.dlsw.cn.enumerate.OrderType;
-import com.dlsw.cn.enumerate.RoleType;
+import com.dlsw.cn.web.enumerate.OrderType;
+import com.dlsw.cn.web.enumerate.RoleType;
 
 import javax.naming.OperationNotSupportedException;
 import javax.servlet.http.HttpServletRequest;

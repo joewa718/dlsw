@@ -1,6 +1,6 @@
 package com.dlsw.cn.web.configuration;
 
-import com.dlsw.cn.service.BaseService;
+import com.dlsw.cn.web.service.BaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

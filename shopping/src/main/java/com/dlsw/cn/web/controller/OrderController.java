@@ -1,23 +1,20 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.dto.OrderDTO;
+import com.dlsw.cn.web.dto.OrderDTO;
 import com.dlsw.cn.web.service.OrderService;
 import com.dlsw.cn.web.service.ProductService;
 import com.dlsw.cn.web.service.UserService;
 import com.dlsw.cn.web.vo.OrderVo;
 import com.dlsw.cn.web.vo.PayCertificateVo;
-import com.dlsw.cn.enumerate.OrderStatus;
-import com.dlsw.cn.enumerate.OrderType;
-import com.dlsw.cn.po.Product;
-import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.enumerate.OrderStatus;
+import com.dlsw.cn.web.enumerate.OrderType;
+import com.dlsw.cn.web.po.Product;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.naming.OperationNotSupportedException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 

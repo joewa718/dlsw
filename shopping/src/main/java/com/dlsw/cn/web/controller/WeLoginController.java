@@ -1,9 +1,9 @@
 package com.dlsw.cn.web.controller;
 
-import com.dlsw.cn.util.encrypt.AESCryptUtil;
+import com.dlsw.cn.web.util.encrypt.AESCryptUtil;
 import com.dlsw.cn.web.service.UserService;
-import com.dlsw.cn.util.GenerateRandomCode;
-import com.dlsw.cn.po.User;
+import com.dlsw.cn.web.util.GenerateRandomCode;
+import com.dlsw.cn.web.po.User;
 import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -19,7 +19,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
