@@ -303,7 +303,7 @@ public class User extends BaseEntity implements Serializable, Comparable {
     public void setOAuthInfo(OAuthInfo oAuthInfo) {
         this.oAuthInfo = oAuthInfo;
     }
-    
+
     public Set<PromoteLog> getPromoteLogSet() {
         return promoteLogSet;
     }

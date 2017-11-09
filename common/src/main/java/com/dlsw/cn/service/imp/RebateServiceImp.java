@@ -1,7 +1,6 @@
 package com.dlsw.cn.service.imp;
 
 import com.dlsw.cn.enumerate.DirectorLevel;
-import com.dlsw.cn.enumerate.OrderStatus;
 import com.dlsw.cn.enumerate.RebateType;
 import com.dlsw.cn.enumerate.RoleType;
 import com.dlsw.cn.po.Order;
@@ -12,15 +11,12 @@ import com.dlsw.cn.repositories.RebateRepository;
 import com.dlsw.cn.repositories.UserRepository;
 import com.dlsw.cn.service.BaseService;
 import com.dlsw.cn.service.RebateService;
-import com.dlsw.cn.util.DateUtil;
-import org.apache.poi.util.BinaryTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * @author zhanwang
@@ -36,13 +32,15 @@ public class RebateServiceImp extends BaseService implements RebateService {
     @Autowired
     OrderRepository orderRepository;
 
+    private final static int MAX_PERCENT = 24;
+
     @Override
     public void calSeniorRebate(User recommend, Order order) {
         if (order.getUser().getRoleType() == RoleType.高级合伙人 && recommend.getRoleType() == RoleType.高级合伙人) {
             Rebate rebate = new Rebate();
             rebate.setUser(recommend);
             rebate.setOrder(order);
-            rebate.setReason("高级平级返利");
+            rebate.setReason("平级高级返利");
             rebate.setRebateType(RebateType.平级高级返利);
             rebate.setRebateTime(order.getOrderTime());
             rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.12)));
@@ -57,17 +55,41 @@ public class RebateServiceImp extends BaseService implements RebateService {
             rebate.setUser(recommend);
             rebate.setOrder(order);
             rebate.setRebateType(RebateType.平级信返利);
-            rebate.setReason("信平级返利");
+            rebate.setReason("平级信返利");
             rebate.setRebateTime(order.getOrderTime());
             rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
             rebateRepository.save(rebate);
         }
     }
+
+    @Override
+    public void calLevelRebate(User recommend, Order order) {
+        int curPercent = 0;
+        User lowerUser = order.getUser();
+        User higherUser = recommend;
+        while (recommend != null && curPercent != MAX_PERCENT) {
+            int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(lowerUser).getPercent();
+            if (diff > 0) {
+                Rebate rebate = new Rebate();
+                rebate.setUser(recommend);
+                rebate.setOrder(order);
+                rebate.setRebateType(RebateType.级差返利);
+                rebate.setReason("级差返利");
+                rebate.setRebateTime(order.getOrderTime());
+                rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
+                rebateRepository.save(rebate);
+            }
+            curPercent += diff;
+            higherUser = higherUser.getHigher();
+            lowerUser = higherUser;
+        }
+    }
+
     @Override
     public void calRebate(Order order) {
         User recommend = userRepository.findByPhone(order.getRecommendPhone());
-        calSeniorRebate(recommend,order);
-        calCreditRebate(recommend,order);
+        calSeniorRebate(recommend, order);
+        calCreditRebate(recommend, order);
+        calLevelRebate(recommend, order);
     }
-
 }

@@ -1,7 +1,7 @@
 package com.dlsw.cn.enumerate;
 
 public enum RebateType {
-    平级信返利("平级信返利", 1), 平级高级返利("平级高级返利", 2), 团队返利("团队返利", 3);
+    平级信返利("平级信返利", 1), 平级高级返利("平级高级返利", 2), 级差返利("级差返利", 3);
 
     RebateType(String name, int code) {
         this.name = name;
@@ -35,7 +35,7 @@ public enum RebateType {
             return 平级高级返利;
         }
         if (code == 3) {
-            return 团队返利;
+            return 级差返利;
         }
         throw new UnsupportedOperationException(
                 "The code " + code + " is not supported!"

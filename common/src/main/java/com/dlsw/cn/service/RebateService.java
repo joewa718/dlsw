@@ -27,6 +27,13 @@ public interface RebateService {
     void calCreditRebate(User recommend, Order order);
 
     /**
+     * 级差返利
+     * @param recommend
+     * @param order
+     */
+    void calLevelRebate(User recommend, Order order);
+
+    /**
      * 计算返利
      */
     void calRebate(Order order);
