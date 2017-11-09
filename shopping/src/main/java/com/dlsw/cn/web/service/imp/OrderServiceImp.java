@@ -6,7 +6,7 @@ import com.dlsw.cn.web.po.*;
 import com.dlsw.cn.web.repositories.*;
 import com.dlsw.cn.web.service.BaseService;
 import com.dlsw.cn.web.service.PromoteService;
-import com.dlsw.cn.web.service.RebateService;
+import com.dlsw.cn.web.service.RewardStrategyService;
 import com.dlsw.cn.web.util.DateUtil;
 import com.dlsw.cn.web.util.GenerateRandomCode;
 import com.dlsw.cn.web.mapper.OrderMapper;
@@ -47,7 +47,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
     @Autowired
     private OrderCheckService orderCheckService;
     @Autowired
-    private RebateService rebateService;
+    private RewardStrategyService rewardStrategyService;
     @Autowired
     private PromoteService promoteService;
 
@@ -148,7 +148,7 @@ public class OrderServiceImp extends BaseService implements OrderService {
             orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
             userRepository.save(orderUser);
         }
-        rebateService.calRebate(order);
+        rewardStrategyService.calRebate(order);
         return orderMapper.orderToOrderDTO(order);
     }
 

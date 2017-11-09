@@ -10,7 +10,7 @@ import com.dlsw.cn.web.repositories.OrderRepository;
 import com.dlsw.cn.web.repositories.RebateRepository;
 import com.dlsw.cn.web.repositories.UserRepository;
 import com.dlsw.cn.web.service.BaseService;
-import com.dlsw.cn.web.service.RebateService;
+import com.dlsw.cn.web.service.RewardStrategyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.math.BigDecimal;
  * @create 2017-11-06 13:16
  **/
 @Service
-public class RebateServiceImp extends BaseService implements RebateService {
+public class RewardStrategyServiceImp extends BaseService implements RewardStrategyService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     RebateRepository rebateRepository;

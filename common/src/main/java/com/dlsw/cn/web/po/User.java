@@ -74,7 +74,6 @@ public class User extends BaseEntity implements Serializable, Comparable {
     @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     private Set<PromoteLog> promoteLogSet = new TreeSet<>();
 
-
     public long getId() {
         return id;
     }

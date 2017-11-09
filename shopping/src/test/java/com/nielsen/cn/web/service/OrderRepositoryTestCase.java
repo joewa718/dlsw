@@ -5,7 +5,7 @@ import com.dlsw.cn.web.enumerate.OrderStatus;
 import com.dlsw.cn.web.po.Order;
 import com.dlsw.cn.web.repositories.OrderRepository;
 import com.dlsw.cn.web.repositories.UserRepository;
-import com.dlsw.cn.web.service.RebateService;
+import com.dlsw.cn.web.service.RewardStrategyService;
 import com.dlsw.cn.web.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ public class OrderRepositoryTestCase extends AbstractTransactionalTestNGSpringCo
     @Autowired
     UserRepository userRepository;
     @Autowired
-    RebateService rebateService;
+    RewardStrategyService rewardStrategyService;
     @Test()
     public void testFindOrderListByOrderTimeCase() {
        List<Object[]> list = orderRepository.findOrderListByOrderTime(">5>", OrderStatus.已支付, DateUtil.getCurMonth());

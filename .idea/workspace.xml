@@ -1,163 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1db90baa-6155-4113-b2e0-0e2b32214813" name="Default" comment="循环找上级代理商">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/PageService.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_beanshell_bsh_2_0b4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_6_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_6_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_6_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_10_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/CSRFHeaderFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/DruidStatFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/DruidStatViewServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAccessDeniedHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAuthenticationEntryPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAuthenticationSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTLogoutSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RestTemplateConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/SecurityConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/SwaggerConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/TransactionManagementConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/BaseController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/OrderController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/RebateController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/mapper/OrderMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/mapper/RebateMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/BaseService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/PromoteService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/RebateService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/imp/PromoteServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/imp/RebateServiceImp.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/CSRFHeaderFilter.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/CSRFHeaderFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/DruidStatFilter.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/DruidStatFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/DruidStatViewServlet.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/DruidStatViewServlet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAccessDeniedHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAccessDeniedHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAuthenticationEntryPoint.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationEntryPoint.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationSuccessHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RESTLogoutSuccessHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTLogoutSuccessHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/RestTemplateConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RestTemplateConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/SecurityConfiguration.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/SecurityConfiguration.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/SwaggerConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/SwaggerConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/configuration/TransactionManagementConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/TransactionManagementConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/BaseController.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/BaseController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/OrderController.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/OrderController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/controller/RebateController.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/RebateController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/mapper/OrderMapper.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/mapper/OrderMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/mapper/RebateMapper.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/mapper/RebateMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/vo/OrderVo.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/OrderVo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/vo/PageVo.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/PageVo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/vo/RebateVo.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/RebateVo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/ArrayMapper.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/ArrayMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/OrderStatusConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/OrderStatusConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/OrderTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/OrderTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/PayTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/PayTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/ProductTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/ProductTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateStatusConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RebateStatusConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RebateTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RebateTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/converter/RoleTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RoleTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/CodeDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/CodeDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/DeliveryAddressDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/DeliveryAddressDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/EntryDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/EntryDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/ImageDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/ImageDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/OrderDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/OrderDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/PageDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/PageDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/ProductDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/ProductDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/RealInfoDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/RealInfoDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/RebateDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/RebateDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/UserDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/UserDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/dto/UserSecurityDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/UserSecurityDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/DirectorLevel.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/DirectorLevel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/FileType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/FileType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/OrderStatus.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/OrderStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/OrderType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/OrderType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/PayType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/PayType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/ProductType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/ProductType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateStatus.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RebateStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RebateType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RoleType.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RoleType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/BaseEntity.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/BaseEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/DeliveryAddress.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/DeliveryAddress.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/OAuthInfo.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/OAuthInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Order.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Order.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Product.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Product.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/PromoteLog.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/PromoteLog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/RealInfo.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/RealInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Rebate.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Rebate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/User.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/WxPayOrderNotify.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/WxPayOrderNotify.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/DeliveryAddressRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/DeliveryAddressRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/OrderRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/OrderRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/ProductRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/ProductRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/PromoteLogRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/PromoteLogRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/RebateRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/RebateRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/UserRepository.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/UserRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/BaseService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/BaseService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/PromoteService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/PromoteService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/RebateService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RebateService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/imp/PromoteServiceImp.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/PromoteServiceImp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/imp/RebateServiceImp.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/CollectionUtility.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/CollectionUtility.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/DateUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/DateUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/GenerateRandomCode.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/GenerateRandomCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/ImageCode.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/ImageCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/JsonUtils.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/JsonUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/MathExtend.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/MathExtend.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/SmsSender.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/SmsSender.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/TimeUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/TimeUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/encrypt/AESCryptPasswordEncoder.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/encrypt/AESCryptPasswordEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/util/encrypt/AESCryptUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/encrypt/AESCryptUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="1db90baa-6155-4113-b2e0-0e2b32214813" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/BaseService.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RebateService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RewardStrategyService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RewardStrategyServiceImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/cms.iml" afterPath="$PROJECT_DIR$/cms/cms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/OrderService.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/OrderService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/shopping.iml" afterPath="$PROJECT_DIR$/shopping/shopping.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/SecurityConfiguration.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/SecurityConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/TaskScheduleConfig.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/TaskScheduleConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/BaseController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/OrderController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ProductController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ReportController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ReportController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WeLoginController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WeLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/LogHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/LogHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/MsgHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/MsgHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/DeliveryAddressMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/DeliveryAddressMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OauthInfoMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OauthInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OrderMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OrderMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/ProductMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/ProductMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/RealInfoMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/RealInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/UserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/WxPayOrderNotifyMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/WxPayOrderNotifyMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderCheckService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderCheckService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ProductService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ReportService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ReportService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/UserService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderCheckServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderCheckServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/BaseEntity.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/BaseEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ProductServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ProductServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ReportServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ReportServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/UserServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/UserServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/OrderVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/OrderVo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/UserVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/UserVo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DateUtilTestCase.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DateUtilTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DirectorLevelTest.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DirectorLevelTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -195,29 +48,23 @@
       <file leaf-file-name="OrderServiceImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="137" column="80" lean-forward="false" selection-start-line="137" selection-start-column="80" selection-end-line="137" selection-end-column="80" />
-              <folding />
+            <state relative-caret-position="540">
+              <caret line="150" column="29" lean-forward="false" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/BaseController.java">
+      <file leaf-file-name="RewardStrategyServiceImp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RewardStrategyServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/OrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-              <folding />
+            <state relative-caret-position="-629">
+              <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -232,12 +79,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/OrderService.java">
+      <file leaf-file-name="OrderRepositoryTestCase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="211">
+              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,7 +95,27 @@
         <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="436">
-              <caret line="108" column="41" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="108" selection-end-column="41" />
+              <caret line="121" column="34" lean-forward="true" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RebateService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RewardStrategyService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RewardStrategyService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -262,31 +131,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RebateServiceImp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RebateServiceImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RebateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/RebateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="31" column="50" lean-forward="false" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/BaseService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            <state relative-caret-position="15">
+              <caret line="25" column="65" lean-forward="false" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -363,11 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common/pom.xml" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/UserServiceImp.java" />
-        <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/PromoteService.java" />
-        <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/PromoteService.java" />
-        <option value="$PROJECT_DIR$/rebate/src/main/java/com/dlsw/cn/service/RebateService.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/RealInfo.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/Product.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/UserServiceOrder.java" />
@@ -398,12 +252,10 @@
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/PromoteService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/OrderRepository.java" />
-        <option value="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/PromoteLog.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/imp/PromoteServiceImp.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/repositories/PromoteLogRepository.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/po/User.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/RebateService.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/DirectorLevel.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/enumerate/RebateType.java" />
@@ -412,8 +264,15 @@
         <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/service/BaseService.java" />
         <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/BaseService.java" />
         <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/service/imp/OrderServiceImp.java" />
-        <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java" />
         <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" />
+        <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RebateService.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RewardStrategyServiceImp.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
+        <option value="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" />
+        <option value="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" />
       </list>
     </option>
   </component>
@@ -558,6 +417,40 @@
             <path>
               <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
               <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="imp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -603,6 +496,40 @@
             <path>
               <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
               <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="imp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
               <item name="shopping" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -644,6 +571,29 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="imp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
@@ -1393,14 +1343,7 @@
       <workItem from="1510125555422" duration="1171000" />
       <workItem from="1510126890227" duration="476000" />
       <workItem from="1510127370888" duration="6729000" />
-      <workItem from="1510135831358" duration="17568000" />
-    </task>
-    <task id="LOCAL-00033" summary="update page">
-      <created>1506921619463</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1506921619463</updated>
+      <workItem from="1510135831358" duration="18772000" />
     </task>
     <task id="LOCAL-00034" summary="update page">
       <created>1506921860684</created>
@@ -1738,7 +1681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510233639935</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="调整目录">
+      <created>1510234424768</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1510234424768</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1774,7 +1724,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193873000" />
+    <option name="totallyTimeSpent" value="195077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1809,9 +1759,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32411674" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28934819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28934819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32565284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32565284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1859,7 +1809,7 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28934819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32565284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32565284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1891,14 +1841,15 @@
     <MESSAGE value="等级升级" />
     <MESSAGE value="返利逻辑" />
     <MESSAGE value="循环找上级代理商" />
-    <option name="LAST_COMMIT_MESSAGE" value="循环找上级代理商" />
+    <MESSAGE value="调整目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整目录" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java</url>
-          <line>293</line>
+          <line>292</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -1944,7 +1895,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/Program Files/Java/jdk1.8.0_141/src.zip!/java/util/Stack.java" />
     <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/BinaryTree.java" />
     <entry file="jar://E:/Program Files/Java/jdk1.8.0_141/src.zip!/java/util/LinkedList.java" />
     <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/UserServiceImp.java">
@@ -2109,14 +2059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -2149,14 +2091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RebateStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -2169,14 +2103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RebateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="53" lean-forward="false" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -2206,14 +2132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -2250,14 +2168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="137" column="80" lean-forward="false" selection-start-line="137" selection-start-column="80" selection-end-line="137" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -2282,19 +2192,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="108" column="41" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="108" selection-end-column="41" />
+        <state relative-caret-position="240">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state relative-caret-position="15">
+          <caret line="25" column="65" lean-forward="false" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="150" column="29" lean-forward="false" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="121" column="34" lean-forward="true" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RewardStrategyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RewardStrategyServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

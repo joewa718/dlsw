@@ -6,6 +6,7 @@ import com.dlsw.cn.web.dto.RebateDTO;
 import com.dlsw.cn.web.enumerate.OrderStatus;
 import com.dlsw.cn.web.enumerate.ProductType;
 import com.dlsw.cn.web.enumerate.RebateStatus;
+import com.dlsw.cn.web.enumerate.RoleType;
 import com.dlsw.cn.web.mapper.OrderMapper;
 import com.dlsw.cn.web.po.Order;
 import com.dlsw.cn.web.po.Product;
@@ -13,8 +14,7 @@ import com.dlsw.cn.web.po.User;
 import com.dlsw.cn.web.repositories.OrderRepository;
 import com.dlsw.cn.web.repositories.ProductRepository;
 import com.dlsw.cn.web.repositories.UserRepository;
-import com.dlsw.cn.web.service.OrderService;
-import com.dlsw.cn.web.service.PageService;
+import com.dlsw.cn.web.service.*;
 import com.dlsw.cn.web.util.GenerateRandomCode;
 import com.dlsw.cn.web.vo.OrderVo;
 import org.apache.commons.lang3.StringUtils;
@@ -47,6 +47,10 @@ public class OrderServiceImp extends PageService implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private PromoteService promoteService;
+    @Autowired
+    private RewardStrategyService rewardStrategyService;
 
     @Override
     public PageDTO<RebateDTO> fetchPage(OrderVo orderVo) {
@@ -79,11 +83,13 @@ public class OrderServiceImp extends PageService implements OrderService {
 
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
     public OrderDTO sureOrder(long orderId) {
+
         Order order = orderRepository.findOne(orderId);
         User orderUser = order.getUser();
         //修改订单状态 为已支付
         order.setOrderStatus(OrderStatus.已支付);
         orderRepository.save(order);
+
         //更新订单人级别,如果是套餐 并且 套餐的产品级别大于用户级别 ，修改用户级别
         Product product = productRepository.getProductByproductCode(order.getProductCode());
         if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > orderUser.getRoleType().getCode()) {
@@ -91,22 +97,29 @@ public class OrderServiceImp extends PageService implements OrderService {
                 orderUser.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
             }
             orderUser.setRoleType(product.getRoleType());
+            if(orderUser.getRoleType() == RoleType.VIP){
+                promoteService.monitorVip(order);
+            }else if(orderUser.getRoleType() == RoleType.合伙人){
+                promoteService.monitorPartner(order);
+            }
         }
-        /*if (orderUser.getHigher() == null && orderUser.getRoleType().getCode() > RoleType.普通.getCode()) {
+
+        User topUser = userRepository.findByPhone("18930983718");
+        if (orderUser.getHigher() == null && orderUser.getRoleType().getCode() > RoleType.普通.getCode()) {
             List<User> grandUserList = userRepository.findByLikeOrgPath(getEqualStr(orderUser));
             if (grandUserList != null && grandUserList.size() > 0) {
                 grandUserList.forEach(lower -> {
-                    lower.setOrgPath(bindOffSpringOrgPath(user, lower));
+                    lower.setOrgPath(bindOffSpringOrgPath(topUser, lower));
                     userRepository.save(lower);
                 });
             }
-            user.getLower().add(orderUser);
-            orderUser.setHigher(user);
-            orderUser.setLevel(user.getLevel() + 1);
-            orderUser.setOrgPath(bindOffSpringOrgPath(user, orderUser));
+            topUser.getLower().add(orderUser);
+            orderUser.setHigher(topUser);
+            orderUser.setLevel(topUser.getLevel() + 1);
+            orderUser.setOrgPath(bindOffSpringOrgPath(topUser, orderUser));
             userRepository.save(orderUser);
         }
-        rebateService.calRebate(order);*/
+        rewardStrategyService.calRebate(order);
         return orderMapper.orderToOrderDTO(order);
     }
 }
