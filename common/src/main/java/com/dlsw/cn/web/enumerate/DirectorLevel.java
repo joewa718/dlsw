@@ -4,7 +4,7 @@ import com.dlsw.cn.web.po.User;
 
 public enum DirectorLevel {
 
-    无("无", 0, 0), 仁("仁", 2, 8), 义("义", 4, 12), 礼("礼", 6, 16), 智("智", 8, 18), 信("信", 10, 24);
+    无("无", 0, 0), 仁("仁", 2, 20), 义("义", 4, 24), 礼("礼", 6, 28), 智("智", 8, 32), 信("信", 10, 36);
 
     DirectorLevel(String name, int code, int percent) {
         this.name = name;

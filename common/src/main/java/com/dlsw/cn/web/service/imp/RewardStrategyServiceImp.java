@@ -32,66 +32,43 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
     @Autowired
     OrderRepository orderRepository;
 
-    private final static int MAX_PERCENT = 24;
-
-    @Override
-    public void calSeniorRebate(User recommend, Order order) {
-        if (order.getUser().getRoleType() == RoleType.高级合伙人 && recommend.getRoleType() == RoleType.高级合伙人) {
-            Rebate rebate = new Rebate();
-            rebate.setUser(recommend);
-            rebate.setOrder(order);
-            rebate.setReason("平级高级返利");
-            rebate.setRebateType(RebateType.平级高级返利);
-            rebate.setRebateTime(order.getOrderTime());
-            rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.12)));
-            rebateRepository.save(rebate);
-        }
-    }
-
-    @Override
-    public void calCreditRebate(User recommend, Order order) {
-        if (recommend.getRoleType() == RoleType.高级合伙人 && order.getUser().getRoleType() == RoleType.高级合伙人
-                && DirectorLevel.getDirectorLevel(recommend) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
-            Rebate rebate = new Rebate();
-            rebate.setUser(recommend);
-            rebate.setOrder(order);
-            rebate.setRebateType(RebateType.平级信返利);
-            rebate.setReason("平级信返利");
-            rebate.setRebateTime(order.getOrderTime());
-            rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
-            rebateRepository.save(rebate);
-        }
-    }
-
-    @Override
-    public void calLevelRebate(User recommend, Order order) {
-        int curPercent = 0;
-        User lowerUser = order.getUser();
-        User higherUser = recommend;
-        while (higherUser != null && curPercent <= MAX_PERCENT) {
-            int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(lowerUser).getPercent();
-            if (diff > 0) {
-                Rebate rebate = new Rebate();
-                rebate.setUser(higherUser);
-                rebate.setOrder(order);
-                rebate.setRebateType(RebateType.级差返利);
-                rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " +
-                        lowerUser.getPhone() + "(" + lowerUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(lowerUser).getName());
-                rebate.setRebateTime(order.getOrderTime());
-                rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
-                rebateRepository.save(rebate);
-            }
-            higherUser = higherUser.getHigher();
-            lowerUser = higherUser;
-            curPercent += diff;
-        }
-    }
+    private final static int MAX_PERCENT = 36;
 
     @Override
     public void calRebate(Order order) {
-        User recommend = userRepository.findByPhone(order.getRecommendPhone());
-        calSeniorRebate(recommend, order);
-        calCreditRebate(recommend, order);
-        calLevelRebate(recommend, order);
+        User orderUser = order.getUser();
+        if(orderUser.getRoleType() == RoleType.高级合伙人){
+            int curPercent = 0;
+            User higherUser = userRepository.findByPhone(order.getRecommendPhone());
+            while (higherUser != null && curPercent <= MAX_PERCENT) {
+                int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
+                if (diff > 0) {
+                    Rebate rebate = new Rebate();
+                    rebate.setUser(higherUser);
+                    rebate.setOrder(order);
+                    rebate.setRebateType(RebateType.级差返利);
+                    rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " + orderUser.getPhone() + "(" + orderUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(orderUser).getName());
+                    rebate.setRebateTime(order.getOrderTime());
+                    rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
+                    rebateRepository.save(rebate);
+                } else {
+                    if (curPercent == 0 && higherUser.getRoleType() == RoleType.高级合伙人 && order.getUser().getRoleType() == RoleType.高级合伙人
+                            && DirectorLevel.getDirectorLevel(higherUser) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
+                        Rebate rebate = new Rebate();
+                        rebate.setUser(higherUser);
+                        rebate.setOrder(order);
+                        rebate.setRebateType(RebateType.平级信返利);
+                        rebate.setReason("平级信返利");
+                        rebate.setRebateTime(order.getOrderTime());
+                        rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
+                        rebateRepository.save(rebate);
+                        break;
+                    }
+                }
+                higherUser = higherUser.getHigher();
+                orderUser = higherUser;
+                curPercent += diff;
+            }
+        }
     }
 }
