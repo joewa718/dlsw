@@ -65,9 +65,6 @@ public enum DirectorLevel {
     }
 
     public static DirectorLevel getDirectorLevel(User user) {
-        if (user.getRoleType() != RoleType.高级合伙人) {
-            return DirectorLevel.无;
-        }
         long count = user.getLower().stream().filter(u -> u.getRoleType() == RoleType.高级合伙人).count();
         if (count >= 2 && count <= 3) {
             return DirectorLevel.仁;

@@ -50,6 +50,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                     rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " + orderUser.getPhone() + "(" + orderUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(orderUser).getName());
                     rebate.setRebateTime(order.getOrderTime());
                     rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
+                    curPercent += diff;
                     rebateRepository.save(rebate);
                 } else {
                     if (curPercent == 0 && higherUser.getRoleType() == RoleType.高级合伙人 && order.getUser().getRoleType() == RoleType.高级合伙人
@@ -67,7 +68,6 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                 }
                 higherUser = higherUser.getHigher();
                 orderUser = higherUser;
-                curPercent += diff;
             }
         }
     }
