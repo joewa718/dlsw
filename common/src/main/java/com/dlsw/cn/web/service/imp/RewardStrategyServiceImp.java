@@ -57,7 +57,10 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
             } else {
                 int curPercent = 0;
                 User higherUser = userRepository.findByPhone(order.getRecommendPhone());
-                while (higherUser != null && curPercent <= MAX_PERCENT) {
+                while (higherUser != null) {
+                    if(curPercent >= MAX_PERCENT){
+                        return ;
+                    }
                     int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
                     if (diff > 0) {
                         Rebate rebate = new Rebate();
