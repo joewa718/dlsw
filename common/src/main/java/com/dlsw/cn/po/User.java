@@ -12,9 +12,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 import java.util.TreeSet;
+
 @Entity
 @Table(name = "t_user")
-public class User extends BaseEntity implements Serializable,Comparable{
+public class User extends BaseEntity implements Serializable, Comparable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
@@ -42,22 +43,22 @@ public class User extends BaseEntity implements Serializable,Comparable{
     @Column(name = "reg_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date regTime;
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private RealInfo realInfo;
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private OAuthInfo oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @OrderBy("id DESC")
     private Set<Order> orderList = new TreeSet<>();
-    @OneToMany(mappedBy = "higher", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "higher", cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     private Set<User> lower = new TreeSet<>();
-    @ManyToOne(cascade = { CascadeType.REFRESH, CascadeType.PERSIST },fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @JoinColumn(name = "h_uid")
     private User higher;
-    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinTable(name = "t_user_service_order",joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "t_user_service_order", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "order_id")})
     @OrderBy("id DESC")
     private Set<Order> serviceOrderList = new TreeSet<>();
     @Column(name = "org_path")
@@ -70,8 +71,11 @@ public class User extends BaseEntity implements Serializable,Comparable{
     private int diffDate;
     @Column(name = "level")
     private Integer level;
-    @OneToMany(mappedBy = "user", cascade = { CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     private Set<Rebate> rebateSet = new TreeSet<>();
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    private Set<PromoteLog> promoteLogSet = new TreeSet<>();
+
 
     public long getId() {
         return id;
@@ -298,6 +302,14 @@ public class User extends BaseEntity implements Serializable,Comparable{
 
     public void setOAuthInfo(OAuthInfo oAuthInfo) {
         this.oAuthInfo = oAuthInfo;
+    }
+    
+    public Set<PromoteLog> getPromoteLogSet() {
+        return promoteLogSet;
+    }
+
+    public void setPromoteLogSet(Set<PromoteLog> promoteLogSet) {
+        this.promoteLogSet = promoteLogSet;
     }
 
 }
