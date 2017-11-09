@@ -68,21 +68,22 @@ public class RebateServiceImp extends BaseService implements RebateService {
         int curPercent = 0;
         User lowerUser = order.getUser();
         User higherUser = recommend;
-        while (recommend != null && curPercent != MAX_PERCENT) {
+        while (higherUser != null && curPercent <= MAX_PERCENT) {
             int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(lowerUser).getPercent();
             if (diff > 0) {
                 Rebate rebate = new Rebate();
-                rebate.setUser(recommend);
+                rebate.setUser(higherUser);
                 rebate.setOrder(order);
                 rebate.setRebateType(RebateType.级差返利);
-                rebate.setReason("级差返利");
+                rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " +
+                        lowerUser.getPhone() + "(" + lowerUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(lowerUser).getName());
                 rebate.setRebateTime(order.getOrderTime());
                 rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
                 rebateRepository.save(rebate);
             }
-            curPercent += diff;
             higherUser = higherUser.getHigher();
             lowerUser = higherUser;
+            curPercent += diff;
         }
     }
 
