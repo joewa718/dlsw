@@ -1,7 +1,7 @@
 package com.dlsw.cn.web.enumerate;
 
 public enum RebateType {
-    平级信返利("平级信返利", 1), 平级高级返利("平级高级返利", 2), 级差返利("级差返利", 3);
+    信平级返利("信平级返利", 1), 级差返利("级差返利", 2);
 
     RebateType(String name, int code) {
         this.name = name;
@@ -29,12 +29,9 @@ public enum RebateType {
 
     public static RebateType fromCode(int code) {
         if (code == 1) {
-            return 平级信返利;
+            return 信平级返利;
         }
         if (code == 2) {
-            return 平级高级返利;
-        }
-        if (code == 3) {
             return 级差返利;
         }
         throw new UnsupportedOperationException(

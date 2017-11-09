@@ -32,43 +32,49 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
     @Autowired
     OrderRepository orderRepository;
 
-    private final static int MAX_PERCENT = 36;
+    private final static int MAX_PERCENT = DirectorLevel.信.getPercent();
 
     @Override
     public void calRebate(Order order) {
         User orderUser = order.getUser();
-        if(orderUser.getRoleType() == RoleType.高级合伙人){
-            int curPercent = 0;
-            User higherUser = userRepository.findByPhone(order.getRecommendPhone());
-            while (higherUser != null && curPercent <= MAX_PERCENT) {
-                int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
-                if (diff > 0) {
-                    Rebate rebate = new Rebate();
-                    rebate.setUser(higherUser);
-                    rebate.setOrder(order);
-                    rebate.setRebateType(RebateType.级差返利);
-                    rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " + orderUser.getPhone() + "(" + orderUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(orderUser).getName());
-                    rebate.setRebateTime(order.getOrderTime());
-                    rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
-                    curPercent += diff;
-                    rebateRepository.save(rebate);
-                } else {
-                    if (curPercent == 0 && higherUser.getRoleType() == RoleType.高级合伙人 && order.getUser().getRoleType() == RoleType.高级合伙人
-                            && DirectorLevel.getDirectorLevel(higherUser) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
+        if (orderUser.getRoleType() == RoleType.高级合伙人) {
+            if (DirectorLevel.getDirectorLevel(orderUser) == DirectorLevel.信) {
+                User higherUser = userRepository.findByPhone(order.getRecommendPhone());
+                while (higherUser != null) {
+                    if (higherUser.getRoleType() == RoleType.高级合伙人 && DirectorLevel.getDirectorLevel(higherUser) == DirectorLevel.信) {
                         Rebate rebate = new Rebate();
                         rebate.setUser(higherUser);
                         rebate.setOrder(order);
-                        rebate.setRebateType(RebateType.平级信返利);
-                        rebate.setReason("平级信返利");
+                        rebate.setRebateType(RebateType.信平级返利);
+                        rebate.setReason("信平级返利");
                         rebate.setRebateTime(order.getOrderTime());
                         rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
                         rebateRepository.save(rebate);
-                        break;
+                        return;
                     }
+                    higherUser = higherUser.getHigher();
                 }
-                higherUser = higherUser.getHigher();
-                orderUser = higherUser;
+            } else {
+                int curPercent = 0;
+                User higherUser = userRepository.findByPhone(order.getRecommendPhone());
+                while (higherUser != null && curPercent <= MAX_PERCENT) {
+                    int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
+                    if (diff > 0) {
+                        Rebate rebate = new Rebate();
+                        rebate.setUser(higherUser);
+                        rebate.setOrder(order);
+                        rebate.setRebateType(RebateType.级差返利);
+                        rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " + orderUser.getPhone() + "(" + orderUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(orderUser).getName());
+                        rebate.setRebateTime(order.getOrderTime());
+                        rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
+                        curPercent += diff;
+                        rebateRepository.save(rebate);
+                    }
+                    higherUser = higherUser.getHigher();
+                    orderUser = higherUser;
+                }
             }
+
         }
     }
 }
