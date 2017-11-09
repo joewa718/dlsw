@@ -50,7 +50,8 @@ public class RebateServiceImp extends BaseService implements RebateService {
 
     @Override
     public void calCreditRebate(User recommend, Order order) {
-        if (DirectorLevel.getDirectorLevel(recommend) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
+        if (recommend.getRoleType() == RoleType.高级合伙人 && order.getUser().getRoleType() == RoleType.高级合伙人
+                && DirectorLevel.getDirectorLevel(recommend) == DirectorLevel.信 && DirectorLevel.getDirectorLevel(order.getUser()) == DirectorLevel.信) {
             Rebate rebate = new Rebate();
             rebate.setUser(recommend);
             rebate.setOrder(order);
