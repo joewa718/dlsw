@@ -36,7 +36,7 @@ public class RebateController extends BaseController {
     }
 
 
-    @ApiOperation(value = "获取订单明细")
+    @ApiOperation(value = "获取返利明细")
     @RequestMapping(value = "/getRebate", method = RequestMethod.POST)
     public ResponseEntity<OrderDTO> getOrder(@RequestParam long orderId) {
         OrderDTO orderDTO = orderService.getOrder(orderId);
