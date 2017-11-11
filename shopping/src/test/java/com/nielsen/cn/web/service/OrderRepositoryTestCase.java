@@ -1,12 +1,12 @@
 package com.nielsen.cn.web.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.web.enumerate.OrderStatus;
-import com.dlsw.cn.web.po.Order;
-import com.dlsw.cn.web.repositories.OrderRepository;
-import com.dlsw.cn.web.repositories.UserRepository;
-import com.dlsw.cn.web.service.RewardStrategyService;
-import com.dlsw.cn.web.util.DateUtil;
+import com.dlsw.cn.common.enumerate.OrderStatus;
+import com.dlsw.cn.common.po.Order;
+import com.dlsw.cn.common.repositories.OrderRepository;
+import com.dlsw.cn.common.repositories.UserRepository;
+import com.dlsw.cn.common.service.RewardStrategyService;
+import com.dlsw.cn.common.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;

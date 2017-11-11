@@ -1,7 +1,6 @@
 spring:
-  #resources.static-locations: classpath:/dist/
   profiles:
-    active: dev
+    active: prd
   data:
     jpa:
       repositories:
@@ -46,8 +45,8 @@ wechat:
     subMchId:
     keyPath: C:/Users/zhanwa01/nielsen_space/dlsw/shopping/src/main/resources/cert/apiclient_cert.p12
 sms:
-  appId: 1400038379
-  appKey: 1b9e33d5acd98689763038c5c347db41
+  appId: 1400048750
+  appKey: 0721e3b884a93f0d3092a32f6e4c4f09
   regTempId: 33761
   pwFoundTempId: 33989
 ---
@@ -75,7 +74,7 @@ spring:
       #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw?useUnicode=true&characterEncoding=utf-8&useSSL=false
       url: jdbc:mysql://localhost:3306/dlsw
       username: root
-      password:
+      password: 123456
       connectionInitSqls: set names utf8mb4;
       initialSize: 5
       minIdle: 5
@@ -109,12 +108,12 @@ flush:
 wechat:
   pay:
     keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
-    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
-    bindPhonePath: http://www.jinhuishengwu.cn/bindPhone.html
-    loginSuccessPath: http://www.jinhuishengwu.cn/u.html
+    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
+    bindPhonePath: http://www.zgdl.net.cn/bindPhone.html
+    loginSuccessPath: http://www.zgdl.net.cn/u.html
 ---
 server:
   port: 8888
@@ -165,11 +164,11 @@ flush:
 wechat:
   pay:
     keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
-    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
-    loginSuccess: http://www.jinhuishengwu.cn/bindPhone.html
+    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
+    loginSuccess: http://www.zgdl.net.cn/bindPhone.html
 ---
 server:
   port: 80
@@ -189,7 +188,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.66.245.8:3306/dlsw
+    url: jdbc:mysql://172.17.0.14:3306/dlsw
     username: root
     password: wz718718
     connectionInitSqls: set names utf8mb4;
@@ -216,13 +215,13 @@ photo:
   path: /sdb1/projects/dlsw/shopping/photo/
   payCentPath: /sdb1/projects/dlsw/shopping/photo/
 flush:
-  path: http://www.jinhuishengwu.cn/api/user/flushUserRoleType
+  path: http://www.zgdl.net.cn/api/user/flushUserRoleType
 wechat:
   pay:
     keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
-    payNotice: http://www.jinhuishengwu.cn/api/wechat/pay/payNotice
+    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.jinhuishengwu.cn/api/wechat/user/weLoginCallback
-    bindPhonePath: http://www.jinhuishengwu.cn/bindPhone.html
-    loginSuccessPath: http://www.jinhuishengwu.cn/u.html
+    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
+    bindPhonePath: http://www.zgdl.net.cn/bindPhone.html
+    loginSuccessPath: http://www.zgdl.net.cn/u.html

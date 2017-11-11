@@ -1,13 +1,13 @@
 package com.nielsen.cn.web.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.web.enumerate.DirectorLevel;
-import com.dlsw.cn.web.enumerate.RoleType;
-import com.dlsw.cn.web.po.User;
-import com.dlsw.cn.web.repositories.OrderRepository;
-import com.dlsw.cn.web.repositories.ProductRepository;
-import com.dlsw.cn.web.service.OrderCheckService;
-import com.dlsw.cn.web.service.imp.OrderServiceImp;
+import com.dlsw.cn.common.enumerate.DirectorLevel;
+import com.dlsw.cn.common.enumerate.RoleType;
+import com.dlsw.cn.common.po.User;
+import com.dlsw.cn.common.repositories.OrderRepository;
+import com.dlsw.cn.common.repositories.ProductRepository;
+import com.dlsw.cn.shopping.service.OrderCheckService;
+import com.dlsw.cn.shopping.service.imp.OrderServiceImp;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;

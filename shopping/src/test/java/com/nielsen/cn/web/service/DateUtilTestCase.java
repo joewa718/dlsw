@@ -1,7 +1,7 @@
 package com.nielsen.cn.web.service;
 
 import com.dlsw.cn.ShoppingApplication;
-import com.dlsw.cn.web.util.DateUtil;
+import com.dlsw.cn.common.util.DateUtil;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
