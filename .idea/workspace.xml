@@ -2,177 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1db90baa-6155-4113-b2e0-0e2b32214813" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/DruidStatFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/DruidStatViewServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAccessDeniedHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTLogoutSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/SecurityConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/OrderController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/RebateController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/mapper/RebateMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/OrderService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/PageService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/RebateService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/service/imp/RebateServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/OrderVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/PageVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/vo/RebateVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/OrderStatusConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/OrderTypeConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/ProductTypeConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RebateStatusConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RebateTypeConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/DirectorLevel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/FileType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/OrderStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/OrderType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/PayType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/ProductType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RebateStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RebateType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/enumerate/RoleType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/DeliveryAddressRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/OrderRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/ProductRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/PromoteLogRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/RebateRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/repositories/UserRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/RewardStrategyService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/builder/AbstractBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/builder/ImageBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/builder/TextBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/CSRFHeaderFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/Config.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/DruidStatFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/DruidStatViewServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/RESTAccessDeniedHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/RESTAuthenticationEntryPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/RESTAuthenticationSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/RESTLogoutSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/RestTemplateConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/SecurityConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/SwaggerConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/TransactionManagementConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/WechatMpConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/WxPayConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/configuration/WxPayProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/BaseController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/HttpSessionController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/OrderController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/ProductController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/ReportController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/UserController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/WeErrorController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/WeLoginController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/controller/WePortalController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/exception/DuplicateAccountException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/exception/NotFoundAccountException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/AbstractHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/KfSessionHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/LocationHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/LogHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/MenuHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/MsgHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/NullHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/ScanHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/StoreCheckNotifyHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/SubscribeHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/handler/UnsubscribeHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/DeliveryAddressMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/OauthInfoMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/OrderMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/ProductMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/RealInfoMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/UserMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/mapper/WxPayOrderNotifyMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/properties/WechatMpProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/OrderService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/ProductService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/ReportService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/UserService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/CustomUserDetailsServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/OrderCheckServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/OrderServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/ProductServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/ReportServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/service/imp/UserServiceImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/DeliveryAddressVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/LoginVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/OrderVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/PayCertificateVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/PhoneVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/RealInfoVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/common/vo/UserVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/cache/CustomerCacheEventListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/cache/CustomerCacheEventListenerFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/cache/CustomerCacheManagerEventListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/cache/CustomerCacheManagerEventListenerFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/CSRFHeaderFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationEntryPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationSuccessHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/RestTemplateConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/SwaggerConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/TaskScheduleConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/TransactionManagementConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/BaseController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OrderMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderCheckService.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/ArrayMapper.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/ArrayMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/PayTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/PayTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/converter/RoleTypeConverter.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/RoleTypeConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/CodeDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/CodeDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/DeliveryAddressDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/DeliveryAddressDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/EntryDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/EntryDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/ImageDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/ImageDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/OrderDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/OrderDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/PageDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/PageDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/ProductDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/ProductDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/RealInfoDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/RealInfoDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/RebateDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/RebateDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/UserDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/UserDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/dto/UserSecurityDTO.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/dto/UserSecurityDTO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/BaseEntity.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/BaseEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/DeliveryAddress.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/DeliveryAddress.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/OAuthInfo.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/OAuthInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Order.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/Order.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Product.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/Product.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/PromoteLog.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/PromoteLog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/RealInfo.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/RealInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/Rebate.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/Rebate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/User.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/po/WxPayOrderNotify.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/po/WxPayOrderNotify.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/BaseService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/BaseService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/PromoteService.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/PromoteService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/PromoteServiceImp.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/imp/PromoteServiceImp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/service/imp/RewardStrategyServiceImp.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/imp/RewardStrategyServiceImp.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/CollectionUtility.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/CollectionUtility.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/DateUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/DateUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/GenerateRandomCode.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/GenerateRandomCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/ImageCode.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/ImageCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/JsonUtils.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/JsonUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/MathExtend.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/MathExtend.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/SmsSender.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/SmsSender.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/TimeUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/TimeUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/encrypt/AESCryptPasswordEncoder.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/encrypt/AESCryptPasswordEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/web/util/encrypt/AESCryptUtil.java" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/util/encrypt/AESCryptUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/SecurityConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/controller/OrderController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/controller/RebateController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/mapper/RebateMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/OrderService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/PageService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/RebateService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/imp/CustomUserDetailsServiceImp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/imp/OrderServiceImp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/service/imp/RebateServiceImp.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/vo/OrderVo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/vo/PageVo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/vo/RebateVo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/OrderStatusConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/OrderTypeConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/ProductTypeConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/RebateStatusConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/converter/RebateTypeConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/DirectorLevel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/FileType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/OrderStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/OrderType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/PayType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/ProductType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/RebateStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/RebateType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/enumerate/RoleType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/DeliveryAddressRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/OrderRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/ProductRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/PromoteLogRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/RebateRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/repositories/UserRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/RewardStrategyService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/CSRFHeaderFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/DruidStatFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/DruidStatViewServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/RESTAccessDeniedHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/RESTAuthenticationEntryPoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/RESTAuthenticationSuccessHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/RESTLogoutSuccessHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/RestTemplateConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/SwaggerConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/TransactionManagementConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/BaseController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/OrderMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/OrderCheckService.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/CommonApplication.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/CSRFHeaderFilter.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/CSRFHeaderFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationEntryPoint.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/RESTAuthenticationEntryPoint.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RESTAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/RESTAuthenticationSuccessHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/RestTemplateConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/RestTemplateConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/SwaggerConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/SwaggerConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/configuration/TransactionManagementConfig.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/TransactionManagementConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/controller/BaseController.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/controller/BaseController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/web/mapper/OrderMapper.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/mapper/OrderMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/AbstractBuilder.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/builder/AbstractBuilder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/ImageBuilder.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/builder/ImageBuilder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/builder/TextBuilder.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/builder/TextBuilder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/Config.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/Config.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/DruidStatFilter.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/DruidStatFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/DruidStatViewServlet.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/DruidStatViewServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/RESTAccessDeniedHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/RESTAccessDeniedHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/RESTLogoutSuccessHandler.java" afterPath="$PROJECT_DIR$/cms/src/main/java/com/dlsw/cn/cms/configuration/RESTLogoutSuccessHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/SecurityConfiguration.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/SecurityConfiguration.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/WechatMpConfiguration.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/WechatMpConfiguration.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/WxPayConfiguration.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/WxPayConfiguration.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/configuration/WxPayProperties.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/configuration/WxPayProperties.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/HttpSessionController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/HttpSessionController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/OrderController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/OrderController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ProductController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/ProductController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/ReportController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/ReportController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/UserController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/UserController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WeErrorController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/WeErrorController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WeLoginController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/WeLoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/controller/WePortalController.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/controller/WePortalController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/exception/DuplicateAccountException.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/exception/DuplicateAccountException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/exception/NotFoundAccountException.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/exception/NotFoundAccountException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/AbstractHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/AbstractHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/KfSessionHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/KfSessionHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/LocationHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/LocationHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/LogHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/LogHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/MenuHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/MenuHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/MsgHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/MsgHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/NullHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/NullHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/ScanHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/ScanHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/StoreCheckNotifyHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/StoreCheckNotifyHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/SubscribeHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/SubscribeHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/handler/UnsubscribeHandler.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/handler/UnsubscribeHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/DeliveryAddressMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/DeliveryAddressMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/OauthInfoMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/OauthInfoMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/ProductMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/ProductMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/RealInfoMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/RealInfoMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/UserMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/mapper/WxPayOrderNotifyMapper.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/mapper/WxPayOrderNotifyMapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/properties/WechatMpProperties.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/properties/WechatMpProperties.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/OrderService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/OrderService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ProductService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/ProductService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/ReportService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/ReportService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/UserService.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/UserService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/CustomUserDetailsServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/CustomUserDetailsServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderCheckServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/OrderCheckServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/OrderServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/OrderServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ProductServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/ProductServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/ReportServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/ReportServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/service/imp/UserServiceImp.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/service/imp/UserServiceImp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/DeliveryAddressVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/DeliveryAddressVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/LoginVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/LoginVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/OrderVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/OrderVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/PayCertificateVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/PayCertificateVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/PhoneVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/PhoneVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/RealInfoVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/RealInfoVo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/web/vo/UserVo.java" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/dlsw/cn/shopping/vo/UserVo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/cms.iml" afterPath="$PROJECT_DIR$/cms/cms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/pom.xml" afterPath="$PROJECT_DIR$/cms/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.iml" afterPath="$PROJECT_DIR$/common/common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/pom.xml" afterPath="$PROJECT_DIR$/common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dlsw.iml" afterPath="$PROJECT_DIR$/dlsw.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/pom.xml" afterPath="$PROJECT_DIR$/shopping/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/shopping.iml" afterPath="$PROJECT_DIR$/shopping/shopping.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/shopping/src/main/resources/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/resources/ehcache.xml" afterPath="$PROJECT_DIR$/shopping/src/main/resources/ehcache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/main/resources/logback-spring.xml" afterPath="$PROJECT_DIR$/shopping/src/main/resources/logback-spring.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DateUtilTestCase.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DateUtilTestCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DirectorLevelTest.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/DirectorLevelTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" afterPath="$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/cms/target/" />
@@ -246,7 +189,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopping/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="40">
@@ -281,6 +224,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="178" column="19" lean-forward="false" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RewardStrategyService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/RewardStrategyService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -565,16 +518,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dlsw" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dlsw" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -584,7 +527,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -1370,14 +1312,7 @@
       <workItem from="1510127370888" duration="6729000" />
       <workItem from="1510135831358" duration="24165000" />
       <workItem from="1510280198766" duration="39000" />
-      <workItem from="1510327896803" duration="19516000" />
-    </task>
-    <task id="LOCAL-00041" summary="update page">
-      <created>1507188758438</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1507188758438</updated>
+      <workItem from="1510327896803" duration="20096000" />
     </task>
     <task id="LOCAL-00042" summary="update page">
       <created>1507189401891</created>
@@ -1715,7 +1650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510242982844</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="调整目录建构">
+      <created>1510411435011</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1510411435011</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1751,7 +1693,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220025000" />
+    <option name="totallyTimeSpent" value="220605000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1896,7 +1838,8 @@
     <MESSAGE value="循环找上级代理商" />
     <MESSAGE value="调整目录" />
     <MESSAGE value="增加后台验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加后台验证" />
+    <MESSAGE value="调整目录建构" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整目录建构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1949,13 +1892,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shopping/src/test/java/com/nielsen/cn/web/service/OrderRepositoryTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cms/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -2032,14 +1968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/RewardStrategyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2354,6 +2282,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="182" column="20" lean-forward="true" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/CommonApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/dlsw/cn/common/service/RewardStrategyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
