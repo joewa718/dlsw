@@ -194,7 +194,7 @@ public class UserServiceImp extends BaseService implements UserService {
     public void regRealInfo(String phone, RealInfoVo realInfoVo) {
         User user = userRepository.findByPhone(phone);
         RealInfo realInfo = realInfoMapper.realInfoToVoRealInfo(realInfoVo);
-        if (user.getRealInfo() != null) {
+        if (user.getRealInfo() == null) {
             user.setRealInfo(realInfo);
             realInfo.setUser(user);
         } else {

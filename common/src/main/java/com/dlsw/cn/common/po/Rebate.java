@@ -20,17 +20,15 @@ import java.util.Date;
 @Table(name = "t_rebate")
 public class Rebate extends BaseEntity {
     @Id
-    @Column(name = "order_id", unique = true, nullable = false)
-    @GeneratedValue(generator = "gen")
-    @GenericGenerator(name = "gen", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "order"))
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "rebate")
     private BigDecimal rebate;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToOne(fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     private Order order;
     @Column(name = "reason")
     private String reason;

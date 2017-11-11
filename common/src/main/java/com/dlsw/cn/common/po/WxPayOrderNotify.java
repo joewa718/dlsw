@@ -12,11 +12,8 @@ import javax.persistence.*;
 @Table(name = "t_pay_order_notify")
 public class WxPayOrderNotify extends BaseEntity {
     @Id
-    @Column(name="order_id", unique=true, nullable=false)
-    @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@org.hibernate.annotations.Parameter(name="property", value="order"))
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     /**
      * <pre>
      * 字段名：设备号
@@ -246,8 +243,8 @@ public class WxPayOrderNotify extends BaseEntity {
     @Column(name = "time_end",length = 14,nullable = true)
     private String timeEnd;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     private Order order;
 
     public long getId() {

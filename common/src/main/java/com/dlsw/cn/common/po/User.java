@@ -3,11 +3,14 @@ package com.dlsw.cn.common.po;
 import com.dlsw.cn.common.converter.RoleTypeConverter;
 import com.dlsw.cn.common.enumerate.RoleType;
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -41,10 +44,10 @@ public class User extends BaseEntity implements Serializable, Comparable {
     @Column(name = "reg_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date regTime;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
-    private RealInfo realInfo;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
-    private OAuthInfo oAuthInfo;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<RealInfo> realInfo;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OAuthInfo> oAuthInfo;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<DeliveryAddress> deliveryAddressList = new TreeSet<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -286,19 +289,21 @@ public class User extends BaseEntity implements Serializable, Comparable {
     }
 
     public RealInfo getRealInfo() {
-        return realInfo;
+        return realInfo.size() > 0 ? realInfo.get(0) : null;
     }
 
     public void setRealInfo(RealInfo realInfo) {
-        this.realInfo = realInfo;
+        this.realInfo.clear();
+        this.realInfo.add(realInfo);
     }
 
     public OAuthInfo getOAuthInfo() {
-        return oAuthInfo;
+        return oAuthInfo.size() > 0 ? oAuthInfo.get(0) : null;
     }
 
     public void setOAuthInfo(OAuthInfo oAuthInfo) {
-        this.oAuthInfo = oAuthInfo;
+        this.oAuthInfo.clear();
+        this.oAuthInfo.add(oAuthInfo);
     }
 
     public Set<PromoteLog> getPromoteLogSet() {

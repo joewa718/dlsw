@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: prd
+    active: dev
   data:
     jpa:
       repositories:
@@ -71,10 +71,9 @@ spring:
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
-      #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/shopping?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      url: jdbc:mysql://localhost:3306/shopping
+      url: jdbc:mysql://sh-cdb-3ntvx5ni.sql.tencentcdb.com:63781/dlsw?useSSL=false
       username: root
-      password: 123456
+      password: wz718718
       connectionInitSqls: set names utf8mb4;
       initialSize: 5
       minIdle: 5

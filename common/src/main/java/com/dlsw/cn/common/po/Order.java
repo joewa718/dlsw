@@ -11,6 +11,7 @@ import org.hibernate.annotations.Formula;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -74,18 +75,18 @@ public class Order extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
-    @ManyToMany(mappedBy = "serviceOrderList",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "serviceOrderList", fetch = FetchType.LAZY)
     private Set<User> higherUserList = new TreeSet<>();
     @Formula("MONTH(order_time)")
     private String month;
     @Formula("datediff(now(),order_time)")
     private int diffDate;
-    @OneToOne(mappedBy="order", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private WxPayOrderNotify wxPayOrderNotify;
-    @OneToOne(mappedBy="order", cascade=CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
+    private List<WxPayOrderNotify> wxPayOrderNotify;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Rebate rebate;
+    private List<Rebate> rebate;
 
     public String getProductName() {
         return productName;
@@ -150,6 +151,7 @@ public class Order extends BaseEntity {
     public void setOrderTime(Date orderTime) {
         this.orderTime = orderTime;
     }
+
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
@@ -311,6 +313,7 @@ public class Order extends BaseEntity {
         result = 31 * result + orderCode.hashCode();
         return result;
     }
+
     public int getDiffDate() {
         return diffDate;
     }
@@ -320,18 +323,20 @@ public class Order extends BaseEntity {
     }
 
     public WxPayOrderNotify getWxPayOrderNotify() {
-        return wxPayOrderNotify;
+        return this.wxPayOrderNotify.size() > 0 ? this.wxPayOrderNotify.get(0) : null;
     }
 
     public void setWxPayOrderNotify(WxPayOrderNotify wxPayOrderNotify) {
-        this.wxPayOrderNotify = wxPayOrderNotify;
+        this.wxPayOrderNotify.clear();
+        this.wxPayOrderNotify.add(wxPayOrderNotify);
     }
 
     public Rebate getRebate() {
-        return rebate;
+        return rebate.size() > 0 ? rebate.get(0) : null;
     }
 
     public void setRebate(Rebate rebate) {
-        this.rebate = rebate;
+        this.rebate.clear();
+        this.rebate.add(rebate);
     }
 }

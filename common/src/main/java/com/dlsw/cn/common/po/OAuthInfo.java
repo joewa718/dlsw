@@ -1,6 +1,8 @@
 package com.dlsw.cn.common.po;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -14,24 +16,22 @@ import javax.persistence.Table;
 @Table(name = "t_oauth_info")
 public class OAuthInfo extends BaseEntity {
     @Id
-    @Column(name="user_id", unique=true, nullable=false)
-    @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@org.hibernate.annotations.Parameter(name="property", value="user"))
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "refreshToken")
+    @Column(name = "refreshToken", nullable = true)
     private String refreshToken;
-    @Column(name = "accessToken")
+    @Column(name = "accessToken", nullable = true)
     private String accessToken;
-    @Column(name = "expires_in")
+    @Column(name = "expires_in", nullable = true)
     private int expiresIn = -1;
-    @Column(name = "open_id")
+    @Column(name = "open_id", nullable = true)
     private String openId;
-    @Column(name = "scope")
+    @Column(name = "scope", nullable = true)
     private String scope;
-    @Column(name = "union_id")
+    @Column(name = "union_id", nullable = true)
     private String unionId;
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public int getExpiresIn() {
