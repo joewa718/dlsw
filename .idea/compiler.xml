@@ -14,7 +14,7 @@
     <bytecodeTargetLevel>
       <module name="cms" target="1.8" />
       <module name="common" target="1.8" />
-      <module name="dlsw" target="1.5" />
+      <module name="dlsw" target="1.8" />
       <module name="promote" target="1.8" />
       <module name="rebate" target="1.8" />
       <module name="shopping" target="1.8" />

@@ -43,7 +43,7 @@ wechat:
     mchKey: 134fafasdfqwerqwersv12231fqqer1a
     subAppId:
     subMchId:
-    keyPath: C:/Users/zhanwa01/nielsen_space/dlsw/shopping/src/main/resources/cert/apiclient_cert.p12
+    keyPath: C:/Users/zhanwa01/nielsen_space/shopping/src/main/resources/cert/apiclient_cert.p12
 sms:
   appId: 1400048750
   appKey: 0721e3b884a93f0d3092a32f6e4c4f09
@@ -67,12 +67,12 @@ spring:
         search:
           default:
             directory_provider: filesystem
-            indexBase: C:\project\dlsw\lucene\indexes
+            indexBase: C:\project\shopping\lucene\indexes
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
-      #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      url: jdbc:mysql://localhost:3306/dlsw
+      #url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/shopping?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      url: jdbc:mysql://localhost:3306/shopping
       username: root
       password: 123456
       connectionInitSqls: set names utf8mb4;
@@ -101,13 +101,13 @@ management:
 web:
   maximumSessions: 100
 photo:
-  path: c:/project/dlsw/shopping/photo/
-  payCentPath: c:/project/dlsw/shopping/payCentPath/
+  path: c:/project/shopping/photo/
+  payCentPath: c:/project/shopping/payCentPath/
 flush:
   path: http://localhost:8080/api/user/flushUserRoleType
 wechat:
   pay:
-    keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
+    keyPath: /sdb1/projects/shopping/apiclient_cert.p12
     payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
@@ -129,11 +129,11 @@ spring:
         search:
           default:
             directory_provider: filesystem
-            indexBase: /sdb1/projects/dlsw_st/lucene/indexes/
+            indexBase: /sdb1/projects/shopping_st/lucene/indexes/
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/dlsw_st
+    url: jdbc:mysql://598af1f083b62.sh.cdb.myqcloud.com:5428/shopping_st
     username: root
     password: wz718718
     initialSize: 5
@@ -153,17 +153,17 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   http:
     multipart:
-      location: /sdb1/projects/dlsw_st/temp
+      location: /sdb1/projects/shopping_st/temp
 web:
   maximumSessions: 100
 photo:
-  path: /sdb1/projects/dlsw_st/photo/
-  payCentPath: /sdb1/projects/dlsw_st/photo/
+  path: /sdb1/projects/shopping_st/photo/
+  payCentPath: /sdb1/projects/shopping_st/photo/
 flush:
   path: http://127.0.0.1:8888/api/user/flushUserRoleType
 wechat:
   pay:
-    keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
+    keyPath: /sdb1/projects/shopping/apiclient_cert.p12
     payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
@@ -184,11 +184,11 @@ spring:
         search:
           default:
             directory_provider: filesystem
-            indexBase: /sdb1/projects/dlsw/shopping/lucene/indexes/
+            indexBase: /sdb1/projects/shopping/lucene/indexes/
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.17.0.14:3306/dlsw
+    url: jdbc:mysql://172.17.0.14:3306/dlsw?useSSL=true
     username: root
     password: wz718718
     connectionInitSqls: set names utf8mb4;
@@ -208,17 +208,17 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   http:
     multipart:
-      location: /sdb1/projects/dlsw/shopping/temp
+      location: /sdb1/projects/shopping/temp
 web:
   maximumSessions: 100
 photo:
-  path: /sdb1/projects/dlsw/shopping/photo/
-  payCentPath: /sdb1/projects/dlsw/shopping/photo/
+  path: /sdb1/projects/shopping/photo/
+  payCentPath: /sdb1/projects/shopping/photo/
 flush:
   path: http://www.zgdl.net.cn/api/user/flushUserRoleType
 wechat:
   pay:
-    keyPath: /sdb1/projects/dlsw/shopping/apiclient_cert.p12
+    keyPath: /sdb1/projects/shopping/apiclient_cert.p12
     payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 //@EnableScheduling
 @ServletComponentScan
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.dlsw.cn.*"})
+@ComponentScan(basePackages = {"com.dlsw.cn.shopping.*","com.dlsw.cn.common.*"})
 public class ShoppingApplication extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(ShoppingApplication.class);
 
