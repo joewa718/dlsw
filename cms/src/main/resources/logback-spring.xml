@@ -2,9 +2,9 @@
 <configuration>
     <springProfile name="st">
         <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <File>/sdb1/projects/dlsw/log/st/cms/application.log</File>
+            <File>/sdb1/projects/cms/log/application.log</File>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>/sdb1/projects/dlsw/log/st/cms/application.log_%d{yyyy-MM-dd}-%i.log
+                <FileNamePattern>/sdb1/projects/cms/log/application.log_%d{yyyy-MM-dd}-%i.log
                 </FileNamePattern>
                 <MaxHistory>30</MaxHistory>
                 <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -23,9 +23,9 @@
     </springProfile>
     <springProfile name="prd">
         <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <File>/sdb1/projects/dlsw/log/prd/cms/application.log</File>
+            <File>/sdb1/projects/cms/log/application.log</File>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>/sdb1/projects/dlsw/log/prd/cms/application.log_%d{yyyy-MM-dd}-%i.log
+                <FileNamePattern>/sdb1/projects/cms/log/application.log_%d{yyyy-MM-dd}-%i.log
                 </FileNamePattern>
                 <MaxHistory>30</MaxHistory>
                 <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
