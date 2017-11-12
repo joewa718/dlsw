@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 
 /**
@@ -57,8 +58,8 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                 int curPercent = 0;
                 User higherUser = userRepository.findByPhone(order.getRecommendPhone());
                 while (higherUser != null) {
-                    if(curPercent >= MAX_PERCENT){
-                        return ;
+                    if (curPercent >= MAX_PERCENT) {
+                        return;
                     }
                     int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
                     if (diff > 0) {
@@ -66,7 +67,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                         rebate.setUser(higherUser);
                         rebate.setOrder(order);
                         rebate.setRebateType(RebateType.级差返利);
-                        rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") - " + orderUser.getPhone() + "(" + orderUser.getNickname() + ")->" + DirectorLevel.getDirectorLevel(orderUser).getName());
+                        rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + "-" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") -> " + orderUser.getPhone() + "(" + orderUser.getNickname() + "-" + DirectorLevel.getDirectorLevel(orderUser).getName() + ")");
                         rebate.setRebateTime(order.getOrderTime());
                         rebate.setRebate(order.getProductCost().multiply(new BigDecimal(diff).divide(new BigDecimal(100))));
                         curPercent += diff;
