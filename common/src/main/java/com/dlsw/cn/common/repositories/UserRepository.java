@@ -27,7 +27,7 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
     @Query("select u.roleType,count(u) from User u where u.orgPath like CONCAT(?1,'%')  group by u.roleType")
     List<Object[]> analysisMemberDistribution(String orgPath);
 
-    @Query("select u from User u where u.orgPath like concat(?1,'%') and phone = ?2 group by u.roleType")
+    @Query("select u from User u where u.orgPath like concat(?1,'%') and phone = ?2")
     User findOffspringCountByOrgPathAndPhone(String orgPath, String phone);
 
     @Query("select u.roleType,count(u) from User u where u.orgPath = ?1 group by u.roleType")

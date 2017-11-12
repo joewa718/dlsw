@@ -30,7 +30,7 @@ public class OAuthInfo extends BaseEntity {
     private String scope;
     @Column(name = "union_id", nullable = true)
     private String unionId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

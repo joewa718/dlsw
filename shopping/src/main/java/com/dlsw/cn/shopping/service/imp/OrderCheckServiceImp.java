@@ -53,9 +53,9 @@ public class OrderCheckServiceImp extends BaseService implements OrderCheckServi
             while (!gtLevelSelf(higherUser, user)) {
                 higherUser = higherUser.getHigher();
             }
-            throw new RuntimeException("您的级别大于你的上级，我们推荐您订单提交给" + higherUser.getPhone() + "(" + higherUser.getLevel() + ")");
+            throw new RuntimeException("订单必须提交给级别大于自己的上级，推荐您提交给" + higherUser.getPhone() + "(" + higherUser.getNickname() + ")");
         }
-        if (recommend_man.getAppId() != null && !recommend_man.isVerificationPhone()) {
+        if (!recommend_man.isVerificationPhone()) {
             throw new RuntimeException("你的推荐人还未验证过手机，无法填写");
         }
     }

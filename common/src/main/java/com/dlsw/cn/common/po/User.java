@@ -289,7 +289,7 @@ public class User extends BaseEntity implements Serializable, Comparable {
     }
 
     public RealInfo getRealInfo() {
-        return realInfo.size() > 0 ? realInfo.get(0) : null;
+        return this.realInfo.size() > 0 ? this.realInfo.get(0) : null;
     }
 
     public void setRealInfo(RealInfo realInfo) {
@@ -298,7 +298,7 @@ public class User extends BaseEntity implements Serializable, Comparable {
     }
 
     public OAuthInfo getOAuthInfo() {
-        return oAuthInfo.size() > 0 ? oAuthInfo.get(0) : null;
+        return this.oAuthInfo.size() > 0 ? this.oAuthInfo.get(0) : null;
     }
 
     public void setOAuthInfo(OAuthInfo oAuthInfo) {

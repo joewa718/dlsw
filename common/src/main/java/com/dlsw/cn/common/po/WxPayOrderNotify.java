@@ -243,7 +243,7 @@ public class WxPayOrderNotify extends BaseEntity {
     @Column(name = "time_end",length = 14,nullable = true)
     private String timeEnd;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 

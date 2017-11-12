@@ -332,7 +332,7 @@ public class Order extends BaseEntity {
     }
 
     public Rebate getRebate() {
-        return rebate.size() > 0 ? rebate.get(0) : null;
+        return this.rebate.size() > 0 ? this.rebate.get(0) : null;
     }
 
     public void setRebate(Rebate rebate) {

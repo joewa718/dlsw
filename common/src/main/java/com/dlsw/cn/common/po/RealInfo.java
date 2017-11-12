@@ -36,7 +36,7 @@ public class RealInfo extends BaseEntity implements Serializable {
     private String region;
     @Column(name = "is_audited")
     private boolean isAudited;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

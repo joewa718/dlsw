@@ -26,7 +26,7 @@ public class DeliveryAddress extends BaseEntity {
     private String detailed;
     @Column(name = "is_default")
     private boolean isDefault;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
