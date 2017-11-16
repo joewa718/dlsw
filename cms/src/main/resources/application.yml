@@ -35,8 +35,8 @@ server:
 sms:
   appId: 1400048750
   appKey: 0721e3b884a93f0d3092a32f6e4c4f09
-  regTempId: 33761
-  pwFoundTempId: 33989
+  regTempId: 56103
+  pwFoundTempId: 56102
 ---
 server:
   port: 8090
