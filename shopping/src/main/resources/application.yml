@@ -170,7 +170,7 @@ wechat:
     loginSuccess: http://www.zgdl.net.cn/bindPhone.html
 ---
 server:
-  port: 80
+  port: 8080
 spring:
   profiles: prd
   jpa:
