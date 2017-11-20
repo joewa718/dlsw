@@ -25,7 +25,7 @@ public class SwaggerConfig {
                 .genericModelSubstitutes(DeferredResult.class)
                 .useDefaultResponseMessages(false)
                 .forCodeGeneration(true)
-                .pathMapping("/")
+                .pathMapping("/cms/")
                 .select()
                 .paths(or(regex("/api/.*")))
                 .build()

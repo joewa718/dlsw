@@ -1,10 +1,13 @@
 package com.dlsw.cn.cms.configuration;
 
+import com.dlsw.cn.cms.configuration.*;
+import com.dlsw.cn.common.util.encrypt.AESCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -13,6 +16,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -27,8 +32,12 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 @EnableWebSecurity()
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Value("${web.maximumSessions}")
     private int maximumSessions;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
     @Autowired
     private RESTAuthenticationEntryPoint authenticationEntryPoint;
     @Autowired
@@ -43,26 +52,42 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new ServletListenerRegistrationBean(new HttpSessionEventPublisher());
     }
 
+    @Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new AESCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setHideUserNotFoundExceptions(false);
+        authenticationProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+    }
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**");
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("USER");
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().failureHandler((request, response, exception) -> {
+        http.formLogin().failureHandler(( request,  response,  exception) ->{
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
         });
         http.logout().invalidateHttpSession(true).logoutSuccessHandler(logoutSuccessHandler);
         http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**", "/extend/**", "/image/**", "/vendor/**",
-                        "/*.html", "/", "/*.txt", "/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
-                        "/api/user/login", "/druid/**", "/api/rebate/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**","/extend/**","/image/**", "/vendor/**",
+                        "/*.html", "/","/*.txt","/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
+                        "/api/user/login", "/api/user/regUser","/api/user/getUserByAuthorizationCode",  "/api/user/sendRegCode", "/api/user/captcha","/api/user/sendPwFoundCode",
+                        "/api/user/passwordFoundNext","/api/user/passwordFound","/api/user/bindPhone","/api/user/flushUserRoleType", "/api/wechat/portal/**", "/api/wechat/user/**","/api/wechat/pay/**","/druid/**").permitAll()
+                .antMatchers("/api/user/**", "/api/product/**", "/api/order/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .and()
@@ -89,4 +114,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         SessionRegistry sessionRegistry = new SessionRegistryImpl();
         return sessionRegistry;
     }
+
 }

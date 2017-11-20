@@ -59,9 +59,9 @@ spring:
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://sh-cdb-3ntvx5ni.sql.tencentcdb.com:63781/dlsw?useSSL=false
+      url: jdbc:mysql://localhost:3306/dlsw?useSSL=false
       username: root
-      password: wz718718
+      password: 123456
       connectionInitSqls: set names utf8mb4;
       initialSize: 5
       minIdle: 5
@@ -144,7 +144,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.17.0.14:3306?useSSL=true
+    url: jdbc:mysql://172.17.0.14:3306/dlsw?useSSL=true
     username: root
     password: wz718718
     connectionInitSqls: set names utf8mb4;
