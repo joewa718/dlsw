@@ -83,13 +83,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         });
         http.logout().invalidateHttpSession(true).logoutSuccessHandler(logoutSuccessHandler);
         http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/tpl/**", "/plugin/**", "/imageupload/**", "/images/**","/extend/**","/image/**", "/vendor/**",
-                        "/*.html", "/","/*.txt","/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
-                        "/api/user/login", "/api/user/regUser","/api/user/getUserByAuthorizationCode",  "/api/user/sendRegCode", "/api/user/captcha","/api/user/sendPwFoundCode",
-                        "/api/user/passwordFoundNext","/api/user/passwordFound","/api/user/bindPhone","/api/user/flushUserRoleType", "/api/wechat/portal/**", "/api/wechat/user/**","/api/wechat/pay/**","/druid/**").permitAll()
-                .antMatchers("/api/user/**", "/api/product/**", "/api/order/**").hasAnyRole("USER")
+                .antMatchers("/**/**","/**/*.html","/**/*.js","/*.html","/*.js",
+                        "/*.txt","/fonts/**", "/l10n/**", "/**/favicon.ico", "/webjars/springfox-swagger-ui/**", "/swagger-resources/**", "/v2/**",
+                        "/api/user/login","/druid/**").permitAll()
+                .antMatchers("/api/user/**", "/api/rebate/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                .and()
+                .headers().frameOptions().disable()
                 .and()
                 .formLogin();
         http.addFilterAfter(new CSRFHeaderFilter(), CsrfFilter.class);
