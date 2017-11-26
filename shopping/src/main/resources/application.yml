@@ -34,7 +34,7 @@ server:
 wechat:
   mp:
     appId: wxb15f8ed3f3e55f71
-    secret: 6b14f343294929d96ff1be2f720d130b
+    secret: 8b9ceb5be5cf1ba8c8d390e5b23e7bcd
     token: hlwerbv123nsf
     aesKey: u3hX2kQdo1hvQWRkg9MjOahuw3zY7nxmargMNf9TJW7
   pay:
