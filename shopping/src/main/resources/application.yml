@@ -107,12 +107,12 @@ flush:
 wechat:
   pay:
     keyPath: /sdb1/projects/shopping/apiclient_cert.p12
-    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
+    payNotice: http://zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
-    bindPhonePath: http://www.zgdl.net.cn/bindPhone.html
-    loginSuccessPath: http://www.zgdl.net.cn/u.html
+    loginCallback: http://zgdl.net.cn/api/wechat/user/weLoginCallback
+    bindPhonePath: http://zgdl.net.cn/bindPhone.html
+    loginSuccessPath: http://zgdl.net.cn/u.html
 ---
 server:
   port: 8888
@@ -163,11 +163,11 @@ flush:
 wechat:
   pay:
     keyPath: /sdb1/projects/shopping/apiclient_cert.p12
-    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
+    payNotice: http://zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
-    loginSuccess: http://www.zgdl.net.cn/bindPhone.html
+    loginCallback: http://zgdl.net.cn/api/wechat/user/weLoginCallback
+    loginSuccess: http://zgdl.net.cn/bindPhone.html
 ---
 server:
   port: 8080
@@ -214,13 +214,13 @@ photo:
   path: /sdb1/projects/shopping/photo/
   payCentPath: /sdb1/projects/shopping/photo/
 flush:
-  path: http://www.zgdl.net.cn/api/user/flushUserRoleType
+  path: http://zgdl.net.cn/api/user/flushUserRoleType
 wechat:
   pay:
     keyPath: /sdb1/projects/shopping/apiclient_cert.p12
-    payNotice: http://www.zgdl.net.cn/api/wechat/pay/payNotice
+    payNotice: http://zgdl.net.cn/api/wechat/pay/payNotice
   login:
     defaultPwd: ~!@Wz718718
-    loginCallback: http://www.zgdl.net.cn/api/wechat/user/weLoginCallback
-    bindPhonePath: http://www.zgdl.net.cn/bindPhone.html
-    loginSuccessPath: http://www.zgdl.net.cn/u.html
+    loginCallback: http://zgdl.net.cn/api/wechat/user/weLoginCallback
+    bindPhonePath: http://zgdl.net.cn/bindPhone.html
+    loginSuccessPath: http://zgdl.net.cn/u.html

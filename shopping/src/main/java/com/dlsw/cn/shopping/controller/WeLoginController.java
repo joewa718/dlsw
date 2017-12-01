@@ -59,7 +59,7 @@ public class WeLoginController extends WxMpUserQuery {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         GenerateRandomCode generateRandomCode = new GenerateRandomCode();
-        String connectUrl = wxService.oauth2buildAuthorizationUrl(defaultPwd, "snsapi_userinfo", generateRandomCode.generate(5));
+        String connectUrl = wxService.oauth2buildAuthorizationUrl(loginCallback, "snsapi_userinfo", generateRandomCode.generate(5));
         response.sendRedirect(connectUrl);
     }
 
@@ -67,23 +67,15 @@ public class WeLoginController extends WxMpUserQuery {
     @RequestMapping(value = "/weLoginCallback", method = RequestMethod.GET)
     public void weLoginCallback(@RequestParam("code") String code, @RequestParam("state") String state,
                                 HttpServletRequest request, HttpServletResponse response) throws IOException, WxErrorException {
-        WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
-        WxMpUser wxMpUser = new WxMpUser();
-        wxMpUser.setOpenId("oTQL_wV1ffX0EEf0kpFhaquV_qy4");
-        /*WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
-        WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");*/
-        User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
-        if(user.getPhone() == null){
-            response.sendRedirect(bindPhonePath + "?id=" + user.getId());
-        }else{
-            try{
-                Authentication result = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(user.getPhone(), AESCryptUtil.decrypt(user.getPassword())));
-                SecurityContextHolder.getContext().setAuthentication(result);
-                response.sendRedirect(loginSuccessPath);
-            }catch(AuthenticationException e){
-                log.error(e.getMessage(),e);
-                throw e;
-            }
+        try {
+            WxMpOAuth2AccessToken wxMpOAuth2AccessToken = wxService.oauth2getAccessToken(code);
+            WxMpUser wxMpUser = wxService.oauth2getUserInfo(wxMpOAuth2AccessToken, "zh_CN");
+            User user = userServiceImp.regWxUser(wxMpOAuth2AccessToken, wxMpUser);
+            Authentication result = daoAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(user.getPhone(), AESCryptUtil.decrypt(user.getPassword())));
+            SecurityContextHolder.getContext().setAuthentication(result);
+            response.sendRedirect(loginSuccessPath);
+        } catch (WxErrorException e) {
+            log.error(e.getMessage(), e);
         }
 
     }

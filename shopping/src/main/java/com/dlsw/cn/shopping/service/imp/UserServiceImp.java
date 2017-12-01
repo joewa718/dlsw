@@ -1,5 +1,6 @@
 package com.dlsw.cn.shopping.service.imp;
 
+import com.dlsw.cn.common.po.OAuthInfo;
 import com.dlsw.cn.common.service.BaseService;
 import com.dlsw.cn.shopping.service.UserService;
 import com.dlsw.cn.shopping.mapper.DeliveryAddressMapper;
@@ -109,15 +110,16 @@ public class UserServiceImp extends BaseService implements UserService {
             user.setAppId(wxMpUser.getOpenId());
             user.setNickname(wxMpUser.getNickname());
             user.setDisable(false);
+            user.setPhone(wxMpUser.getOpenId());
             user.setRoleType(RoleType.普通);
             user.setRegTime(new Date());
             user.setVerificationPhone(false);
             user.setPassword(AESCryptUtil.encrypt(defaultPwd));
         }
-        /*OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
+        OAuthInfo oAuthInfo = oauthInfoMapper.WxMpOAuth2AccessTokenToOAuthInfo(auth2AccessToken);
         user.setOAuthInfo(oAuthInfo);
         oAuthInfo.setUser(user);
-        user = userRepository.save(user);*/
+        user = userRepository.save(user);
         return user;
     }
 
