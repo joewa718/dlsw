@@ -27,6 +27,9 @@ public class OrderCheckServiceImp extends BaseService implements OrderCheckServi
         if (user.getAppId() != null && !user.isVerificationPhone()) {
             throw new RuntimeException("您是微信用户还未验证过手机，请先设置手机");
         }
+        if (user.getLevel() == 0) {
+            throw new RuntimeException("亲爱的董事长，您不能购买产品");
+        }
         if (product == null) {
             throw new RuntimeException("无法找到对应的商品");
         }

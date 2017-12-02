@@ -41,7 +41,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
             if (DirectorLevel.getDirectorLevel(orderUser) == DirectorLevel.信) {
                 User higherUser = userRepository.findByPhone(order.getRecommendPhone());
                 while (higherUser != null) {
-                    if (higherUser.getRoleType() == RoleType.高级合伙人 && DirectorLevel.getDirectorLevel(higherUser) == DirectorLevel.信) {
+                    if (higherUser.getRoleType() == RoleType.高级合伙人 && DirectorLevel.getDirectorLevel(higherUser) == DirectorLevel.信 && higherUser.getLevel() > 0) {
                         Rebate rebate = new Rebate();
                         rebate.setUser(higherUser);
                         rebate.setOrder(order);
@@ -58,7 +58,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                 int curPercent = 0;
                 User higherUser = userRepository.findByPhone(order.getRecommendPhone());
                 while (higherUser != null) {
-                    if (curPercent >= MAX_PERCENT) {
+                    if (curPercent >= MAX_PERCENT || higherUser.getLevel() == 0) {
                         return;
                     }
                     int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
