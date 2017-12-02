@@ -45,7 +45,7 @@ public class OrderCheckServiceImp extends BaseService implements OrderCheckServi
         if (recommend_man == null) {
             throw new RuntimeException("推荐人没有找到");
         }
-        if (recommend_man.getRoleType() == RoleType.普通) {
+        if (recommend_man.getRoleType() == RoleType.普通 || recommend_man.getLevel() == null) {
             throw new RuntimeException("该推荐人不是VIP、合伙人、高级合伙人");
         }
         if (!gtLevelSelf(recommend_man, user)) {
@@ -58,7 +58,7 @@ public class OrderCheckServiceImp extends BaseService implements OrderCheckServi
         if (!recommend_man.isVerificationPhone()) {
             throw new RuntimeException("你的推荐人还未验证过手机，无法填写");
         }
-        if (user.getLevel() == 0) {
+        if (user.isTopUser()) {
             throw new RuntimeException("亲爱的董事长，您不能挂到其他推荐人下面");
         }
     }
@@ -70,7 +70,7 @@ public class OrderCheckServiceImp extends BaseService implements OrderCheckServi
      * @param orderUser
      */
     private boolean gtLevelSelf(User recommend, User orderUser) {
-        if(recommend.getLevel() == 0){
+        if (recommend.isTopUser()) {
             return true;
         }
         if (orderUser.getRoleType().getCode() < recommend.getRoleType().getCode()) {

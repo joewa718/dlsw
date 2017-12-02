@@ -311,4 +311,12 @@ public class User extends BaseEntity implements Serializable, Comparable {
         this.promoteLogSet = promoteLogSet;
     }
 
+
+    public boolean isTopUser() {
+        if (this.getLevel() != null && this.getLevel() == 0) {
+            return true;
+        }
+        return false;
+    }
+
 }

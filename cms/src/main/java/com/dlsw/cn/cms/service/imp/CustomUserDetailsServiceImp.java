@@ -27,7 +27,7 @@ public class CustomUserDetailsServiceImp implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserSecurityDTO loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByPhone(username);
-        if(user.getLevel() == 0){
+        if(user.isTopUser()){
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority(ROLE_USER));
             return new UserSecurityDTO(user.getPhone(), user.getPassword(), authorities, user);

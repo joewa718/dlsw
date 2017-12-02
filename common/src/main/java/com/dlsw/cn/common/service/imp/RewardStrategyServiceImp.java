@@ -58,7 +58,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                 int curPercent = 0;
                 User higherUser = userRepository.findByPhone(order.getRecommendPhone());
                 while (higherUser != null) {
-                    if (curPercent >= MAX_PERCENT || higherUser.getLevel() == 0) {
+                    if (curPercent >= MAX_PERCENT || higherUser.isTopUser()) {
                         return;
                     }
                     int diff = DirectorLevel.getDirectorLevel(higherUser).getPercent() - DirectorLevel.getDirectorLevel(orderUser).getPercent();
