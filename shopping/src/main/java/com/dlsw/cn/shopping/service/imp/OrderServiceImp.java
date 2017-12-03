@@ -115,14 +115,14 @@ public class OrderServiceImp extends BaseService implements OrderService {
         order.setOrderStatus(OrderStatus.已支付);
         orderRepository.save(order);
         Product product = productRepository.getProductByproductCode(order.getProductCode());
-        if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > user.getRoleType().getCode()) {
-            if (user.getAuthorizationCode() == null) {
-                user.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
+        if (product.getProductType() == ProductType.套餐产品 && product.getRoleType().getCode() > orderUser.getRoleType().getCode()) {
+            if (orderUser.getAuthorizationCode() == null) {
+                orderUser.setAuthorizationCode(GenerateRandomCode.generateAuthCode());
             }
-            user.setRoleType(product.getRoleType());
-            if(user.getRoleType() == RoleType.VIP){
+            orderUser.setRoleType(product.getRoleType());
+            if(orderUser.getRoleType() == RoleType.VIP){
                 promoteService.monitorVip(order);
-            }else if(user.getRoleType() == RoleType.合伙人){
+            }else if(orderUser.getRoleType() == RoleType.合伙人){
                 promoteService.monitorPartner(order);
             }
         }
