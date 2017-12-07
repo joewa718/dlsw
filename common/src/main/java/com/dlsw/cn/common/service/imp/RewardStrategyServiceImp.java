@@ -1,6 +1,7 @@
 package com.dlsw.cn.common.service.imp;
 
 import com.dlsw.cn.common.enumerate.DirectorLevel;
+import com.dlsw.cn.common.enumerate.RebateStatus;
 import com.dlsw.cn.common.enumerate.RebateType;
 import com.dlsw.cn.common.enumerate.RoleType;
 import com.dlsw.cn.common.po.Order;
@@ -47,6 +48,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                         rebate.setOrder(order);
                         rebate.setRebateType(RebateType.信平级返利);
                         rebate.setReason("信平级返利");
+                        rebate.setRebateStatus(RebateStatus.未返利);
                         rebate.setRebateTime(order.getOrderTime());
                         rebate.setRebate(order.getProductCost().multiply(new BigDecimal(0.04)));
                         rebateRepository.save(rebate);
@@ -66,6 +68,7 @@ public class RewardStrategyServiceImp extends BaseService implements RewardStrat
                         Rebate rebate = new Rebate();
                         rebate.setUser(higherUser);
                         rebate.setOrder(order);
+                        rebate.setRebateStatus(RebateStatus.未返利);
                         rebate.setRebateType(RebateType.级差返利);
                         rebate.setReason(higherUser.getPhone() + "(" + higherUser.getNickname() + "-" + DirectorLevel.getDirectorLevel(higherUser).getName() + ") -> " + orderUser.getPhone() + "(" + orderUser.getNickname() + "-" + DirectorLevel.getDirectorLevel(orderUser).getName() + ")");
                         rebate.setRebateTime(order.getOrderTime());
